@@ -1,7 +1,12 @@
 import React from 'react';
+import "./MainTitle.css"
 
 const MainTitle = props => {
-    return <h1>{props.content}</h1>
+    return (
+      <div className="main-title">
+        <h1>{props.content}{props.highlight && <em>{props.highlight}</em>}</h1>
+      </div>
+    );
 }
 
 export default MainTitle;

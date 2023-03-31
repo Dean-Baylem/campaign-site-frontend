@@ -1,7 +1,12 @@
 import React from "react";
+import "./Subtitle.css";
 
 const Subtitle = props => {
-    return <h2>{props.content}</h2>
+    return (
+      <div className="subtitle">
+        <h2>{props.content}</h2>
+      </div>
+    );
 }
 
 export default Subtitle;

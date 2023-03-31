@@ -1,0 +1,13 @@
+.title-section {
+    color: #fff;
+    padding: 2% 15%;
+    background-color: #000000;
+    background-image: url("https://www.transparenttextures.com/patterns/redox-01.png");
+}
+
+.button-box {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 5%;
+    padding-top: 5%;
+}
