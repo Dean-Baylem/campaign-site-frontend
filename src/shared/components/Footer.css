@@ -1,0 +1,12 @@
+.footer {
+    background-color: #000000;
+}
+
+.footer-main {
+    text-align: center;
+    padding-bottom: 2%;
+}
+
+.footer hr {
+    margin: 0% 25vw;
+}
