@@ -6,7 +6,7 @@ import "./Features.css";
 const Features = props => {
     return (
       <section className="features-section">
-        <Subtitle content={props.subject} />
+        <Subtitle content="Start Building..." />
         <Card
           cardType="top"
           imgSrc="https://fastly.picsum.photos/id/453/1200/800.jpg?hmac=f26znPN_jRp3GFmXAKySIgsfkJ-rrl5Fba5-9b_gQTM"
