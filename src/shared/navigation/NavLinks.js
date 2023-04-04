@@ -5,8 +5,11 @@ import "./NavLinks.css";
 const NavLinks = props => {
     return (
         <ul className="nav-links">
+        <li>
+            <NavLink to="/">Home</NavLink>
+        </li>
             <li>
-                <NavLink to="/login">Login</NavLink>
+                <NavLink to="/auth">Login</NavLink>
             </li>
             <li>
                 <NavLink to="/signup">Signup</NavLink>

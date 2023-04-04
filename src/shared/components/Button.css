@@ -28,3 +28,12 @@ background-color: #c69749;
 color: #ffffff;
 border: solid 2px #69512bf7;
 }
+
+.world-nav button {
+    color: rgba(255, 255, 255, 1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.world-nav button:hover {
+    border: 1px solid rgba(255, 255, 255, 0.7);
+}

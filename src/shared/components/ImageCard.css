@@ -1,0 +1,35 @@
+.image-card-container {
+    position: relative;
+    text-align: center;
+    color: #fff;
+
+    border-radius: 5px;
+    background-color: #000000;
+    box-shadow: 0px 0px 15px -5px;
+    border: 1px solid #b3b3b3;
+    max-height: 160px;
+    overflow: hidden;
+}
+
+.image-card-container img {
+    border-radius: 5px;
+    opacity: 0.5;
+    z-index: 1;
+    transition: 600ms;
+}
+
+.image-card-container:hover img {
+    opacity: 0.8;
+    transition: 600ms;
+}
+
+
+.image-card-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    font-size: 2rem;
+    transition: 600ms;
+}
