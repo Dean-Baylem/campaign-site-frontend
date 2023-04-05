@@ -9,6 +9,7 @@ import WorldSubjectContainer from "../components/WorldSubjectContainer";
 import Card from "../../shared/components/Card";
 import SlideIn from "../../shared/components/SlideIn";
 import HeroicEvents from "../components/HeroicEvents";
+import ChatBox from "../../shared/chatbox/ChatBox";
 
 
 const DUMMY_DATA = [
@@ -38,6 +39,16 @@ const WorldMainPage = props => {
           <WorldSubjectContainer />
           <hr></hr>
           <HeroicEvents />
+          <hr></hr>
+          <div className="chat-container">
+            <div class="world-title-container">
+              <div className="world-title">
+                <h3>Champions Chat</h3>
+                <h5>Join the conversation!</h5>
+              </div>
+            </div>
+            <ChatBox />
+          </div>
         </div>
         <Footer />
       </React.Fragment>
