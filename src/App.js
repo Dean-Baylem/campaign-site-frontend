@@ -14,6 +14,7 @@ function App() {
         <Route path="/auth" element={<Auth />} />
         <Route path="/register" element={<Registration />} />
         <Route path="/world/:worldId" element={<WorldMainPage />} />
+        {/* <Route path="/world/:worldId/settings" element={< />} /> */}
         <Route path="*" element={<Navigate to="/" replace/>} />
       </Routes>
     </Router>

@@ -1,0 +1,32 @@
+.world-title-container {
+    text-align: center;
+}
+
+.world-title p {
+    font-family: 'Charm', cursive;
+    margin-bottom: 0;
+}
+
+.world-title h2 {
+    font-family: 'Yatra One', cursive;
+    font-size: 4.5rem;
+    margin: 1%;
+    letter-spacing: 8px;
+}
+
+.world-title h5 {
+    font-family: 'Charm', cursive;
+    font-weight: 400;
+    font-size: 1.5rem;
+    margin-top: 1%;
+    letter-spacing: 1px;
+}
+
+@media screen and (max-width: 650px) {
+    .world-title h2 {
+        font-size: 2.5rem;
+    }
+    .world-title h5 {
+        font-size: 1.2rem;
+    }
+}
