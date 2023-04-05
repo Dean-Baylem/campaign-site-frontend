@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { NavLink, useParams } from "react-router-dom";
-import ImageCard from "../../shared/components/ImageCard";
-import MainNavigation from "../../shared/navigation/MainNavigation";
+import { useParams } from "react-router-dom";
 import { Button } from "@mui/material";
 import "../../shared/components/Button.css"
 import "./WorldMainPage.css";
 import Footer from "../../shared/components/Footer";
-import WorldNav from "../components/WorldNav";
 import WorldHeading from "../components/WorldHeading";
 import WorldSubjectContainer from "../components/WorldSubjectContainer";
+import Card from "../../shared/components/Card";
+import SlideIn from "../../shared/components/SlideIn";
+import HeroicEvents from "../components/HeroicEvents";
+
 
 const DUMMY_DATA = [
   {
@@ -28,9 +29,15 @@ const WorldMainPage = props => {
     return (
       <React.Fragment>
         <div className="page-container">
-        <WorldHeading worldName={loadedWorld[0].worldName} campaign={loadedWorld[0].campaign} worldId={loadedWorld[0].worldId}/>
+          <WorldHeading
+            worldName={loadedWorld[0].worldName}
+            campaign={loadedWorld[0].campaign}
+            worldId={loadedWorld[0].worldId}
+          />
           <hr></hr>
           <WorldSubjectContainer />
+          <hr></hr>
+          <HeroicEvents />
         </div>
         <Footer />
       </React.Fragment>

@@ -1,0 +1,19 @@
+.transition-container-left {
+    display: block;
+
+    transform: translateX(-500%);
+    animation: slide-in-anim 600ms ease-out forwards;
+}
+
+.transition-container-right {
+    display: block;
+
+    transform: translateX(500%);
+    animation: slide-in-anim 600ms ease-out forwards;
+}
+
+@keyframes slide-in-anim {
+	100% {
+		transform: translateX(0%);
+	}
+}
