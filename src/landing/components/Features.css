@@ -1,7 +1,9 @@
 .features-section {
     padding: 2% 15%;
-background-color: #000000;
-background-image: url("https://www.transparenttextures.com/patterns/dark-wall.png");
+    background-color: #000000;
+    background-image: url("https://www.transparenttextures.com/patterns/dark-wall.png");
+    display: flex;
+    flex-direction: column;
 }
 
 .card-box {

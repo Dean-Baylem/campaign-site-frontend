@@ -1,0 +1,11 @@
+.subject-desc-container {
+    display: flex;
+    flex-direction: row;
+    padding: 2%;
+}
+
+.subject-desc-container p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    letter-spacing: 0.5px;
+}

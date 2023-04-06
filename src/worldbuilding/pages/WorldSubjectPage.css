@@ -1,0 +1,4 @@
+.subject-entry-container {
+    display: flex;
+    flex-direction: column;
+}

@@ -1,6 +1,8 @@
 .world-title-container {
     text-align: center;
+    margin: 0% 15%;
 }
+
 .world-title * {
     margin: 2%;
 }

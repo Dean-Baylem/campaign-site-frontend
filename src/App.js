@@ -5,6 +5,7 @@ import Auth from "./landing/pages/Auth";
 import Registration from "./landing/pages/Register";
 import WorldMainPage from "./worldbuilding/pages/WorldMainPage";
 import "./index.css";
+import WorldSubjectPage from "./worldbuilding/pages/WorldSubjectPage";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/auth" element={<Auth />} />
         <Route path="/register" element={<Registration />} />
         <Route path="/world/:worldId" element={<WorldMainPage />} />
+        <Route path="/world/:worldId/subject/:subjectType" element={<WorldSubjectPage />} />
         {/* <Route path="/world/:worldId/settings" element={< />} /> */}
         <Route path="*" element={<Navigate to="/" replace/>} />
       </Routes>
