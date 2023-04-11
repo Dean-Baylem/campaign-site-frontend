@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import { TextField, Button } from "@mui/material";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
+import { useHttpRequest } from "../../shared/hooks/request-hook";
+import { AuthContext } from "../../shared/context/auth-context";
+import { useNavigate } from "react-router-dom";
 import CssBaseline from "@mui/material/CssBaseline";
 
 const darkTheme = createTheme({
@@ -23,14 +26,35 @@ const validationSchema = yup.object({
 });
 
 const LoginForm = props => {
+  const { error, sendRequest} = useHttpRequest();
+  const auth = useContext(AuthContext);
+  const navigate = useNavigate();
+
   const formik = useFormik({
     initialValues: {
       email: "",
       password: "",
     },
     validationSchema: validationSchema,
-    onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
+    onSubmit: async (values) => {
+      try {
+        const responseData = await sendRequest(
+          "http://localhost:5000/user/login",
+          "POST",
+          JSON.stringify({
+            email: values.email,
+            password: values.password,
+          }),
+          {
+            "Content-Type": "application/json",
+          }
+        );
+        auth.login(responseData.user._id);
+        navigate("/");
+      } catch (err) {
+        console.log(err);
+        console.log("Oh no! There was an error!");
+      }
     },
   });
 
@@ -38,6 +62,7 @@ const LoginForm = props => {
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
       <div>
+      {error && <p>Oops, there was a problem. Please try again!</p>}
         <form className="login-form" onSubmit={formik.handleSubmit}>
           <TextField
             fullWidth

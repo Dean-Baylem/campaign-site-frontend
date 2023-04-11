@@ -1,4 +1,14 @@
 .subject-entry-container {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    row-gap: 5%;
+    column-gap: 5%;
+    margin: 4% 5%;
+}
+
+@media screen and (max-width: 750px) {
+    .subject-entry-container {
+        display: flex;
+        flex-direction: column;
+    }   
 }

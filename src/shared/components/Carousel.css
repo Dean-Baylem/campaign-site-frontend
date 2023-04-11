@@ -1,0 +1,32 @@
+.carousel-container {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: hidden;
+}
+
+.carousel-slide {
+    height: 20rem;
+    min-width: 100%;
+    width: 100%;
+    position:absolute;
+    display: flex;
+    transition: 1200ms;
+}
+
+.inactive-slide {
+    opacity: 0;
+}
+
+.active-slide {
+    opacity: 1;
+}
+
+.carousel-slide img {
+    width: 100%;
+}
+
+
+.active-slide {
+    display: flex;
+    transition: 500ms;
+}

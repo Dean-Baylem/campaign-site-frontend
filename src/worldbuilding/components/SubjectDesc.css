@@ -1,6 +1,6 @@
 .subject-desc-container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     padding: 2%;
 }
 

@@ -6,6 +6,8 @@
     margin: auto;
     margin: 2% 0% 2% 0%;
     border-radius: 25px;
+    background-color: #2C3639;
+    color: #FFF;
 }
 
 .side-card-container {
@@ -17,6 +19,12 @@
     grid-template-columns: 1fr 1fr;
     margin: 5% 0%;
     border-radius: 25px;
+
+}
+
+.content-container {
+    background-color: #2C3639;
+    color: #FFF;
 }
 
 .image-container img {

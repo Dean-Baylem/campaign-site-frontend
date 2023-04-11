@@ -4,12 +4,7 @@ import "./EntryCard.css";
 
 const EntryCard = props => {
     return (
-        <div className="top-card-container">
-            {props.img && (
-                <div className="image-container">
-                    <img className="entry-img" src={props.imgSrc} alt={props.title} />
-                </div>)
-            }
+        <div className="entry-card">
             <div className="entry-card-content-container">
                 <div className="card-title">
                     <h4>{props.title}</h4>
