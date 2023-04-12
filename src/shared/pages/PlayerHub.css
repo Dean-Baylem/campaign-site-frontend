@@ -4,3 +4,13 @@
     flex-direction: column;
     position: relative;
 }
+
+.hub-body-container {
+    margin-top: 5%;
+    padding: 1%;
+    border-radius: 15px;
+}
+
+@media screen and (max-width: 900px) {
+    .page-container {margin: 0% 5%}
+}

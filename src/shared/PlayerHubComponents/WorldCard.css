@@ -1,0 +1,43 @@
+.world-card {
+    height:fit-content;
+    border: 1px solid;
+    padding: 2% 0% 5% 0%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 15px;
+}
+
+.world-card-title {
+    text-align: center;
+}
+
+.world-display-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 5%;
+    row-gap: 5%;
+}
+
+.world-card-nav {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 5%;
+}
+
+.world-card-nav a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.world-card-nav button {
+    color: rgba(255, 255, 255, 1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin: 0;
+    justify-self: center;
+    width: fit-content;
+    font-size: 10px;
+}
+
+.world-card-nav button:hover {
+    border: 1px solid rgba(255, 255, 255, 0.7);
+}
