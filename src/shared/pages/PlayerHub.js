@@ -4,11 +4,11 @@ import Carousel from '../components/Carousel';
 import "./PlayerHub.css";
 import { Button } from "@mui/material";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
-import { NavLink } from 'react-router-dom';
 import HubNav from '../navigation/HubNav';
-import CssBaseline from "@mui/material/CssBaseline";
 import WorldDisplay from '../PlayerHubComponents/WorldDisplay';
 import WorldCard from '../PlayerHubComponents/WorldCard';
+import Collapsible from 'react-collapsible';
+
 
 const darkTheme = createTheme({
   palette: {
@@ -38,9 +38,38 @@ const PlayerHub = props => {
           <HubNav></HubNav>
           <div className="hub-body-container">
             <WorldDisplay>
-            {DUMMYDATA.map((world, index) => (
-              <WorldCard image={world.image} worldName={world.worldName} key={index} />
-            ))}
+              {DUMMYDATA.map((world, index) => (
+                <WorldCard
+                  image={world.image}
+                  worldName={world.worldName}
+                  key={index}
+                />
+              ))}
+              <div className="campaign-card">
+                <div
+                  className="campaign-card-title"
+                  style={{
+                    backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(https://fastly.picsum.photos/id/658/500/300.jpg?hmac=DO3v8m8T1OpH51FjvVy_YDNCpHPD0YO34B8c5VkyrHM)`,
+                  }}
+                >
+                  <h3>Campaign Title</h3>
+                </div>
+                <div className="campaign-card-body">
+                  <div className="campaign-card-button-container">
+                    <Button>Manage</Button>
+                    <Button>View</Button>
+                  </div>
+                  <hr></hr>
+                  <Collapsible trigger="See Party">
+                    <div className="party-container">
+                      <img
+                        src="https://i.pinimg.com/474x/97/86/d7/9786d7140e6ab76e4ae64c347ca28cbc.jpg"
+                        alt="party-member"
+                      />
+                    </div>
+                  </Collapsible>
+                </div>
+              </div>
             </WorldDisplay>
           </div>
         </div>
