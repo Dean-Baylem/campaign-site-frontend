@@ -1,21 +1,24 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import "./HubNav.css"
+import { Button } from "@mui/material";
+import TabButton from "./TabButton";
+import HubNavItem from "./HubNavItem";
 
 const HubNav = props => {
+
+  const handleClick = event => {
+    console.log(event.target.value);
+    props.handlePanelChange(event.target.value);
+  }
+
     return (
       <div className="hub-nav-container">
         <nav className="hub-nav">
           <ul className="hub-nav-list">
-            <li className="hub-nav-list-item">
-              <NavLink>Worlds</NavLink>
-            </li>
-            <li className="hub-nav-list-item">
-              <NavLink>Campaigns</NavLink>
-            </li>
-            <li className="hub-nav-list-item">
-              <NavLink>DM Tools</NavLink>
-            </li>
+            <HubNavItem handleClick={handleClick} text="Worlds" value="worlds" />
+            <HubNavItem handleClick={handleClick} text="Campaigns" value="campaigns" />
+            <HubNavItem handleClick={handleClick} text="DM Tools" value="dmtools"/>
           </ul>
         </nav>
       </div>

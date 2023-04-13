@@ -1,6 +1,13 @@
 import React from "react";
 import { Button } from "@mui/material";
 import Collapsible from "react-collapsible";
+import "./CampaignCard.css";
+
+
+// Will change this to be an API call to the backend based on the campaign id
+// provided by the props.
+
+
 
 const CampaignCard = props => {
     return (
@@ -11,7 +18,7 @@ const CampaignCard = props => {
             backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(https://fastly.picsum.photos/id/658/500/300.jpg?hmac=DO3v8m8T1OpH51FjvVy_YDNCpHPD0YO34B8c5VkyrHM)`,
           }}
         >
-          <h3>Campaign Title</h3>
+          <h3>{props.campaignTitle}</h3>
         </div>
         <div className="campaign-card-body">
           <div className="campaign-card-button-container">
@@ -21,10 +28,9 @@ const CampaignCard = props => {
           <hr></hr>
           <Collapsible trigger="See Party">
             <div className="party-container">
-              <img
-                src="https://i.pinimg.com/474x/97/86/d7/9786d7140e6ab76e4ae64c347ca28cbc.jpg"
-                alt="party-member"
-              />
+            {props.party.map((member, index) => (
+              <img src={member.token} alt="party-member" key={index} />
+            ))}
             </div>
           </Collapsible>
         </div>

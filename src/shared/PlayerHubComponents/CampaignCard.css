@@ -1,0 +1,73 @@
+.campaign-card {
+    border: 1px solid;
+    border-radius: 15px;
+    position: relative;
+    height: fit-content;
+}
+
+.campaign-card-title {
+    height: 10vh;
+    border-radius: 15px 15px 0px 0px;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: grid;
+    background-position: center;
+    justify-items: center;
+    align-content: center;
+}
+
+.party-container img {
+    width: 75px;
+    border-radius: 50%;
+}
+
+.campaign-card-body {
+    background-color: #2C3639;
+    border-radius: 0 0 15px 15px;
+}
+
+.campaign-card-body button {
+    color: #fff;
+    border-radius: 0;
+}
+
+.is-closed {
+    border-radius: 0 0 15px 15px;
+}
+
+.campaign-card-body button:hover {
+    background-color: #fff;
+    color: #000000;
+    border-radius: 0;
+}
+
+.campaign-card-body hr {
+    margin: 0%;
+}
+
+.Collapsible__trigger {
+    display: block;
+    text-align: center;
+    padding: 5% 0%;
+    transition: 300ms;
+}
+
+.Collapsible__trigger:hover {
+    background-color: #fff;
+    color: #000;
+    transition: 300ms;
+    overflow: hidden;
+}
+
+
+.party-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+}
+
+.campaign-card-button-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
