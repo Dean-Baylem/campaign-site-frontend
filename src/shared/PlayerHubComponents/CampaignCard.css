@@ -3,6 +3,7 @@
     border-radius: 15px;
     position: relative;
     height: fit-content;
+    box-shadow: 2px 2px 15px -4px;
 }
 
 .campaign-card-title {

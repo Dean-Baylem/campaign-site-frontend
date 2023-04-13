@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import MainNavigation from '../navigation/MainNavigation';
 import Carousel from '../components/Carousel';
 import "./PlayerHub.css";
-import { Button } from "@mui/material";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import HubNav from '../navigation/HubNav';
 import WorldDisplay from '../PlayerHubComponents/WorldDisplay';
 import WorldCard from '../PlayerHubComponents/WorldCard';
-import Collapsible from 'react-collapsible';
 import CampaignCard from '../PlayerHubComponents/CampaignCard';
 import Card from '../components/Card';
+import { CSSTransition } from "react-transition-group";
+import Footer from '../components/Footer';
 
 
 const darkTheme = createTheme({
@@ -91,15 +91,23 @@ const DUMMY_TOOLS = [
     imgSrc:
       "https://fastly.picsum.photos/id/504/500/300.jpg?hmac=aPbmXP8tNnrHBoQ_VRM8vCPuU2btdLu5lRKBfssPZh4",
   },
+  
 ];
 
 const PlayerHub = props => {
 
   const [activePanel, setActivePanel ] = useState("worlds");
+  const [nextPanel, setNextPanel] = useState("");
 
   const handlePanelChange = value => {
-    setActivePanel(value);
+    setActivePanel(null);
+    setNextPanel(value);
   }
+
+  const handlePanelSwitch = () => {
+    setActivePanel(nextPanel);
+  }
+
 
     return (
       <ThemeProvider theme={darkTheme}>
@@ -108,25 +116,62 @@ const PlayerHub = props => {
           <Carousel></Carousel>
           <HubNav handlePanelChange={handlePanelChange}></HubNav>
           <div className="hub-body-container">
-            {activePanel === "worlds" && <WorldDisplay>
-              {DUMMYDATA.map((world, index) => (
-                <WorldCard
-                  image={world.image}
-                  worldName={world.worldName}
-                  key={index}
-                />
-              ))}
-              </WorldDisplay>}
-              {activePanel === "campaigns" && <WorldDisplay>{DUMMY_CAMPAIGN.map((campaign, index) => (
-                <CampaignCard campaignTitle={campaign.campaignTitle} party={campaign.party} key={index}/>
-              ))}</WorldDisplay>}
-              {activePanel === "dmtools" && <div className="tools-container">
-              {DUMMY_TOOLS.map((tool, index) => (
-                <Card key={index} cardType="top" imgSrc={tool.imgSrc} title={tool.title} content={tool.content} />
-              ))}
-              </div>}
+            <CSSTransition
+              in={activePanel === "worlds"}
+              classNames="fade"
+              timeout={300}
+              unmountOnExit
+              onExited={handlePanelSwitch}
+            >
+              <WorldDisplay>
+                {DUMMYDATA.map((world, index) => (
+                  <WorldCard
+                    image={world.image}
+                    worldName={world.worldName}
+                    key={index}
+                  />
+                ))}
+              </WorldDisplay>
+            </CSSTransition>
+            <CSSTransition
+              in={activePanel === "campaigns"}
+              classNames="fade"
+              timeout={300}
+              onExited={handlePanelSwitch}
+              unmountOnExit
+            >
+              <WorldDisplay>
+                {DUMMY_CAMPAIGN.map((campaign, index) => (
+                  <CampaignCard
+                    campaignTitle={campaign.campaignTitle}
+                    party={campaign.party}
+                    key={index}
+                  />
+                ))}
+              </WorldDisplay>
+            </CSSTransition>
+            <CSSTransition
+              in={activePanel === "dmtools"}
+              classNames="fade"
+              timeout={300}
+              onExited={handlePanelSwitch}
+              unmountOnExit
+            >
+              <div className="tools-container">
+                {DUMMY_TOOLS.map((tool, index) => (
+                  <Card
+                    key={index}
+                    cardType="top"
+                    imgSrc={tool.imgSrc}
+                    title={tool.title}
+                    content={tool.content}
+                  />
+                ))}
+              </div>
+            </CSSTransition>
           </div>
         </div>
+        <Footer />
       </ThemeProvider>
     );
 }

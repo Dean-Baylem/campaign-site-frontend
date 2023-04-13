@@ -15,8 +15,8 @@
 .world-display-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    column-gap: 5%;
-    row-gap: 5%;
+    column-gap: 2rem;
+    row-gap: 3rem;
 }
 
 .world-card-nav {
