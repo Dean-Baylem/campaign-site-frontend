@@ -8,6 +8,7 @@ import "./index.css";
 import WorldSubjectPage from "./worldbuilding/pages/WorldSubjectPage";
 import { AuthContext } from "./shared/context/auth-context";
 import PlayerHub from "./shared/pages/PlayerHub";
+import CreateNewWorld from "./worldbuilding/pages/CreateNewWorld";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -39,6 +40,7 @@ function App() {
           <Route path="/register" element={<Registration />} />
           <Route path="/:playerId" element={<PlayerHub />} />
           <Route path="/world/:worldId" element={<WorldMainPage />} />
+          <Route path="/world/create" element={<CreateNewWorld />} />
           <Route
             path="/world/:worldId/subject/:subjectType"
             element={<WorldSubjectPage />}

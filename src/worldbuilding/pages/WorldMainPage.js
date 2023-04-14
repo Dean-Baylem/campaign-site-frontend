@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { useHttpRequest } from "../../shared/hooks/request-hook";
 import "../../shared/components/Button.css"
 import "./WorldMainPage.css";
 import Footer from "../../shared/components/Footer";
@@ -21,9 +22,22 @@ const DUMMY_DATA = [
 
 
 const WorldMainPage = props => {
-
+  const { error, sendRequest } = useHttpRequest();
   const worldId = useParams().worldId;
-  const loadedWorld = DUMMY_DATA.filter(world => world.id === worldId);
+  const [ loadedWorld, setLoadedWorld ] = useState({});
+
+  useEffect(() => {
+    const fetchWorld = async () => {
+      try {
+        const responseData = await sendRequest(`http://localhost:5000/worlds/getone/${worldId}`)
+        console.log(responseData.world);
+        setLoadedWorld(responseData.world)
+      } catch (err) {
+        console.log(err)
+      }
+    };
+    fetchWorld();
+  }, [sendRequest, worldId]);
 
 
     return (
@@ -31,9 +45,9 @@ const WorldMainPage = props => {
         <div className="page-container">
           <WorldHeading>
             <WorldTitle
-              worldName={loadedWorld[0].worldName}
-              campaign={loadedWorld[0].campaign}
-              worldId={loadedWorld[0].worldId}
+              worldName={loadedWorld.worldName}
+              campaign={loadedWorld.campaign}
+              worldId={loadedWorld.worldId}
             />
             <WorldNav worldId={props.worldId} />
           </WorldHeading>

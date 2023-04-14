@@ -23,7 +23,7 @@ const WorldCard = props => {
             className="dark-button"
             variant="outlined"
           >
-            <NavLink>View World</NavLink>
+            <NavLink to={`/world/${props.worldId}`}>View World</NavLink>
           </Button>
           <Button
             sx={{ margin: "0% 20%" }}

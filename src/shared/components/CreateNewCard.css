@@ -1,0 +1,36 @@
+.create-new-card {
+    border: 1px solid;
+    box-shadow: 2px 2px 15px -4px;
+    border-radius: 15px;
+    background-color: #282A3A;
+}
+
+.create-new-body {
+    padding: 0% 0% 5% 5%;
+}
+
+.create-new-body a {
+    text-decoration: none;
+    color:#fff;
+}
+
+.create-new-body p {
+    font-weight: 800;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+}
+
+.create-new-body button {
+    color: rgba(255, 255, 255, 1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin: 0;
+    justify-self: center;
+    width: fit-content;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.create-new-body button:hover {
+    border: 1px solid rgba(255, 255, 255, 0.7);
+}
