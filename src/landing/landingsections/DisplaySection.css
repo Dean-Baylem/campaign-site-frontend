@@ -1,0 +1,8 @@
+.card-display {
+    display: grid;
+    justify-content: center;
+}
+
+.display-section {
+    background-color: #F3DEBA;
+}

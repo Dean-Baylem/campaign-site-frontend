@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import VisibilitySensor from "react-visibility-sensor";
-import { Slide } from "@mui/material";
 import "./SlideIn.css";
 
 const SlideIn = props => {

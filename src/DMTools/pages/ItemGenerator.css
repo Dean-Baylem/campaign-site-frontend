@@ -1,0 +1,38 @@
+.item-generator-page {
+    padding: 5% 15%;
+    background-color: #000000;
+    min-height: 100vh;
+}
+
+.drop-down span{
+    color: #000000;
+}
+
+.random-item-container {
+margin: 5%;
+background-color: #FFF;
+color: #000000;
+padding: 2%;
+}
+
+.item-gen-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 1rem;
+    margin: 5%;
+}
+
+.num-rarity-section {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+@media screen and (max-width: 500px) {
+    .item-generator-page {
+        padding: 2%
+    }
+    .item-gen-form {
+        display: flex;
+        flex-direction: column;
+    }
+}

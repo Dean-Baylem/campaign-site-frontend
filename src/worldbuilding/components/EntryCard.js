@@ -1,5 +1,5 @@
 import React from "react";
-import "../../shared/components/Card.css"
+import "../../shared/Components/UIComponents/Card.css";
 import "./EntryCard.css";
 
 const EntryCard = props => {

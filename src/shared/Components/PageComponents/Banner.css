@@ -1,0 +1,11 @@
+.banner {
+    height: 25vh;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.banner img {
+    min-width: 100%;
+
+}

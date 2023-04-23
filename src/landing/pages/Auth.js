@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import Subtitle from "../../shared/components/Subtitle";
-import "./Auth.css";
+import Subtitle from "../../shared/Components/PageComponents/Subtitle";
 import MainNavigation from "../../shared/navigation/MainNavigation";
-import Registration from "./Register";
-import LoginForm from "./LoginForm";
+import Registration from "../landingsections/Register";
+import LoginForm from "../landingsections/LoginForm";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
-import Footer from "../../shared/components/Footer";
+import Footer from "../../shared/Components/PageComponents/Footer";
+import "./Auth.css";
 
 const Auth = props => {
 

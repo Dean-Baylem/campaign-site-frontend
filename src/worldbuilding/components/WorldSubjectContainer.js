@@ -1,5 +1,6 @@
 import React from "react";
-import ImageCard from "../../shared/components/ImageCard";
+import ImageCard from "../../shared/Components/UIComponents/ImageCard";
+import { NavLink } from "react-router-dom";
 import "./WorldSubjectContainer.css";
 
 // I will store these details in the database and then pull them from there for use below when 
@@ -65,9 +66,16 @@ const subjects = [
 const WorldSubjectContainer = props => {
     return (
       <div className="world-subject-container">
-      {subjects.map((subject, index) => (
-        <ImageCard cardType={subject.cardType} content={subject.content} imgSrc={subject.imgSrc} key={index} />
-      ))}
+        {subjects.map((subject, index) => (
+          <NavLink to={`/world/${props.worldID}/subject/${subject.content.toLowerCase()}`}>
+            <ImageCard
+              cardType={subject.cardType}
+              content={subject.content}
+              imgSrc={subject.imgSrc}
+              key={index}
+            />
+          </NavLink>
+        ))}
       </div>
     );
 }

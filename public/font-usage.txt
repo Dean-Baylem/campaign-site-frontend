@@ -1,0 +1,14 @@
+I will keep track of which fonts to use in which scenario:
+
+World Building:
+
+Title - MedievalSharp
+Subtitles - Inknut Antiqua
+body - Open Sans
+
+Entries: 
+
+Title Regular - MedievalSharp
+Title Official - Cormorant
+body Regular - Delius
+body nobel - Alex Brush

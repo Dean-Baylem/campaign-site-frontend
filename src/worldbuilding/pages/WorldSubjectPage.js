@@ -1,28 +1,19 @@
-import React from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import "./WorldSubjectPage.css";
+import { WorldContext } from "../../shared/context/WorldContext";
+import { useHttpRequest } from "../../shared/hooks/request-hook";
 import WorldHeading from "../components/WorldHeading";
-import WorldTitle from "../components/WorldTitle";
-import ImageCard from "../../shared/components/ImageCard";
-import { Button } from "@mui/material";
+import ImageCard from "../../shared/Components/UIComponents/ImageCard";
 import SubjectDesc from "../components/SubjectDesc";
 import EntryCard from "../components/EntryCard";
+import "./WorldSubjectPage.css";
 
 const WorldSubjectPage = props => {
 
-    // Dummy data will be replaced with pulls from database when backend has been developed.
-    const DUMMY_DATA = [
-      {
-        id: "world1",
-        worldName: "Greyhawk",
-        campaign: "Ghosts of Saltmarsh",
-      },
-    ];
-
-    const DUMMY_TYPES = [
+    const subjects = [
       {
         type: "country",
-        name: "Country",
+        name: "Countries",
         img: "https://img.freepik.com/free-photo/two-travelers-discovered-ruins-ancient-city-dense-forest-3d-illustration_456031-166.jpg?w=740&t=st=1680580227~exp=1680580827~hmac=752e2f77c64e456d8ba6a8397b8c3f54d08ff51620dac7e62dd1be9324a3c025",
         desc: "Here you can add details regarding the countries in your worlds. The laws which they follow, the cities of prominence and the leadership type found there.",
       },
@@ -110,22 +101,41 @@ const WorldSubjectPage = props => {
       },
     ];
 
-    const worldId = useParams().worldId;
-    const loadedWorld = DUMMY_DATA.filter(world => world.id === worldId)
+    const [loadingWorld, setLoadingWorld] = useState(true);
+    const { sendRequest } = useHttpRequest();
+    const [selectedSubject, setSelectedSubject] = useState({});
     const subjectType = useParams().subjectType;
-    const selectedSubject = DUMMY_TYPES.filter(subject => subject.type === subjectType)
+    const worldId = useParams().worldId;
+    const world = useContext(WorldContext);
+
+    useEffect(() => {
+      const fetchWorld = async () => {
+        try {
+          const responseData = await sendRequest(
+            `http://localhost:5000/worlds/getone/${worldId}`
+          );
+          console.log(responseData.world);
+          world.changeWorld(responseData.world);
+          setLoadingWorld(false);
+        } catch (err) {
+          console.log(err);
+        }
+      };
+      fetchWorld();
+    }, [sendRequest, worldId, world]);
+
+    useEffect(() => {
+      console.log(subjects.filter((subject) => subject.type === subjectType));
+      setSelectedSubject(subjects.filter(subject => subject.type === subjectType)[0])
+    }, [subjectType]);
 
     return (
       <div className="page-container">
+        {!loadingWorld &&
         <WorldHeading>
-          <WorldTitle
-            worldName={loadedWorld[0].worldName}
-            worldId={loadedWorld[0].worldId}
-          />
-          <ImageCard cardType="top" content={selectedSubject[0].name} imgSrc={selectedSubject[0].img} />
-          <SubjectDesc desc={selectedSubject[0].desc} />
-        </WorldHeading>
-        <hr></hr>
+          <ImageCard cardType="top" content={(selectedSubject.name) + " In the " + (world.currentWorld.worldName)} imgSrc={selectedSubject.img} />
+          <SubjectDesc desc={selectedSubject.desc} />
+        </WorldHeading>}
         <div className="subject-entry-container">
             {DUMMY_ENTRY.map(entry => (
                 <EntryCard img={entry.img} imgSrc={entry.imgSrc} title={entry.title} desc={entry.desc} key={entry.id} />

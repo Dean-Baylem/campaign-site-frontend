@@ -1,19 +1,18 @@
 import React, { useState, useEffect, useContext } from "react";
-import MainNavigation from "../navigation/MainNavigation";
-import Carousel from "../components/Carousel";
-import "./PlayerHub.css";
+import MainNavigation from "../../shared/navigation/MainNavigation";
+import Carousel from "../../shared/Components/UIComponents/Carousel";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
-import HubNav from "../navigation/HubNav";
-import WorldDisplay from "../PlayerHubComponents/WorldDisplay";
-import WorldCard from "../PlayerHubComponents/WorldCard";
-import CampaignCard from "../PlayerHubComponents/CampaignCard";
-import Card from "../components/Card";
+import HubNav from "../../shared/navigation/HubNav";
+import WorldDisplay from "../../shared/PlayerHubComponents/WorldDisplay";
+import WorldCard from "../../shared/Components/UIComponents/WorldCard";
+import CampaignCard from "../../shared/Components/UIComponents/CampaignCard";
+import Card from "../../shared/Components/UIComponents/Card";
 import { CSSTransition } from "react-transition-group";
-import Footer from "../components/Footer";
-import { Button } from "@mui/material";
+import Footer from "../../shared/Components/PageComponents/Footer";
 import { AuthContext } from "../../shared/context/auth-context";
-import CreateNewCard from "../components/CreateNewCard";
+import CreateNewCard from "../../shared/navigation/CreateNewCard";
 import { useHttpRequest } from "../../shared/hooks/request-hook";
+import "./PlayerHub.css";
 
 
 const darkTheme = createTheme({
@@ -21,6 +20,25 @@ const darkTheme = createTheme({
     mode: "dark",
   },
 });
+
+const data = [
+  {
+    img: "https://fastly.picsum.photos/id/987/600/300.jpg?hmac=G6PzIir0sCmk-BZ_-5isP8xcbdFO3t_YXiMU8D_69Pk",
+    alt: "slide1",
+  },
+  {
+    img: "https://fastly.picsum.photos/id/391/600/300.jpg?hmac=gK55dr8XBINlC5WW4uttrMZmd5HAVORxfz7oO-nG8ko",
+    alt: "slide2",
+  },
+  {
+    img: "https://fastly.picsum.photos/id/987/600/300.jpg?hmac=G6PzIir0sCmk-BZ_-5isP8xcbdFO3t_YXiMU8D_69Pk",
+    alt: "slide3",
+  },
+  {
+    img: "https://fastly.picsum.photos/id/391/600/300.jpg?hmac=gK55dr8XBINlC5WW4uttrMZmd5HAVORxfz7oO-nG8ko",
+    alt: "slide4",
+  },
+];
 
 const DUMMYDATA = [
   {
@@ -102,7 +120,7 @@ const PlayerHub = (props) => {
   const [activePanel, setActivePanel] = useState("worlds");
   const [nextPanel, setNextPanel] = useState("");
   const [loadedWorlds, setLoadedWorlds] = useState([]);
-  const { error, sendRequest } = useHttpRequest();
+  const { sendRequest } = useHttpRequest();
 
   useEffect(() => {
     const fetchWorlds = async() => {
@@ -127,7 +145,7 @@ const PlayerHub = (props) => {
     <ThemeProvider theme={darkTheme}>
       <div className="page-container">
         <MainNavigation />
-        <Carousel></Carousel>
+        <Carousel data={data}></Carousel>
         <HubNav handlePanelChange={handlePanelChange}></HubNav>
         <div className="hub-body-container">
           <CSSTransition

@@ -1,6 +1,5 @@
 import React from "react";
 import MainNavigation from "../../shared/navigation/MainNavigation";
-import WorldNav from "./WorldNav";
 import "./WorldHeading.css";
 
 

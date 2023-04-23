@@ -1,11 +1,11 @@
 import React from "react";
-import SlideIn from "../../shared/components/SlideIn";
-import Card from "../../shared/components/Card";
+import SlideIn from "../../shared/Components/PageComponents/SlideIn";
+import Card from "../../shared/Components/UIComponents/Card";
 
 const HeroicEvents = props => {
     return (
       <React.Fragment>
-        <div class="world-title-container">
+        <div className="world-title-container">
           <div className="world-title">
             <h3>Heroic Events</h3>
             <h5>Epic tales about the worlds greatest adventurers!</h5>

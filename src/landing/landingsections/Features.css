@@ -1,0 +1,33 @@
+.features-section {
+    padding: 2% 15%;
+    background-color: #F3DEBA;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: #675D50;
+}
+
+.highlight-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 2%;
+}
+
+.card-box {
+    display: flex;
+}
+
+@media screen and (max-width: 700px) {
+    .features-section {
+        padding: 2% 4%;
+    }
+} 
+
+
+@media screen and (max-width: 500px) {
+    .highlight-container {
+        grid-template-columns: 1fr;
+        row-gap: 2rem;
+        padding-bottom: 2%;
+    }
+}

@@ -1,5 +1,5 @@
 import React from "react";
-import NavLinks from "../navigation/NavLinks";
+import NavLinks from "../../navigation/NavLinks";
 import "./Footer.css";
 
 const Footer = () => {

@@ -1,0 +1,46 @@
+.side-card-container {
+    border: 1px solid #FFF;
+    max-width: 70vw;
+    overflow: hidden;
+    box-shadow: 2px 2px 5px #675D50;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 5% 0%;
+    border-radius: 25px;
+    background-color: #7C9070;
+}
+
+.card-img {
+    width: 100%;
+    height: 100%;
+}
+
+.side-img-container {
+    height: 100%;
+}
+
+.side-card-content {
+    padding: 0% 2rem;
+}
+
+.right-side {
+    grid-area: 1 / 2;
+}
+
+.left-side {
+    grid-area: 1 / 1;
+}
+
+@media screen and (max-width: 500px) {
+    .side-card-container {
+        grid-template-columns: 1fr;
+        min-width: 90vw;
+    }
+    .right-side {
+        grid-area: 1 / 1;
+    }
+    .side-img-container {
+        height: 30vh;
+    }
+}
