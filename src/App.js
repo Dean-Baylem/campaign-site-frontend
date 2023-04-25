@@ -10,7 +10,7 @@ import PlayerHub from "./worldbuilding/pages/PlayerHub";
 import CreateNewWorld from "./worldbuilding/pages/CreateNewWorld";
 import { WorldContext } from "./shared/context/WorldContext";
 import "./index.css";
-import ItemGenerator from "./DMTools/pages/ItemGenerator";
+import ItemGen from "./DMTools/pages/ItemGen";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -59,7 +59,7 @@ function App() {
               element={<WorldSubjectPage />}
             />
             {/* <Route path="/world/:worldId/settings" element={< />} /> */}
-            <Route path="/DMTools/itemGenerator" element={<ItemGenerator />} />
+            <Route path="/DMTools/itemGenerator" element={<ItemGen />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </Router>

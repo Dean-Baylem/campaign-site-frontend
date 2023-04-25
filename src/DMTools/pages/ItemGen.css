@@ -1,0 +1,28 @@
+.tools-body {
+    background-image: url("https://www.transparenttextures.com/patterns/wood-pattern.png");
+    font-family: "Open Sans", sans-serif;
+}
+
+.item-gen-container {
+    color: #000000;
+    padding: 0% 4%;
+}
+
+.item-gen-footer {
+    display: flex;
+    justify-content: center;
+}
+
+.item-gen-footer button {
+    margin: 2%;
+}
+
+.tools-body .main-header .nav-links a {
+    color:#000000;
+}
+
+.tools-body .main-header {
+    margin: 0% 10%;
+    font-size: 1rem;
+    font-weight: 800;
+}

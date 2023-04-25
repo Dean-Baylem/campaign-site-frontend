@@ -1,0 +1,71 @@
+.item-card {
+    width: 90%;
+    position: relative;
+}
+
+.item-token {
+    text-align: center;
+    position: relative;
+}
+
+.item-img {
+    width: 60%;
+}
+
+.rarity-list {
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+    padding-left: 0%;
+}
+
+.color-button {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    transition: 300ms;
+}
+
+.active-color-button {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    border-color: red;
+    transition: 300ms;
+}
+
+.nav-before {
+    position: absolute;
+    z-index: 2;
+    left: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.nav-after {
+    position: absolute;
+    z-index: 2;
+    right: 0;
+    top: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.carousel-button {
+    background-color: #00000000;
+    border: 1px solid #00000000;
+    cursor: pointer;
+    transition: 300ms;
+}
+
+.carousel-button:hover {
+    color: #FAF9F6;
+    transition: 300ms;
+    cursor: pointer;
+}

@@ -1,0 +1,11 @@
+.item-gen-buttons {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 1% 30%;
+    align-items: center;
+}
+
+.item-gen-text {
+    text-align: center;
+    font-size: 1.5rem;
+}

@@ -1,0 +1,13 @@
+.legendary {
+    background-color: gold;
+}
+
+.legendary:hover {
+    background-color: goldenrod;
+}
+
+.item-display {
+    display: grid; 
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 1rem;
+}

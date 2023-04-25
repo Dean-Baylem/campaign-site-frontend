@@ -1,4 +1,8 @@
-
+.auth-body {
+    background-color: #F3DEBA;
+    min-height: 80vh;
+    padding: 10% 0%;
+}
 
 .login-container {
     background-color: #1b1d1f;
@@ -6,7 +10,8 @@
     text-align: center;
     display: flex;
     flex-direction: column;
-    margin: 5% 25%;
+    margin: 0% 25%;
+    margin-bottom: 10%;
     padding: 2%;
 }
 

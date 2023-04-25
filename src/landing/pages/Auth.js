@@ -25,26 +25,28 @@ const Auth = props => {
 
     return (
       <React.Fragment>
-        <ThemeProvider theme={darkTheme}>
-          <CssBaseline />
-          <div className="login-container">
-            <MainNavigation />
-            <div className="title-container">
-              <Subtitle content={tryLogin === true ? "Login" : "Signup"} />
-              <p>Start Building</p>
+        <MainNavigation />
+        <div className="auth-body">
+          <ThemeProvider theme={darkTheme}>
+            <CssBaseline />
+            <div className="login-container">
+              <div className="title-container">
+                <Subtitle content={tryLogin === true ? "Login" : "Signup"} />
+                <p>Start Building</p>
+              </div>
+              <div className="login-option-container">
+                {tryLogin === true ? (
+                  <div className="email-login">
+                    <LoginForm handleSwitch={handleSwitch} />
+                  </div>
+                ) : (
+                  <Registration handleSwitch={handleSwitch} />
+                )}
+              </div>
             </div>
-            <div className="login-option-container">
-              {tryLogin === true ? (
-                <div className="email-login">
-                  <LoginForm handleSwitch={handleSwitch} />
-                </div>
-              ) : (
-                <Registration handleSwitch={handleSwitch} />
-              )}
-            </div>
-          </div>
-          <Footer />
-        </ThemeProvider>
+          </ThemeProvider>
+        </div>
+        <Footer />
       </React.Fragment>
     );
 }
