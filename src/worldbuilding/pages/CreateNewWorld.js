@@ -9,13 +9,6 @@ import { useNavigate } from "react-router-dom";
 import CssBaseline from "@mui/material/CssBaseline";
 import MainNavigation from "../../shared/navigation/MainNavigation";
 
-const darkTheme = createTheme({
-  palette: {
-    mode: "dark",
-  },
-});
-
-
 const validationSchema = yup.object({
   worldname: yup
     .string("What is your worlds name?")
@@ -61,9 +54,6 @@ const CreateNewWorld = () => {
 
 
     return (
-      <ThemeProvider theme={darkTheme}>
-        <CssBaseline />
-        <MainNavigation />
           <div className="form-container">
           {error && <p>Oops, there was a problem. Please try again!</p>}
             <form className="create-world-form" onSubmit={formik.handleSubmit}>
@@ -100,7 +90,6 @@ const CreateNewWorld = () => {
               </Button>
             </form>
           </div>
-      </ThemeProvider>
     );
 }
 

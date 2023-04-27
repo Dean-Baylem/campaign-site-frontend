@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import { ItemGenContext } from "../../shared/context/item-gen-context";
-import MainNavigation from "../../shared/navigation/MainNavigation";
+import { ItemGenContext } from "../../../shared/context/item-gen-context";
+import MainNavigation from "../../../shared/navigation/MainNavigation";
 import ItemGenHeader from "../Components/ItemGenHeader";
 import ItemDisplay from "../Components/ItemDisplay";
 import ItemCard from "../Components/ItemCard";
 import ItemGenUI from "../Components/ItemGenUI";
 import ItemGenFooter from "../Components/ItemGenFooter";
-import { useHttpRequest } from "../../shared/hooks/request-hook";
+import { useHttpRequest } from "../../../shared/hooks/request-hook";
 import "./ItemGen.css";
-import Footer from "../../shared/Components/PageComponents/Footer";
+import Footer from "../../../shared/Components/PageComponents/Footer";
 
 
 const ItemGen = (props) => {

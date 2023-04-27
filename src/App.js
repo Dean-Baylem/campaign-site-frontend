@@ -10,7 +10,7 @@ import PlayerHub from "./worldbuilding/pages/PlayerHub";
 import CreateNewWorld from "./worldbuilding/pages/CreateNewWorld";
 import { WorldContext } from "./shared/context/WorldContext";
 import "./index.css";
-import ItemGen from "./DMTools/pages/ItemGen";
+import ItemGen from "./DMTools/ItemGen/pages/ItemGen";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);

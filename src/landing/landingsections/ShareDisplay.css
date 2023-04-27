@@ -1,0 +1,49 @@
+/* .share-display-container {
+    background-image: url("https://img.freepik.com/free-photo/top-view-beautiful-rpg-still-life-items_23-2149282447.jpg?w=740&t=st=1682489481~exp=1682490081~hmac=e6ebabf4f5625771266589fa8ac7cfa0dcdb2e43f5cb31ee8e45f2c1cffc4e67");
+    background-repeat: no-repeat;
+    background-size: 50vw;
+    border-bottom-right-radius: 50%;
+} */
+
+.share-display-container {
+  display: flex;
+}
+
+.share-desc-container {
+  padding: 0% 4%;
+}
+
+@media screen and (max-width: 800px) {
+    .share-display-container {
+        display: grid;
+    }
+    .share-img-container {
+        grid-area: 1 / 1;
+    }
+    .share-img {
+        height: 100%;
+        width: 100vw;
+        filter: brightness(0.5);
+    }
+    .share-desc-container {
+        grid-area: 1 / 1;
+        z-index: 2;
+    }
+    .share-title {
+        color: #FFF;
+    }
+    .share-desc {
+        color: #fff;
+    }
+}
+
+@media screen and (min-width: 800px) {
+  .share-img-container img {
+    height: 100%;
+    width: 45vw;
+    border-radius: 15px;
+  }
+  .share-img-container {
+    padding-left: 5%;
+  }
+}

@@ -1,0 +1,20 @@
+.tool-display-section {
+    background-color: #f8ecd8;
+    padding: 2% 15%;
+}
+
+.tool-desc-container {
+    padding: 2%;
+}
+
+@media screen and (max-width: 900px) {
+    .tool-display-section {
+        padding: 2% 8%
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .tool-display-section {
+        padding: 2%
+    }
+}

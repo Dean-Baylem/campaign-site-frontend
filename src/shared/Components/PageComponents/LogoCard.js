@@ -5,14 +5,15 @@ const LogoCard = props => {
     return (
       <div className="logo-card-container">
         <div className="token-container">
-          <img
-            src={props.img}
-            alt="token"
-          />
+          <img src={props.img} alt="token" />
         </div>
         <div className="card-desc-container">
-          <h5>{props.heading}</h5>
-          <p>{props.desc}</p>
+          <div className="page-subtitle">
+            <h5>{props.heading}</h5>
+          </div>
+          <div className="page-body">
+            <p>{props.desc}</p>
+          </div>
         </div>
       </div>
     );
