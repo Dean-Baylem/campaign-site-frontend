@@ -39,7 +39,7 @@ const LoginForm = props => {
     onSubmit: async (values) => {
       try {
         const responseData = await sendRequest(
-          "http://localhost:5000/user/login",
+          "http://localhost:5000/player/login",
           "POST",
           JSON.stringify({
             email: values.email,
@@ -49,11 +49,10 @@ const LoginForm = props => {
             "Content-Type": "application/json",
           }
         );
-        auth.login(responseData.user._id);
+        auth.login(responseData.player._id);
         navigate("/");
       } catch (err) {
         console.log(err);
-        console.log("Oh no! There was an error!");
       }
     },
   });

@@ -108,7 +108,7 @@ const ItemGen = (props) => {
   return (
     <React.Fragment>
       <div className="tools-body">
-        <MainNavigation />
+        <MainNavigation clear={true}/>
         <div className="item-gen-body" style={{ minHeight: "80vh" }}>
           <div className="item-gen-container">
             <ItemGenHeader />

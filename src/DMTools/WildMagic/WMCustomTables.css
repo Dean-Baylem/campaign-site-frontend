@@ -1,0 +1,33 @@
+.custom-table-title {
+    text-align: center;
+    font-size: 1.75rem;
+}
+
+.custom-table-list {
+    margin: 0 15vw;
+    padding: 0;
+    border: 1px solid;
+}
+
+.custom-table-list-item {
+    display: grid;
+    grid-template-columns: 5fr 1fr 1fr;
+}
+
+.table-name {
+    font-size: 1.25rem;
+    text-align: center;
+}
+
+.custom-table-list-item button {
+    height: 100%;
+    width: 100%;
+    color: #000000;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.light-bg {
+    background-color: #f8ecd8;
+}

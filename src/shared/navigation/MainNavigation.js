@@ -5,7 +5,7 @@ import NavLinks from "./NavLinks";
 const MainNavigation = props => {
     return (
         <React.Fragment>
-            <MainHeader>
+            <MainHeader clear={props.clear}>
                     <p>D D Inc.</p>
                 <nav>
                     <NavLinks />

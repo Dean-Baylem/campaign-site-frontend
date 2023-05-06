@@ -5,7 +5,7 @@ import LogoCard from "../../shared/Components/PageComponents/LogoCard"
 const Features = props => {
     return (
       <section className="features-section">
-        <h2>Design & Develop</h2>
+        <h2 className="page-subtitle">Design & Develop</h2>
         <div className="highlight-container">
           <LogoCard
             img="https://cdn-icons-png.flaticon.com/512/1067/1067713.png?w=900&t=st=1681955514~exp=1681956114~hmac=7853326cc21fd962b6c8e9b42f557957da4e04748e096124f56bac93353c706c"

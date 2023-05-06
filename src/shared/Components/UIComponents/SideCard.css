@@ -6,9 +6,10 @@
     margin: auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    margin: 5% 0%;
-    border-radius: 25px;
-    background-color: #7C9070;
+    margin: 0%;
+    border-radius: 10px;
+    height: 100%;
+    background-color: #f8ecd8;
 }
 
 .card-img {
@@ -30,6 +31,14 @@
 
 .left-side {
     grid-area: 1 / 1;
+}
+
+.top-side {
+    grid-area: 1 / 1 / span 1 / span 2;
+}
+
+.full-bottom {
+    grid-area: 2 / 1 / span 1 / span 2 ;
 }
 
 @media screen and (max-width: 500px) {

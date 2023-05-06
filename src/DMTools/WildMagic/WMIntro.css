@@ -1,0 +1,28 @@
+.selection-container {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    padding-top: 5%;
+}
+
+.selection-container img {
+    height: 40vh;
+}
+
+.selection-container button {
+    height: 4rem;
+    width: 7rem;
+    background-color: #FDE2F3;
+    color: #2A2F4F;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    transition: 300ms;
+    margin-top: 5vh;
+}
+
+.selection-container button:hover {
+    background-color: #2A2F4F;
+    color: #FDE2F3;
+    transform: translateY(-5px);
+    transition: 300ms;
+}

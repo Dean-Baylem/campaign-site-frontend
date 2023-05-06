@@ -1,0 +1,14 @@
+.form-container {
+    padding: 5%;
+}
+
+.create-world-form {
+    display: grid;
+    row-gap: 1rem;
+}
+
+.create-buttons {
+    padding-top: 2%;
+    display: flex;
+    justify-content: space-evenly;
+}

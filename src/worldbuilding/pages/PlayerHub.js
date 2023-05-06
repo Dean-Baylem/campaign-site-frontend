@@ -1,25 +1,19 @@
 import React, { useState, useEffect, useContext } from "react";
 import MainNavigation from "../../shared/navigation/MainNavigation";
 import Carousel from "../../shared/Components/UIComponents/Carousel";
-import { ThemeProvider, createTheme } from "@mui/material/styles";
 import HubNav from "../../shared/navigation/HubNav";
 import WorldDisplay from "../../shared/PlayerHubComponents/WorldDisplay";
 import WorldCard from "../../shared/Components/UIComponents/WorldCard";
 import CampaignCard from "../../shared/Components/UIComponents/CampaignCard";
-import Card from "../../shared/Components/UIComponents/Card";
 import { CSSTransition } from "react-transition-group";
 import Footer from "../../shared/Components/PageComponents/Footer";
+import { Button } from "@mui/material";
 import { AuthContext } from "../../shared/context/auth-context";
 import CreateNewCard from "../../shared/navigation/CreateNewCard";
 import { useHttpRequest } from "../../shared/hooks/request-hook";
+import SideCard from "../../shared/Components/UIComponents/SideCard";
 import "./PlayerHub.css";
-
-
-const darkTheme = createTheme({
-  palette: {
-    mode: "dark",
-  },
-});
+import ToolsContainer from "../components/ToolsContainer";
 
 const data = [
   {
@@ -40,58 +34,13 @@ const data = [
   },
 ];
 
-const DUMMYDATA = [
+const currentTools = [
   {
-    worldName: "Greyhawk",
-    image:
-      "https://fastly.picsum.photos/id/524/500/300.jpg?hmac=J7fpUMjDr_zSBziCiTw9zsB8qHbKkX9d-AgWGynXTuo",
-  },
-  {
-    worldName: "Sword Coast",
-    image:
-      "https://fastly.picsum.photos/id/906/500/300.jpg?hmac=rTJr5xyRi9f76MKFNA4r8JE9SMemy8wNIA69NqUybRk",
-  },
-];
-
-const DUMMY_CAMPAIGN = [
-  {
-    campaignTitle: "Ghosts of Saltmarsh",
-    party: [
-      {
-        name: "Player1",
-        token:
-          "https://i.pinimg.com/474x/97/86/d7/9786d7140e6ab76e4ae64c347ca28cbc.jpg",
-      },
-      {
-        name: "Player2",
-        token:
-          "https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs/186906905/original/c93a521970405c3e1a383687292d37570dca1400/draw-your-dungeons-and-dragons-character-token.png",
-      },
-    ],
-  },
-  {
-    campaignTitle: "Curse of Strahd",
-    party: [
-      {
-        name: "Player1",
-        token:
-          "https://fiverr-res.cloudinary.com/images/t_smartwm/t_main1,q_auto,f_auto,q_auto,f_auto/attachments/delivery/asset/d1efe42feedb637835b08915563c8f8d-1627517323/Attachment_1627517305/draw-a-portrait-of-your-dnd-character.png",
-      },
-      {
-        name: "Player2",
-        token:
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4xAvcsJEsR9nkFmNAaRwpMs4rXvW4zwYbjQ&usqp=CAU",
-      },
-    ],
-  },
-];
-
-const DUMMY_TOOLS = [
-  {
-    title: "DM Clock",
-    content: "An app to help manage time, weather and travel in D&D 5e",
+    title: "Wild Magic Tables",
+    content: "Roll on the standard Wild Magic Table or customise up to 5 of your own Wild Magic Tables.",
     imgSrc:
       "https://fastly.picsum.photos/id/259/500/300.jpg?hmac=t3QXZeOjK_tKClaWxPcQTjWJJc5rPREMttsmg47Y4y8",
+    link: "/DMTools/wildmagictables",
   },
   {
     title: "Magic Item Generator",
@@ -99,12 +48,14 @@ const DUMMY_TOOLS = [
       "An app to help decide what items to provide your party without searching through the source books first.",
     imgSrc:
       "https://fastly.picsum.photos/id/504/500/300.jpg?hmac=aPbmXP8tNnrHBoQ_VRM8vCPuU2btdLu5lRKBfssPZh4",
+    link: "/DMTools/itemGenerator",
   },
   {
     title: "DM Clock",
     content: "An app to help manage time, weather and travel in D&D 5e",
     imgSrc:
       "https://fastly.picsum.photos/id/259/500/300.jpg?hmac=t3QXZeOjK_tKClaWxPcQTjWJJc5rPREMttsmg47Y4y8",
+    link: "/DMTools/itemGenerator",
   },
   {
     title: "Magic Item Generator",
@@ -112,25 +63,68 @@ const DUMMY_TOOLS = [
       "An app to help decide what items to provide your party without searching through the source books first.",
     imgSrc:
       "https://fastly.picsum.photos/id/504/500/300.jpg?hmac=aPbmXP8tNnrHBoQ_VRM8vCPuU2btdLu5lRKBfssPZh4",
+    link: "/DMTools/itemGenerator",
   },
 ];
+
+const DUMMY_UPCOMING = [
+  {
+    name: "Ghosts of Saltmarsh",
+    day: "Tuesday",
+    hour: "5",
+    mins: "30",
+    am: false,
+    timeZone: "JST"
+  },
+  {
+    name: "Curse of Strahd",
+    day: "Friday",
+    hour: "8",
+    mins: "00",
+    am: false,
+    timeZone: "JST"
+  },
+  {
+    name: "Descent into Avernus",
+    day: "Tuesday",
+    hour: "10",
+    mins: "30",
+    am: true,
+    timeZone: "JST"
+  },
+]
 
 const PlayerHub = (props) => {
   const auth = useContext(AuthContext);
   const [activePanel, setActivePanel] = useState("worlds");
   const [nextPanel, setNextPanel] = useState("");
   const [loadedWorlds, setLoadedWorlds] = useState([]);
+  const [loadedCampaigns, setLoadedCampaigns] = useState([]);
   const { sendRequest } = useHttpRequest();
 
   useEffect(() => {
-    const fetchWorlds = async() => {
+    const fetchWorlds = async () => {
       try {
-        const responseData = await sendRequest(`http://localhost:5000/worlds/getall/${auth.playerId}`);
-        setLoadedWorlds(responseData.worlds)
-      } catch (err) {console.log(err)}
+        const responseData = await sendRequest(
+          `http://localhost:5000/worlds/getall/${auth.playerId}`
+        );
+        setLoadedWorlds(responseData.worlds);
+      } catch (err) {
+        console.log(err);
+      }
     };
     fetchWorlds();
-  }, []);
+  }, [auth.playerId, sendRequest]);
+
+  useEffect(() => {
+    const fetchCampaigns = async () => {
+      try {
+        const responseData = await sendRequest(`http://localhost:5000/campaign/findall/${auth.playerId}`);
+        setLoadedCampaigns(responseData.campaigns)
+      } catch (err) {console.log(err)}
+    }
+    fetchCampaigns();
+  }, [auth.playerId, sendRequest]);
 
   const handlePanelChange = (value) => {
     setActivePanel(null);
@@ -142,9 +136,9 @@ const PlayerHub = (props) => {
   };
 
   return (
-    <ThemeProvider theme={darkTheme}>
+    <React.Fragment>
+      <MainNavigation />
       <div className="page-container">
-        <MainNavigation />
         <Carousel data={data}></Carousel>
         <HubNav handlePanelChange={handlePanelChange}></HubNav>
         <div className="hub-body-container">
@@ -155,7 +149,7 @@ const PlayerHub = (props) => {
             unmountOnExit
             onExited={handlePanelSwitch}
           >
-            <WorldDisplay>
+            <WorldDisplay displayType="world-display-container">
               {loadedWorlds.map((world, index) => (
                 <WorldCard
                   image={world.image}
@@ -182,16 +176,18 @@ const PlayerHub = (props) => {
             onExited={handlePanelSwitch}
             unmountOnExit
           >
-            <WorldDisplay>
-              {DUMMY_CAMPAIGN.map((campaign, index) => (
+            <WorldDisplay displayType="campaign-display-container">
+              {loadedCampaigns.map((campaign, index) => (
                 <CampaignCard
-                  campaignTitle={campaign.campaignTitle}
-                  party={campaign.party}
+                  campaignTitle={campaign.campaignName}
                   key={index}
                 />
               ))}
               <CreateNewCard
-                data={DUMMYDATA}
+                campaigns={true}
+                worlds={loadedWorlds}
+                upcomingGames={DUMMY_UPCOMING}
+                data={loadedCampaigns}
                 type="Create Campaign"
                 successTitle="/ 5 Campaigns created"
                 successDesc="Gather the party and let's start rolling!"
@@ -207,22 +203,12 @@ const PlayerHub = (props) => {
             onExited={handlePanelSwitch}
             unmountOnExit
           >
-            <div className="tools-container">
-              {DUMMY_TOOLS.map((tool, index) => (
-                <Card
-                  key={index}
-                  cardType="top"
-                  imgSrc={tool.imgSrc}
-                  title={tool.title}
-                  content={tool.content}
-                />
-              ))}
-            </div>
+            <ToolsContainer currentTools={currentTools} />
           </CSSTransition>
         </div>
       </div>
       <Footer />
-    </ThemeProvider>
+    </React.Fragment>
   );
 };
 

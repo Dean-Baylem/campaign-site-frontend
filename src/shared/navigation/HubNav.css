@@ -3,7 +3,7 @@
 }
 
 .hub-nav-list {
-    background-color:#282A3A;
+    background-color:#132C33;
     border-radius: 15px;
     list-style: none;
     margin: 0;
@@ -30,7 +30,7 @@
 }
 
 .hub-nav-list-item:hover{
-    background-color: #fff;
+    background-color: #D8E3E7;
     transition: 200ms;
 }
 

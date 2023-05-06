@@ -11,6 +11,7 @@ import CreateNewWorld from "./worldbuilding/pages/CreateNewWorld";
 import { WorldContext } from "./shared/context/WorldContext";
 import "./index.css";
 import ItemGen from "./DMTools/ItemGen/pages/ItemGen";
+import WildMagic from "./DMTools/WildMagic/WildMagic";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -60,6 +61,7 @@ function App() {
             />
             {/* <Route path="/world/:worldId/settings" element={< />} /> */}
             <Route path="/DMTools/itemGenerator" element={<ItemGen />} />
+            <Route path="/DMTools/wildmagictables" element={<WildMagic />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </Router>

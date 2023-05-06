@@ -14,7 +14,7 @@ const HomeTitle = props => {
             backgroundImage: `linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(https://img.freepik.com/free-photo/still-life-map-with-dices_23-2149352310.jpg?w=1800&t=st=1681948965~exp=1681949565~hmac=cd991a9c63839587bc068551e928e50fbfd90b4c466231793e0fdacf10e25633)`,
           }}
         >
-          <MainNavigation />
+          <MainNavigation clear={true} />
           <div className="home-heading-container">
             <div>
               <div className="home-title-container">

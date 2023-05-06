@@ -1,0 +1,67 @@
+.tools-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 2rem;
+  row-gap: 3rem;
+  position: relative;
+}
+
+.tool-card-display-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-area: 2 / 1 / span 1 / span 2;
+  column-gap: 2rem;
+  row-gap: 2rem;
+}
+
+.tool-card-title {
+  font-size: 1rem;
+}
+
+.tool-text-desc a {
+  color: #000000;
+  text-decoration: none;
+}
+
+.tool-text-desc a {
+  text-decoration: none;
+  color: #000000;
+  letter-spacing: 0.5px;
+  font-size: 0.7rem;
+}
+
+.tool-text-desc button {
+  color: rgba(0, 0, 0, 1);
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  margin: 0;
+  justify-self: center;
+  width: fit-content;
+}
+
+.tool-text-desc button:hover {
+  border: 1px solid rgba(0, 0, 0, 0.7);
+}
+
+@media screen and (max-width: 800px) {
+  .tool-card-display-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+@media screen and (max-width: 500px) {
+    .tool-card-display-container {
+    display: flex;
+    flex-direction: column;
+}
+.tools-container {
+  display: flex;
+  flex-direction: column;
+}
+.tool-display-vid-container {
+    display: none;
+}
+.tool-text-desc {
+    padding: 0% 2%;
+}
+}

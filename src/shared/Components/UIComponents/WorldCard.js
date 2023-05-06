@@ -14,7 +14,7 @@ const WorldCard = props => {
             `linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(${props.image})`,
         }}
       >
-        <div className="world-card-title">
+        <div className="world-card-title page-title">
           <h3>{props.worldName}</h3>
         </div>
         <div className="world-card-nav">

@@ -7,3 +7,8 @@
 .token-container img{
     height: 100px;
 }
+
+.logo-card-title h5 {
+    font-size: 1.5rem;
+    margin: 0;
+}

@@ -2,3 +2,13 @@
     display: flex;
     justify-content: space-between;
 }
+
+.dark-header {
+    background-color: #1A120B;
+    padding: 0% 10%;
+    color: #FFF;
+}
+
+.clear-header { 
+    background-color: #00000000;
+}

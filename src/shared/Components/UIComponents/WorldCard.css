@@ -11,6 +11,9 @@
 
 .world-card-title {
     text-align: center;
+    font-size: 1.2rem;
+    color: #FFF;
+    letter-spacing: 1px;
 }
 
 .world-display-container {
@@ -29,6 +32,7 @@
 .world-card-nav a {
     text-decoration: none;
     color: #fff;
+    letter-spacing: 0.5px;
 }
 
 .world-card-nav button {
@@ -37,7 +41,7 @@
     margin: 0;
     justify-self: center;
     width: fit-content;
-    font-size: 10px;
+    font-size: 0.8rem;
 }
 
 .world-card-nav button:hover {

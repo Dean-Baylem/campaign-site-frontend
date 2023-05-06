@@ -16,7 +16,7 @@ const validationSchema = yup.object({
     .string("Enter your password")
     .min(8, "Passwords should be a minimum of 8 charcaters")
     .required("Password is required"),
-  username: yup
+  playername: yup
     .string("Enter your username")
     .required("A username is required"),
 });
@@ -29,7 +29,7 @@ const Registration = (props) => {
 
   const formik = useFormik({
     initialValues: {
-      username: "",
+      playername: "",
       password: "",
       email: "",
     },
@@ -37,18 +37,18 @@ const Registration = (props) => {
     onSubmit: async (values) => {
       try {
         const responseData = await sendRequest(
-          "http://localhost:5000/user/register",
+          "http://localhost:5000/player/register",
           "POST",
           JSON.stringify({
             email: values.email,
             password: values.password,
-            username: values.username,
+            playername: values.playername,
           }),
           {
             "Content-Type": "application/json",
           }
         );
-        auth.login(responseData.user.id);
+        auth.login(responseData.player.id);
         navigate("/");
       } catch (err) {
         console.log("There was an error!");
@@ -58,18 +58,18 @@ const Registration = (props) => {
 
   return (
     <div className="register-form-container">
-    {error && <p>User already exists, please log in instead.</p>}
+      {error && <p>User already exists, please log in instead.</p>}
       <form className="login-form" onSubmit={formik.handleSubmit}>
         <TextField
           fullWidth
           sx={{ gridArea: "1 / 1 / span 1 / span 2" }}
-          id="username"
-          name="username"
+          id="playername"
+          name="playername"
           label="Username"
-          value={formik.values.username}
+          value={formik.values.playername}
           onChange={formik.handleChange}
-          error={formik.touched.username && Boolean(formik.errors.username)}
-          helperText={formik.touched.username && formik.errors.username}
+          error={formik.touched.playername && Boolean(formik.errors.playername)}
+          helperText={formik.touched.playername && formik.errors.playername}
         />
         <TextField
           fullWidth

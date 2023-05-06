@@ -2,7 +2,7 @@ import React from "react";
 
 const WorldDisplay = props => {
     return (
-      <div className="world-display-container">
+      <div className={props.displayType}>
         {props.children}
       </div>
     );

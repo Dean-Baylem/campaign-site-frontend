@@ -10,11 +10,11 @@ const Footer = () => {
             <NavLinks />
           </nav>
           <hr></hr>
-          <div className="footer-text">
+          <div className="page-body">
             <p>Dungeon Delvers Inc.</p>
           </div>
           <hr></hr>
-          <p>© 2023 Dean Baylem</p>
+          <p className="page-body">© 2023 Dean Baylem</p>
         </div>
       </footer>
     );
