@@ -1,6 +1,6 @@
 .title-banner-container {
     min-height: 20vh;
-    padding: 5% 0%;
+    padding: 0% 10vw 5% 10vw;
     text-align: center;
     color: #FFF;
     background-repeat: no-repeat;
@@ -16,74 +16,36 @@
     padding: 0% 20vw;
 }
 
-.roller-container {
-    text-align: center;
+.page-body-container {
+    min-height: 60vh;
 }
 
-.magical-orb-token img {
-    height: 20vh;
-    margin-bottom: 2%;
-    
+.custom-buttons button {
+    color: #000000;
+    border: #000000 1px solid;
 }
 
-.orb-animation {
-    animation-name: wibble;
-    animation-duration: 2s;
+.custom-buttons button:hover {
+    border: #000000 1px solid;
 }
 
-@keyframes wibble {
-    0% {transform: rotate(0deg);}
-    20% {transform: rotate(30deg); }
-    40% {transform: rotate(-30deg);}
-    60% {transform: rotate(30deg); }
-    80% {transform: rotate(-30deg);}
-    100% {transform: rotate(0deg);}
+
+@media screen and (max-width: 500px) {
+    .title-banner-container h1 {
+        font-size: 2rem;
+    }
+    .title-banner-container h5 {
+        display: none;
+    }
 }
 
-.result-box-clouded {
-    height: 5vh;
-    filter: blur(2rem);
-    background-color: #D8E3E7;
-    padding: 5%;
-    margin: 5% 15% 2% 15%;
-    border-radius: 50px;
-    transition: 500ms;
-}
 
-.result-box-clear {
-    height: 5vh;
-    filter: blur(0);
-    background-color: #00000000;
-    transition: 500ms;
-    padding: 5%;
-    margin: 5% 15% 2% 15%;
-}
 
-.custom-table {
-    width: 100%;
-}
 
-.custom-table-display-container {
-    margin: 2% 15%;
-}
 
-.custom-table-display-container table, td, th {
-    border-collapse: collapse;
-    border: 1px solid;
-}
 
-.die-entry {
-    text-align: center;
-    width: 10vw;
-}
 
-.desc-entry {
-    padding: 1% 2%;
-}
 
-.light-bg {
-    background-color: #f8ecd8;
-}
 
 
 

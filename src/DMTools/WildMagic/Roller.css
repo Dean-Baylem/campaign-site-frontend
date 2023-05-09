@@ -1,0 +1,70 @@
+.roller-container {
+    text-align: center;
+}
+
+.magical-orb-token {
+    margin: 0% 10vw;
+}
+
+.magical-orb-token img {
+    height: 20vh;
+    margin-bottom: 2%;
+    
+}
+
+.orb-animation {
+    animation-name: wibble;
+    animation-duration: 2s;
+}
+
+@keyframes wibble {
+    0% {transform: rotate(0deg);}
+    20% {transform: rotate(30deg); }
+    40% {transform: rotate(-30deg);}
+    60% {transform: rotate(30deg); }
+    80% {transform: rotate(-30deg);}
+    100% {transform: rotate(0deg);}
+}
+
+.result-box-clouded {
+    height: 5vh;
+    filter: blur(2rem);
+    background-color: #D8E3E7;
+    padding: 5%;
+    margin: 5% 15% 2% 15%;
+    border-radius: 50px;
+    transition: 500ms;
+}
+
+.result-box-clear {
+    height: 5vh;
+    filter: blur(0);
+    background-color: #00000000;
+    transition: 500ms;
+    padding: 5%;
+    margin: 5% 15% 2% 15%;
+    font-size: 1.5rem;
+}
+
+.result-box-clear p {
+    margin: 0;
+}
+
+.roll-button {
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 1rem;
+}
+
+@media screen and (max-width: 500px) {
+    .result-box-clear {
+        margin: 2rem 0;
+        font-size: 1rem;
+    }
+    .result-box-clouded {
+        margin: 2rem 0;
+    }
+    .magical-orb-token {
+        margin: 0% 10vw;
+    }
+}

@@ -26,3 +26,28 @@
     transform: translateY(-5px);
     transition: 300ms;
 }
+
+.select-button a {
+    text-decoration: none;
+    color: #2A2F4F;
+}
+
+.selection-container button:hover a {
+    color: #FDE2F3;
+}
+
+@media screen and (max-width: 500px) {
+    .selection-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    .selection-container img {
+        grid-area: 2 / 1 / span 1 / span 2;
+        justify-self: center;
+    }
+    .selection-container button {
+        margin: 0;
+        margin-bottom: 1rem;
+        justify-self: center;
+    }
+}

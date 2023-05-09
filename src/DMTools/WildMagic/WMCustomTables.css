@@ -11,12 +11,16 @@
 
 .custom-table-list-item {
     display: grid;
-    grid-template-columns: 5fr 1fr 1fr;
+    grid-template-columns: 5fr 1fr 1fr 1fr;
 }
 
 .table-name {
     font-size: 1.25rem;
     text-align: center;
+}
+
+.table-name-entry button {
+    margin: 1rem;
 }
 
 .custom-table-list-item button {
@@ -28,6 +32,60 @@
     font-size: 1rem;
 }
 
+.add-table-button {
+    list-style-type: none;
+}
+
+.add-button-container {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    column-gap: 1rem;
+    padding: 1rem;
+    background-color: #F6F1E9;
+}
+
+.add-table-button button{
+    height: 100%;
+    width: 100%;
+    color: #000000;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    border: 1px solid #000000;
+}
+
 .light-bg {
     background-color: #f8ecd8;
+}
+
+
+.option-buttons button {
+    margin: 1rem 1rem 1rem 0;
+}
+
+@media screen and (max-width: 820px) {
+    .custom-table-list {
+        margin: 0 5vw;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .custom-table-title h5 {
+        margin: 0;
+        padding: 1rem;
+        font-size: 1.2rem;
+    }
+    .custom-table-list {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    .table-name {
+        grid-area: 1 / 1 / span 1 / span 4;
+    }
+    .add-button-container {
+        grid-template-columns: 1fr;
+    }
+    .table-name-entry {
+        display: flex;
+        flex-direction: column-reverse;
+    }
 }
