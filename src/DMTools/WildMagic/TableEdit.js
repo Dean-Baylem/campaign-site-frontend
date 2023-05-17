@@ -45,7 +45,12 @@ const TableEdit = props => {
             <th className="desc-entry">Result</th>
           </tr>
           {props.wildMagicTable.list.map(({ die, result, id }, index) => (
-            <tr key={id} className={index % 2 === 0 ? "light-bg" : ""}>
+            <tr
+              key={id}
+              className={
+                index % 2 === 0 ? "light-bg" : ""
+              }
+            >
               <td
                 className="die-entry"
                 name={id}

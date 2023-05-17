@@ -1,13 +1,13 @@
 .transition-container-left {
     display: block;
-
+    width: 100%;
     transform: translateX(-500%);
     animation: slide-in-anim 600ms ease-out forwards;
 }
 
 .transition-container-right {
     display: block;
-
+    width: 100%;
     transform: translateX(500%);
     animation: slide-in-anim 600ms ease-out forwards;
 }

@@ -1,19 +1,19 @@
 import React, { useState, useEffect, useContext } from "react";
+import { AuthContext } from "../../shared/context/auth-context";
 import MainNavigation from "../../shared/navigation/MainNavigation";
 import Carousel from "../../shared/Components/UIComponents/Carousel";
 import HubNav from "../../shared/navigation/HubNav";
 import WorldDisplay from "../../shared/PlayerHubComponents/WorldDisplay";
 import WorldCard from "../../shared/Components/UIComponents/WorldCard";
 import CampaignCard from "../../shared/Components/UIComponents/CampaignCard";
-import { CSSTransition } from "react-transition-group";
-import Footer from "../../shared/Components/PageComponents/Footer";
-import { Button } from "@mui/material";
-import { AuthContext } from "../../shared/context/auth-context";
-import CreateNewCard from "../../shared/navigation/CreateNewCard";
-import { useHttpRequest } from "../../shared/hooks/request-hook";
-import SideCard from "../../shared/Components/UIComponents/SideCard";
-import "./PlayerHub.css";
 import ToolsContainer from "../components/ToolsContainer";
+import Footer from "../../shared/Components/PageComponents/Footer";
+import CreateNewCard from "../../shared/navigation/CreateNewCard";
+import { CSSTransition } from "react-transition-group";
+import { useHttpRequest } from "../../shared/hooks/request-hook";
+import "./PlayerHub.css";
+import wildMagicImg from "../../images/wildmagicexample.jpg";
+import magicItemImg from "../../images/magicItemDisplay.jpeg";
 
 const data = [
   {
@@ -36,18 +36,16 @@ const data = [
 
 const currentTools = [
   {
-    title: "Wild Magic Tables",
-    content: "Roll on the standard Wild Magic Table or customise up to 5 of your own Wild Magic Tables.",
-    imgSrc:
-      "https://fastly.picsum.photos/id/259/500/300.jpg?hmac=t3QXZeOjK_tKClaWxPcQTjWJJc5rPREMttsmg47Y4y8",
+    title: "Wild Magic Roller!",
+    content: "Roll on the standard Wild Magic Table or create and customise your own Wild Magic Tables.",
+    imgSrc: wildMagicImg,
     link: "/DMTools/wildmagictables",
   },
   {
     title: "Magic Item Generator",
     content:
       "An app to help decide what items to provide your party without searching through the source books first.",
-    imgSrc:
-      "https://fastly.picsum.photos/id/504/500/300.jpg?hmac=aPbmXP8tNnrHBoQ_VRM8vCPuU2btdLu5lRKBfssPZh4",
+    imgSrc: magicItemImg,
     link: "/DMTools/itemGenerator",
   },
   {
@@ -58,9 +56,9 @@ const currentTools = [
     link: "/DMTools/itemGenerator",
   },
   {
-    title: "Magic Item Generator",
+    title: "Gem Generator Generator",
     content:
-      "An app to help decide what items to provide your party without searching through the source books first.",
+      "An app to help with determining the value and quality of gems found in games based on party level.",
     imgSrc:
       "https://fastly.picsum.photos/id/504/500/300.jpg?hmac=aPbmXP8tNnrHBoQ_VRM8vCPuU2btdLu5lRKBfssPZh4",
     link: "/DMTools/itemGenerator",

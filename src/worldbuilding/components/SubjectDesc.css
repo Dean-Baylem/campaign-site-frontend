@@ -1,11 +1,18 @@
 .subject-desc-container {
     display: flex;
     flex-direction: column;
-    padding: 2%;
+    padding: 1rem 0;
+    margin-right: 10vw;
+    margin-left: 10vw;
+    text-align: left;
 }
 
 .subject-desc-container p {
     font-size: 1.2rem;
     line-height: 1.5;
     letter-spacing: 0.5px;
+}
+
+.subject-desc-container button {
+    width: fit-content;
 }

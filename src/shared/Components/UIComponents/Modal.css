@@ -1,0 +1,38 @@
+.modal {
+  z-index: 100;
+  position: fixed;
+  top: 35vh;
+  left: 30vw;
+  width: 40vw;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  border-radius: 8px;
+}
+
+.confirm-delete-modal {
+  text-align: center;
+}
+
+.modal-header {
+  padding: 0.25rem;
+  background-color: #F5F0BB;
+}
+
+.modal-header h5 {
+  margin: 0;
+  border-radius: 8px 8px 0 0;
+}
+
+.modal-body {
+  padding: 1rem;
+  height: 100%;
+}
+
+.modal-content {
+  padding-bottom: 1rem;
+}
+
+.modal-footer .custom-buttons {
+  display: flex;
+  justify-content: space-evenly;
+}

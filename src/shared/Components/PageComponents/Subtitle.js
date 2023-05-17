@@ -3,7 +3,7 @@ import "./Subtitle.css";
 
 const Subtitle = props => {
     return (
-      <div className="subtitle">
+      <div className={`${props.type}`}>
         <h2>{props.content}</h2>
       </div>
     );

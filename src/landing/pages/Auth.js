@@ -31,7 +31,7 @@ const Auth = props => {
             <CssBaseline />
             <div className="login-container">
               <div className="title-container">
-                <Subtitle content={tryLogin === true ? "Login" : "Signup"} />
+                <Subtitle type="login-subtitle" content={tryLogin === true ? "Login" : "Signup"} />
                 <p>Start Building</p>
               </div>
               <div className="login-option-container">

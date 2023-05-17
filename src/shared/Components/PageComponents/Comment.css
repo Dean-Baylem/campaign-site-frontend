@@ -1,0 +1,9 @@
+.comment-box {
+    position: relative;
+}
+
+.edit-delete-icons {
+    position: absolute;
+    top: 0;
+    right: 0;
+}

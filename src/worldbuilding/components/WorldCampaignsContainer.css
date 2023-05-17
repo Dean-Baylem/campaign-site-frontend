@@ -1,0 +1,18 @@
+.world-campaigns-container {
+    text-align: center;
+    background-color: #f8ecd8;
+    padding-bottom: 2rem;
+}
+
+.campaign-carousel {
+    margin: 0 10vw;
+}
+
+.campaign-carousel .side-card-container {
+    border: none;
+    box-shadow: none;
+}
+
+.slick-arrow {
+    filter:brightness(0.4);
+}

@@ -4,11 +4,9 @@ import "./SubjectDesc.css";
 
 const SubjectDesc = props => {
     return (
-      <div className="subject-desc-container">
+      <div className="page-body subject-desc-container custom-buttons-light">
         <p>{props.desc}</p>
-        {/* !! Note !! Change this button to the a plus icon !! Note !!*/}
-        {/* !! Note !! Change so only visible to the GM account for this world once auth backend set up! !! Note !! */}
-        <Button>(+)</Button>
+        <Button>Add Topic</Button>
       </div>
     );
 }

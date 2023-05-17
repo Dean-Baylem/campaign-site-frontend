@@ -29,7 +29,7 @@ const ToolsContainer = (props) => {
       </div>
       <div className="tool-card-display-container">
         {props.currentTools.map((tool, index) => (
-            <SideCard link={tool.link} clickable={true} imgSrc={tool.imgSrc} cardType="top-side">
+            <SideCard key={index} link={tool.link} clickable={true} imgSrc={tool.imgSrc} cardType="top-side">
               <h5 className="tool-card-title page-subtitle">{tool.title}</h5>
               <p className="tool-card-body page-body">{tool.content}</p>
             </SideCard>

@@ -15,7 +15,7 @@ const subjects = [
   },
   {
     cardType: "top",
-    content: "Religions",
+    content: "Religion",
     imgSrc:
       "https://img.freepik.com/free-vector/maya-square-set-with-civilization-culture-symbols-flat-isolated-vector-illustration_98292-3398.jpg?w=740&t=st=1680580352~exp=1680580952~hmac=c55d478820817e6b76a575c269b69575360db5fbb30ccc7b60b3c1786aae4bf6",
   },
@@ -27,7 +27,7 @@ const subjects = [
   },
   {
     cardType: "top",
-    content: "Conflicts",
+    content: "Conflict",
     imgSrc:
       "https://img.freepik.com/premium-photo/roguelike-video-game-flat-illustration_250484-3629.jpg?w=740",
   },
@@ -45,7 +45,7 @@ const subjects = [
   },
   {
     cardType: "top",
-    content: "Factions",
+    content: "Faction",
     imgSrc:
       "https://img.freepik.com/free-vector/set-fantasy-game-shields-isolated-background_107791-18097.jpg?w=740&t=st=1680580538~exp=1680581138~hmac=18ccd58f7874f352951ae485912fb7e727e95a8f576e1439db445540922a924b",
   },
@@ -65,7 +65,7 @@ const subjects = [
 
 const WorldSubjectContainer = props => {
     return (
-      <div className="world-subject-container">
+      <div className="world-subject-container page-title">
         {subjects.map((subject, index) => (
           <NavLink to={`/world/${props.worldID}/subject/${subject.content.toLowerCase()}`}>
             <ImageCard

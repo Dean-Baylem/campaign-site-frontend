@@ -2,8 +2,8 @@
     padding-top: 2%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    column-gap: 2%;
-    row-gap: 2%;
+    column-gap: 2rem;
+    row-gap: 2rem;
     text-align: center;
     margin: 2% 5%;
     padding-bottom: 2%;
@@ -13,13 +13,13 @@
 @media screen and (max-width: 1000px) {
     .world-subject-container {
         grid-template-columns: 1fr 1fr;
-        row-gap: 2%;
+        row-gap: 2rem;
     }
 }
 
 @media screen and (max-width: 650px) {
     .world-subject-container {
         grid-template-columns: 1fr;
-        row-gap: 2%;
+        row-gap: 2rem;
     }
 }

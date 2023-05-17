@@ -26,7 +26,7 @@
 .world-card-nav {
     display: grid;
     grid-template-columns: 1fr;
-    row-gap: 5%;
+    row-gap: 2rem;
 }
 
 .world-card-nav a {

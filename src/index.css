@@ -68,3 +68,32 @@ body {
 .letter-body-nobel {
   font-family: 'Alex Brush', cursive;
 }
+
+/* Reusable MUI custom button styling */
+.custom-buttons button {
+    color: #000000;
+    border: #000000 1px solid;
+}
+
+.custom-buttons button:hover {
+    border: #000000 1px solid;
+}
+
+.custom-buttons a {
+  text-decoration: none;
+  color: #000000;
+}
+
+.custom-buttons-light button {
+    color: #FFF;
+    border: #FFF 1px solid;
+}
+
+.custom-buttons-light button:hover {
+    border: #FFF 1px solid;
+}
+
+.custom-buttons-light a {
+  text-decoration: none;
+  color: #FFF;
+}

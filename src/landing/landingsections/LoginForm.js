@@ -61,7 +61,7 @@ const LoginForm = props => {
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
       <div>
-      {error && <p>Oops, there was a problem. Please try again!</p>}
+      {error && <p>{error}</p>}
         <form className="login-form" onSubmit={formik.handleSubmit}>
           <TextField
             fullWidth

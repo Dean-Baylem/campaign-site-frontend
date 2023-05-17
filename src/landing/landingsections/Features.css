@@ -10,7 +10,7 @@
 .highlight-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    column-gap: 2%;
+    column-gap: 2rem;
 }
 
 .card-box {

@@ -3,7 +3,7 @@ import "./MainTitle.css"
 
 const MainTitle = props => {
     return (
-      <div className="main-title">
+      <div className={`${props.titleType}`}>
         <h1>{props.content}</h1>
       </div>
     );

@@ -5,7 +5,7 @@ import "./WorldNav.css";
 
 const WorldNav = props => {
     return (
-      <div className="world-nav">
+      <div className="world-nav custom-buttons-light">
         <Button
           sx={{ margin: "0% 5%" }}
           onClick={props.handleSwitch}
@@ -13,7 +13,7 @@ const WorldNav = props => {
           variant="outlined"
         >
           <NavLink to={"/world/" + props.worldId + "/settings"}>
-            Settings
+            Add Campaign
           </NavLink>
         </Button>
         <Button
@@ -22,7 +22,7 @@ const WorldNav = props => {
           className="world-button"
           variant="outlined"
         >
-          Edit
+          Manage Events
         </Button>
       </div>
     );

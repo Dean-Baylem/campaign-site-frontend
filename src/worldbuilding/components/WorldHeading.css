@@ -1,32 +1,31 @@
 .world-title-container {
     text-align: center;
-    margin: 0% 15%;
+    color: #FFF;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 30vh;
 }
 
-.world-title * {
-    margin: 2%;
+.world-title-container .main-header {
+    padding: 0 10vw;
 }
 
 .world-title p {
-    font-family: 'Charm', cursive;
     margin-bottom: 0;
 }
 
 .world-title h2 {
-    font-family: 'Yatra One', cursive;
     font-size: 4.5rem;
     letter-spacing: 8px;
 }
 
 .world-title h5 {
-    font-family: 'Charm', cursive;
     font-weight: 400;
     font-size: 1.5rem;
     letter-spacing: 1px;
 }
 
 .world-title h3 {
-    font-family: 'Yatra One', cursive;
     font-size: 3rem;
     letter-spacing: 2px;
 }
