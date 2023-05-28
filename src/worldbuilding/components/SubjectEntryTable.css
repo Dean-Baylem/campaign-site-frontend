@@ -1,0 +1,50 @@
+.subject-entry-container {
+  margin: 5rem;
+}
+
+.subject-entry-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.subject-entry-table td {
+  border: none;
+}
+
+.subject-entry {
+  height: 10vh;
+  transition: 300ms;
+}
+
+
+.subject-entry:hover {
+  filter: brightness(0.9);
+  transition: 300ms;
+  cursor: pointer;
+}
+
+.table-text {
+  padding: 0 1rem;
+}
+
+.event-img {
+  text-align: center;
+}
+
+.event-img img {
+  height: 8vh;
+  width: 80%;
+  border-radius: 10px;
+}
+
+.img-heading {
+  width: 20vw;
+}
+
+.name-heading {
+  width: 25vw;
+}
+
+.records-heading {
+  width: 30vw;
+}

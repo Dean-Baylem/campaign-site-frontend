@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Table from "../../shared/Components/PageComponents/Table";
+import "./SubjectEntryTable.css"
+
+
 
 const SubjectEntryTable = (props) => {
   const tableTemplate = {
@@ -9,7 +12,6 @@ const SubjectEntryTable = (props) => {
       { text: "", style: "img-heading" },
       { text: "Name", style: "name-heading table-text" },
       { text: "Records", style: "records-heading table-text" },
-      { text: "", style: "edit-token-heading" },
     ],
     tableData: [
       {
@@ -22,6 +24,7 @@ const SubjectEntryTable = (props) => {
               "https://fastly.picsum.photos/id/736/600/400.jpg?hmac=zAKOwuTzcDBL4AZltOSkrukG_BvEkN7_u-sr14sJP7Y", // Needs to be the image stored.
             tag: "event-img",
             displayData: [],
+            indexValue: 0,
           },
           {
             style: "table-text page-body",
@@ -29,14 +32,15 @@ const SubjectEntryTable = (props) => {
             imgSrc: "",
             tag: "entry-name",
             displayData: [], // Needs to be name
+            indexValue: 0,
           },
           {
             style: "table-text page-body",
             hasImg: false,
             imgSrc: "",
             tag: "entry-descriptions",
-            displayData: [
-            ],
+            displayData: [],
+            indexValue: 0,
           },
           {
             style: "edit-icons",
@@ -44,21 +48,22 @@ const SubjectEntryTable = (props) => {
             token: true,
             imgSrc: "",
             tag: "event-token",
+            indexValue: 0, // Used to identify the row when clicked!
           },
         ],
       },
     ],
   };
 
-  const handleEdit = () => {
-    console.log("edit");
+  const [tableToDisplay, setTableToDisplay] = useState(tableTemplate);
+
+  const handleEdit = (index) => {
+    props.selectEntry(props.tableData[index.cells[1].indexValue]);
   };
 
   const handleDelete = () => {
     console.log("delete");
   };
-
-  const [tableToDisplay, setTableToDisplay] = useState(tableTemplate);
 
   useEffect(() => {
     const loadTable = async () => {
@@ -74,6 +79,7 @@ const SubjectEntryTable = (props) => {
                 "https://fastly.picsum.photos/id/736/600/400.jpg?hmac=zAKOwuTzcDBL4AZltOSkrukG_BvEkN7_u-sr14sJP7Y", // Needs to be the image stored.
               tag: "event-img",
               displayData: [],
+              indexValue: i,
             },
             {
               style: "table-text page-body",
@@ -81,6 +87,7 @@ const SubjectEntryTable = (props) => {
               imgSrc: "",
               tag: "entry-name",
               displayData: [props.tableData[i].subjectName], // Needs to be name
+              indexValue: i,
             },
             {
               style: "table-text page-body",
@@ -91,13 +98,6 @@ const SubjectEntryTable = (props) => {
                 (record, index) => record.recordTitle
               ),
             },
-            {
-              style: "edit-icons",
-              hasImg: false,
-              token: true,
-              imgSrc: "",
-              tag: "event-token",
-            },
           ],
         };
         allData.push(data);
@@ -107,14 +107,15 @@ const SubjectEntryTable = (props) => {
     loadTable();
   }, [props.tableData]);
 
-
   return (
-    // <div></div>
-    <Table
-      table={tableToDisplay}
-      handleDelete={handleDelete}
-      handleEdit={handleEdit}
-    />
+    <React.Fragment>
+      <Table
+        clickable={true}
+        table={tableToDisplay}
+        handleDelete={handleDelete}
+        handleEdit={handleEdit}
+      />
+    </React.Fragment>
   );
 };
 

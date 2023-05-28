@@ -1,0 +1,28 @@
+.subject-name {
+    text-align: center;
+}
+
+.subject-img {
+    text-align: center;
+}
+
+.subject-img img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.subject-desc {
+    margin: 0 10vw;
+}
+
+.subject-entry-container {
+    border-radius: 15px;
+    padding: 1rem;
+    margin: 2rem;
+}
+
+.subject-background {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+

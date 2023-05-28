@@ -1,0 +1,22 @@
+.table-heading {
+  height: 5vh;
+  border-bottom: 1px solid;
+  border-left: none;
+  border-right: none;
+  border-top: 0px;
+  background-color: #cbb279;
+  text-align: left;
+}
+
+.record-list {
+  list-style: none;
+  padding: 0;
+}
+
+.light-table {
+      background-color: #f8ecd8;
+}
+
+.dark-table {
+  background-color: #cbb279;
+}

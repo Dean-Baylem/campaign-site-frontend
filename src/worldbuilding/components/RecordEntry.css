@@ -1,0 +1,17 @@
+.records-container {
+    margin: 1rem 4rem;
+}
+
+.record-title { 
+    position: relative;
+}
+
+.record-entry hr {
+    margin: 0 10vw;
+    margin-top: 1rem;
+}
+
+.record-edit-form {
+    display: flex;
+    flex-direction: column;
+}

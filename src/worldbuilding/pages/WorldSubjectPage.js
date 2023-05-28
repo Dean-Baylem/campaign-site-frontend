@@ -6,8 +6,10 @@ import WorldHeading from "../components/WorldHeading";
 import SubjectDesc from "../components/SubjectDesc";
 import MainTitle from "../../shared/Components/PageComponents/MainTitle";
 import MainNavigation from "../../shared/navigation/MainNavigation";
-import "./WorldSubjectPage.css";
 import SubjectEntryTable from "../components/SubjectEntryTable";
+import SubjectEntry from "../components/SubjectEntry";
+import "./WorldSubjectPage.css";
+
 
 const WorldSubjectPage = (props) => {
   const subjects = [
@@ -107,15 +109,19 @@ const WorldSubjectPage = (props) => {
   ];
 
   const [loadingWorld, setLoadingWorld] = useState(true);
+  const [reload, setReload] = useState(true);
   const [tableData, setTableData] = useState([]);
   const { sendRequest } = useHttpRequest();
   const [selectedSubject, setSelectedSubject] = useState({});
+  const [selectedEntry, setSelectedEntry] = useState(false);
   const subjectType = useParams().subjectType;
   const worldId = useParams().worldId;
   const world = useContext(WorldContext);
 
+
   useEffect(() => {
     const fetchWorld = async () => {
+      if (reload) {
       try {
         const responseData = await sendRequest(
           `http://localhost:5000/worlds/getone/${worldId}`
@@ -124,24 +130,40 @@ const WorldSubjectPage = (props) => {
         setLoadingWorld(false);
       } catch (err) {
       }
+    }
     };
     const fetchSubjects = async () => {
+      if (reload) {
       try {
         const responseData = await sendRequest(
           `http://localhost:5000/worlds/getallsubjects/${subjectType}/${worldId}`
         );
         setTableData(responseData.subjects);
+        const newSelected = await responseData.subjects.filter(subject => subject._id === selectedEntry._id);
+        setSelectedEntry(newSelected[0]);
       } catch (err) {}
     }
+  }
     fetchWorld();
     fetchSubjects();
-  }, []);
+    setReload(false);
+  }, [reload]);
 
   useEffect(() => {
     setSelectedSubject(
       subjects.filter((subject) => subject.type === subjectType)[0]
     );
   }, [subjectType]);
+
+  // const updateEntry = async () => {
+
+  // }
+
+
+  const selectEntry = (data) => {
+  setSelectedEntry(data);
+  console.log(data);
+  }
 
   return (
     <div className="page-container">
@@ -158,7 +180,8 @@ const WorldSubjectPage = (props) => {
         </WorldHeading>
       )}
       <div className="subject-entry-container">
-        <SubjectEntryTable tableData={tableData}/>
+        <SubjectEntryTable tableData={tableData} selectEntry={selectEntry}/>
+        {selectedEntry && <SubjectEntry reload={setReload} data={selectedEntry}/>}
       </div>
     </div>
   );
