@@ -5,79 +5,28 @@ import { useFormik } from "formik";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 import "./RecordEntry.css";
+import RecordForm from "./RecordForm";
 
 const RecordEntry = (props) => {
   const [editable, setEditable] = useState(false);
-    const { sendRequest } = useHttpRequest();
-
-  const formik = useFormik({
-    initialValues: {
-      recordTitle: props.recordTitle,
-      recordDesc: props.recordDesc
-    },
-    onSubmit: async (values) => {
-      console.log(props.id)
-      try {
-        const data = await sendRequest(
-          `http://localhost:5000/worlds/updaterecord/${props.id}`,
-          "PATCH",
-          JSON.stringify({
-            recordTitle: values.recordTitle,
-            recordDesc: values.recordDesc
-          }),
-          {
-            "Content-Type": "application/json",
-          }
-        );
-        await props.reload(true);
-        setEditable(false);
-      } catch (err) {
-        console.log(err);
-      }
-    },
-  });
 
   return (
     <div className="record-entry">
       {editable ? (
-        <form onSubmit={formik.handleSubmit} className="record-edit-form">
-          <TextField
-            fullWidth
-            id="recordTitle"
-            name="recordTitle"
-            label="Title"
-            value={formik.values.recordTitle}
-            onChange={formik.handleChange}
-            error={
-              formik.touched.recordTitle && Boolean(formik.errors.recordTitle)
-            }
-            helperText={formik.touched.recordTitle && formik.errors.recordTitle}
-            variant="standard"
-          />
-          <TextField
-            fullWidth
-            id="recordDesc"
-            name="recordDesc"
-            label="Description"
-            value={formik.values.recordDesc}
-            onChange={formik.handleChange}
-            error={
-              formik.touched.recordDesc && Boolean(formik.errors.recordDesc)
-            }
-            helperText={formik.touched.recordDesc && formik.errors.recordDesc}
-            variant="standard"
-          />
-          <div className="custom-buttons">
-            <Button type="submit">Submit</Button>
-            <Button
+        <RecordForm 
+        formType="updaterecord"
+        recordTitle={props.recordTitle}
+        recordDesc={props.recordDesc}
+        routeId={props.id}
+        requestType="PATCH"
+        closeButton={<Button
               onClick={() => {
                 setEditable(false);
               }}
-            >
-              Cancel Changes
-            </Button>
-          </div>
-        </form>
+            >Cancel Changes</Button>}
+        reload={props.reload}
+        setEditable={setEditable}
+        ></RecordForm>
       ) : (
         <div>
           <div className="record-title page-subtitle">

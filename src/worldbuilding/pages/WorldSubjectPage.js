@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect, } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { WorldContext } from "../../shared/context/WorldContext";
 import { useHttpRequest } from "../../shared/hooks/request-hook";
@@ -8,8 +8,8 @@ import MainTitle from "../../shared/Components/PageComponents/MainTitle";
 import MainNavigation from "../../shared/navigation/MainNavigation";
 import SubjectEntryTable from "../components/SubjectEntryTable";
 import SubjectEntry from "../components/SubjectEntry";
+import { Button } from "@mui/material";
 import "./WorldSubjectPage.css";
-
 
 const WorldSubjectPage = (props) => {
   const subjects = [
@@ -69,81 +69,43 @@ const WorldSubjectPage = (props) => {
     },
   ];
 
-  const DUMMY_ENTRY = [
-    {
-      id: "entry1",
-      title: "Lorem ipsum dolor sit amet.",
-      desc: "Integer congue, tellus a luctus aliquam, ligula risus dignissim libero, sed tincidunt libero neque vel ante. Praesent laoreet est ac mauris sollicitudin, non scelerisque nibh vehicula. Cras sodales mi hendrerit arcu aliquam, sit amet malesuada risus vehicula. Donec molestie mattis justo. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Ut porta ultrices sapien sit amet eleifend. Vivamus volutpat auctor eros, et suscipit velit feugiat id.",
-      imgSrc:
-        "https://fastly.picsum.photos/id/736/600/400.jpg?hmac=zAKOwuTzcDBL4AZltOSkrukG_BvEkN7_u-sr14sJP7Y",
-      subjects: [
-        {title: "The adventure of Scotch",}, {title: "The event with the fairy"}, {title: "Rumble in the jungle"}
-      ]
-    },
-    {
-      id: "entry2",
-      title: "Proin nisi purus, egestas eu dui non.",
-      desc: "Aenean tempor, sem vitae porttitor placerat, velit tortor aliquet nulla, sit amet condimentum elit ex ut tortor. Pellentesque efficitur diam sed justo accumsan, sed ultrices velit luctus. Vestibulum augue magna, rhoncus quis lobortis ut, porta sed urna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam magna leo, porttitor ut leo non, porttitor facilisis sapien. Suspendisse est erat, dapibus quis urna at, aliquet eleifend nisl. Morbi consectetur, neque sit amet lacinia lobortis, quam eros maximus ipsum, in porttitor eros nibh elementum justo. Nulla convallis vestibulum lacus vel ultricies. Sed euismod rhoncus placerat. Phasellus venenatis purus ut aliquam ultricies.",
-      imgSrc:
-        "https://fastly.picsum.photos/id/736/600/400.jpg?hmac=zAKOwuTzcDBL4AZltOSkrukG_BvEkN7_u-sr14sJP7Y",
-      subjects: [
-        {title: "Showdown with The Fox"}
-      ]
-    },
-    {
-      id: "entry3",
-      title: "Proin nisi purus, egestas eu dui non.",
-      desc: "Aenean tempor, sem vitae porttitor placerat, velit tortor aliquet nulla, sit amet condimentum elit ex ut tortor. Pellentesque efficitur diam sed justo accumsan, sed ultrices velit luctus. Vestibulum augue magna, rhoncus quis lobortis ut, porta sed urna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam magna leo, porttitor ut leo non, porttitor facilisis sapien. Suspendisse est erat, dapibus quis urna at, aliquet eleifend nisl. Morbi consectetur, neque sit amet lacinia lobortis, quam eros maximus ipsum, in porttitor eros nibh elementum justo. Nulla convallis vestibulum lacus vel ultricies. Sed euismod rhoncus placerat. Phasellus venenatis purus ut aliquam ultricies.",
-      imgSrc:
-        "https://fastly.picsum.photos/id/736/600/400.jpg?hmac=zAKOwuTzcDBL4AZltOSkrukG_BvEkN7_u-sr14sJP7Y",
-      subjects: []
-    },
-    {
-      id: "entry4",
-      title: "Proin nisi purus, egestas eu dui non.",
-      desc: "Aenean tempor, sem vitae porttitor placerat, velit tortor aliquet nulla, sit amet condimentum elit ex ut tortor. Pellentesque efficitur diam sed justo accumsan, sed ultrices velit luctus. Vestibulum augue magna, rhoncus quis lobortis ut, porta sed urna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam magna leo, porttitor ut leo non, porttitor facilisis sapien. Suspendisse est erat, dapibus quis urna at, aliquet eleifend nisl. Morbi consectetur, neque sit amet lacinia lobortis, quam eros maximus ipsum, in porttitor eros nibh elementum justo. Nulla convallis vestibulum lacus vel ultricies. Sed euismod rhoncus placerat. Phasellus venenatis purus ut aliquam ultricies.",
-      imgSrc:
-        "https://fastly.picsum.photos/id/736/600/400.jpg?hmac=zAKOwuTzcDBL4AZltOSkrukG_BvEkN7_u-sr14sJP7Y",
-      subjects: [{title: "Way of the fayth"}, {title: "Dreams of Zanarkand"}]
-    },
-  ];
-
   const [loadingWorld, setLoadingWorld] = useState(true);
   const [reload, setReload] = useState(true);
   const [tableData, setTableData] = useState([]);
   const { sendRequest } = useHttpRequest();
   const [selectedSubject, setSelectedSubject] = useState({});
   const [selectedEntry, setSelectedEntry] = useState(false);
+  const [showTable, setShowTable] = useState(true);
   const subjectType = useParams().subjectType;
   const worldId = useParams().worldId;
   const world = useContext(WorldContext);
 
-
   useEffect(() => {
     const fetchWorld = async () => {
       if (reload) {
-      try {
-        const responseData = await sendRequest(
-          `http://localhost:5000/worlds/getone/${worldId}`
-        );
-        world.changeWorld(responseData.world);
-        setLoadingWorld(false);
-      } catch (err) {
+        try {
+          const responseData = await sendRequest(
+            `http://localhost:5000/worlds/getone/${worldId}`
+          );
+          world.changeWorld(responseData.world);
+          setLoadingWorld(false);
+        } catch (err) {}
       }
-    }
     };
     const fetchSubjects = async () => {
       if (reload) {
-      try {
-        const responseData = await sendRequest(
-          `http://localhost:5000/worlds/getallsubjects/${subjectType}/${worldId}`
-        );
-        setTableData(responseData.subjects);
-        const newSelected = await responseData.subjects.filter(subject => subject._id === selectedEntry._id);
-        setSelectedEntry(newSelected[0]);
-      } catch (err) {}
-    }
-  }
+        try {
+          const responseData = await sendRequest(
+            `http://localhost:5000/worlds/getallsubjects/${subjectType}/${worldId}`
+          );
+          setTableData(responseData.subjects);
+          const newSelected = await responseData.subjects.filter(
+            (subject) => subject._id === selectedEntry._id
+          );
+          setSelectedEntry(newSelected[0]);
+        } catch (err) {}
+      }
+    };
     fetchWorld();
     fetchSubjects();
     setReload(false);
@@ -155,15 +117,15 @@ const WorldSubjectPage = (props) => {
     );
   }, [subjectType]);
 
-  // const updateEntry = async () => {
-
-  // }
-
-
   const selectEntry = (data) => {
-  setSelectedEntry(data);
-  console.log(data);
-  }
+    setSelectedEntry(data);
+    setShowTable(false);
+  };
+
+  const resetDisplay = () => {
+    setSelectedEntry();
+    setShowTable(true);
+  };
 
   return (
     <div className="page-container">
@@ -180,8 +142,19 @@ const WorldSubjectPage = (props) => {
         </WorldHeading>
       )}
       <div className="subject-entry-container">
-        <SubjectEntryTable tableData={tableData} selectEntry={selectEntry}/>
-        {selectedEntry && <SubjectEntry reload={setReload} data={selectedEntry}/>}
+        {showTable && (
+          <SubjectEntryTable tableData={tableData} selectEntry={selectEntry} />
+        )}
+        {selectedEntry && (
+          <SubjectEntry
+            resetDisplay={resetDisplay}
+            reload={setReload}
+            data={selectedEntry}
+          />
+        )}
+        <div className="custom-buttons">
+          {showTable && <Button>Add New Topic</Button>}
+        </div>
       </div>
     </div>
   );
