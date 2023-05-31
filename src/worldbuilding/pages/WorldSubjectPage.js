@@ -10,6 +10,8 @@ import SubjectEntryTable from "../components/SubjectEntryTable";
 import SubjectEntry from "../components/SubjectEntry";
 import { Button } from "@mui/material";
 import "./WorldSubjectPage.css";
+import Modal from "../../shared/Components/UIComponents/Modal";
+import SubjectForm from "../components/SubjectForm";
 
 const WorldSubjectPage = (props) => {
   const subjects = [
@@ -70,6 +72,7 @@ const WorldSubjectPage = (props) => {
   ];
 
   const [loadingWorld, setLoadingWorld] = useState(true);
+  const [showTopicModal, setShowTopicModal] = useState(false);
   const [reload, setReload] = useState(true);
   const [tableData, setTableData] = useState([]);
   const { sendRequest } = useHttpRequest();
@@ -127,8 +130,23 @@ const WorldSubjectPage = (props) => {
     setShowTable(true);
   };
 
+  const handleTopicModalToggle = () => {setShowTopicModal(!showTopicModal)};
+
   return (
     <div className="page-container">
+      {showTopicModal && (
+        <Modal>
+          <SubjectForm
+            formType="createsubject"
+            worldId={worldId}
+            requestType="POST"
+            subjectType={subjectType}
+            reload={setReload}
+            setEditable={handleTopicModalToggle}
+            closeButton={<Button onClick={handleTopicModalToggle}>Cancel</Button>}
+          />
+        </Modal>
+      )}
       {!loadingWorld && (
         <WorldHeading campaignBanner={selectedSubject.img}>
           <MainNavigation clear={true} />
@@ -153,7 +171,9 @@ const WorldSubjectPage = (props) => {
           />
         )}
         <div className="custom-buttons">
-          {showTable && <Button>Add New Topic</Button>}
+          {showTable && (
+            <Button onClick={handleTopicModalToggle}>Add New Topic</Button>
+          )}
         </div>
       </div>
     </div>
