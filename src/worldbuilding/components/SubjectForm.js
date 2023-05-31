@@ -13,9 +13,10 @@ const SubjectForm = (props) => {
       subjectDesc: props.subjectDesc || "",
     },
     onSubmit: async (values) => {
+      console.log(props.routeId)
       try {
         const data = await sendRequest(
-          `http://localhost:5000/worlds/${props.formType}/${props.worldId}`,
+          `http://localhost:5000/worlds/${props.formType}/${props.routeId}`,
           props.requestType,
           JSON.stringify({
             subjectType: props.subjectType,

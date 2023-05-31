@@ -1,18 +1,28 @@
 import React, { useState } from "react";
-import "./SubjectEntry.css";
 import RecordEntry from "./RecordEntry";
 import Modal from "../../shared/Components/UIComponents/Modal";
-import { Button, TextField } from "@mui/material";
+import { Button } from "@mui/material";
 import DeleteModal from "../../shared/Components/UIComponents/DeleteModal";
 import RecordForm from "./RecordForm";
+import SubjectForm from "./SubjectForm";
+import "./SubjectEntry.css";
 
 const SubjectEntry = (props) => {
-
   const [showNewModal, setShowNewModal] = useState(false);
+  const [editTopic, setEditTopic] = useState(false);
+  const [deleteConfirmation, setDeleteConfirmation] = useState(false);
 
   const newModalToggle = () => {
     setShowNewModal(!showNewModal);
-  }
+  };
+
+  const editTopicToggle = () => {
+    setEditTopic(!editTopic);
+  };
+
+  const deleteTopicToggle = () => {
+    setDeleteConfirmation(!deleteConfirmation);
+  };
 
   return (
     <React.Fragment>
@@ -30,6 +40,31 @@ const SubjectEntry = (props) => {
           </div>
         </Modal>
       )}
+      {editTopic && (
+        <Modal>
+          <SubjectForm
+            formType="updatesubject"
+            routeId={props.data._id}
+            requestType="PATCH"
+            subjectType=""
+            reload={props.reload}
+            setEditable={editTopicToggle}
+            closeButton={<Button onClick={editTopicToggle}>Cancel</Button>}
+            subjectName={props.data.subjectName}
+            subjectDesc={props.data.subjectDesc}
+          />
+        </Modal>
+      )}
+      {deleteConfirmation && (
+        <Modal>
+          <DeleteModal
+            url={`http://localhost:5000/worlds/deletesubject/${props.data._id}`}
+            reload={props.reload}
+            modalToggle={deleteTopicToggle}
+            resetDisplay={props.resetDisplay}
+          />
+        </Modal>
+      )}
       <div className="subject-entry-container light-bg">
         <div className="subject-background">
           <div className="subject-name">
@@ -37,6 +72,8 @@ const SubjectEntry = (props) => {
             <p className="page-body">{props.data.subjectDesc}</p>
             <div className="add-entry-button custom-buttons">
               <Button onClick={newModalToggle}>Add New Entry</Button>
+              <Button onClick={editTopicToggle}>Edit</Button>
+              <Button onClick={deleteTopicToggle}>Delete</Button>
             </div>
           </div>
           <div className="subject-img">

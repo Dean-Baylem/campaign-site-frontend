@@ -14,6 +14,9 @@ const DeleteModal = props => {
             );
             props.modalToggle();
             await props.reload(true);
+            if (props.resetDisplay) {
+              await props.resetDisplay()
+            }
         } catch (err) {}
       }
 

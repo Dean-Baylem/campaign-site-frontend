@@ -138,12 +138,14 @@ const WorldSubjectPage = (props) => {
         <Modal>
           <SubjectForm
             formType="createsubject"
-            worldId={worldId}
+            routeId={worldId}
             requestType="POST"
             subjectType={subjectType}
             reload={setReload}
             setEditable={handleTopicModalToggle}
-            closeButton={<Button onClick={handleTopicModalToggle}>Cancel</Button>}
+            closeButton={
+              <Button onClick={handleTopicModalToggle}>Cancel</Button>
+            }
           />
         </Modal>
       )}
