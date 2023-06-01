@@ -72,13 +72,16 @@ const Comment = (props) => {
                   error={formik.touched.body && Boolean(formik.errors.email)}
                   helperText={formik.touched.body && formik.errors.body}
                 />
-                <Button
-                  sx={{ marginTop: "1rem" }}
-                  variant="outlined"
-                  type="submit"
-                >
-                  Save changes
-                </Button>
+                <div className="button-list">
+                  <Button type="submit">Save changes</Button>
+                  <Button
+                    onClick={() => {
+                      setEditComment(false);
+                    }}
+                  >
+                    Cancel Changes
+                  </Button>
+                </div>
               </form>
             )}
           </div>

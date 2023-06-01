@@ -27,7 +27,8 @@ const SubjectEntry = (props) => {
   return (
     <React.Fragment>
       {showNewModal && (
-        <Modal>
+        <Modal
+        modalHeader="Create New World Entry">
           <div className="new-entry-form-container">
             <RecordForm
               formType="createrecord"
@@ -41,7 +42,7 @@ const SubjectEntry = (props) => {
         </Modal>
       )}
       {editTopic && (
-        <Modal>
+        <Modal modalHeader="Edit World Entry">
           <SubjectForm
             formType="updatesubject"
             routeId={props.data._id}
@@ -56,7 +57,7 @@ const SubjectEntry = (props) => {
         </Modal>
       )}
       {deleteConfirmation && (
-        <Modal>
+        <Modal modalHeader="Confirm World Entry Deletion">
           <DeleteModal
             url={`http://localhost:5000/worlds/deletesubject/${props.data._id}`}
             reload={props.reload}
@@ -70,7 +71,7 @@ const SubjectEntry = (props) => {
           <div className="subject-name">
             <h2 className="page-subtitle">{props.data.subjectName}</h2>
             <p className="page-body">{props.data.subjectDesc}</p>
-            <div className="add-entry-button custom-buttons">
+            <div className="button-list custom-buttons">
               <Button onClick={newModalToggle}>Add New Entry</Button>
               <Button onClick={editTopicToggle}>Edit</Button>
               <Button onClick={deleteTopicToggle}>Delete</Button>

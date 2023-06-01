@@ -20,7 +20,7 @@ const RecordEntry = (props) => {
   return (
     <React.Fragment>
       {showModal && (
-        <Modal>
+        <Modal modalHeader="Delete Record?">
           <DeleteModal
             url={`http://localhost:5000/worlds/deleterecord/${props.id}`}
             reload={props.reload}

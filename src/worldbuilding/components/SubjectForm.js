@@ -44,7 +44,7 @@ const SubjectForm = (props) => {
 
   return (
     <div className="subject-form-container">
-      <form onSubmit={formik.handleSubmit} className="subject-form">
+      <form onSubmit={formik.handleSubmit} className="record-form">
         <TextField
           fullWidth
           id="subjectName"
@@ -71,7 +71,7 @@ const SubjectForm = (props) => {
           helperText={formik.touched.subjectDesc && formik.errors.subjectDesc}
           variant="standard"
         />
-        <div className="custom-buttons">
+        <div className="custom-buttons button-list">
           <Button type="submit">Submit</Button>
           {props.closeButton}
         </div>

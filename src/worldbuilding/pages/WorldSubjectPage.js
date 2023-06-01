@@ -1,5 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
+import { SwitchTransition, CSSTransition } from "react-transition-group";
 import { WorldContext } from "../../shared/context/WorldContext";
 import { useHttpRequest } from "../../shared/hooks/request-hook";
 import WorldHeading from "../components/WorldHeading";
@@ -8,7 +9,7 @@ import MainTitle from "../../shared/Components/PageComponents/MainTitle";
 import MainNavigation from "../../shared/navigation/MainNavigation";
 import SubjectEntryTable from "../components/SubjectEntryTable";
 import SubjectEntry from "../components/SubjectEntry";
-import { Button } from "@mui/material";
+import { Button, CircularProgress } from "@mui/material";
 import "./WorldSubjectPage.css";
 import Modal from "../../shared/Components/UIComponents/Modal";
 import SubjectForm from "../components/SubjectForm";
@@ -101,6 +102,7 @@ const WorldSubjectPage = (props) => {
           const responseData = await sendRequest(
             `http://localhost:5000/worlds/getallsubjects/${subjectType}/${worldId}`
           );
+          console.log(responseData);
           setTableData(responseData.subjects);
           const newSelected = await responseData.subjects.filter(
             (subject) => subject._id === selectedEntry._id
@@ -130,12 +132,19 @@ const WorldSubjectPage = (props) => {
     setShowTable(true);
   };
 
-  const handleTopicModalToggle = () => {setShowTopicModal(!showTopicModal)};
+  const handleTopicModalToggle = () => {
+    setShowTopicModal(!showTopicModal);
+  };
 
   return (
     <div className="page-container">
+      {loadingWorld && (
+        <div className="page-loading">
+          <CircularProgress sx={{ width: "250px", height: "250px" }} />
+        </div>
+      )}
       {showTopicModal && (
-        <Modal>
+        <Modal modalHeader="Create New World Subject Topic">
           <SubjectForm
             formType="createsubject"
             routeId={worldId}
@@ -150,34 +159,71 @@ const WorldSubjectPage = (props) => {
         </Modal>
       )}
       {!loadingWorld && (
-        <WorldHeading campaignBanner={selectedSubject.img}>
-          <MainNavigation clear={true} />
-          <MainTitle
-            titleType="page-title main-title"
-            content={
-              selectedSubject.name + " In " + world.currentWorld.worldName
-            }
-          />
-          <SubjectDesc desc={selectedSubject.desc} />
-        </WorldHeading>
+        <React.Fragment>
+          <WorldHeading campaignBanner={selectedSubject.img}>
+            <MainNavigation clear={true} />
+            <MainTitle
+              titleType="page-title main-title"
+              content={
+                selectedSubject.name + " In " + world.currentWorld.worldName
+              }
+            />
+            <SubjectDesc desc={selectedSubject.desc} />
+          </WorldHeading>
+          <div className="subject-entry-container">
+            <SwitchTransition>
+              <CSSTransition
+                key={showTable ? "table" : "entries"}
+                timeout={250}
+                unmountOnExit
+                mountOnEnter
+                classNames="fade"
+              >
+                {showTable ? (
+                  <div>
+                    <div className="button-list subject-buttons">
+                      <div className="custom-contained">
+                        <Button
+                          variant="contained"
+                          onClick={handleTopicModalToggle}
+                        >
+                          Add New Topic
+                        </Button>
+                      </div>
+                      <NavLink
+                        className="custom-buttons"
+                        to={`/world/${world.currentWorld.id}`}
+                      >
+                        <Button onClick={handleTopicModalToggle}>
+                          Return to World
+                        </Button>
+                      </NavLink>
+                    </div>
+                    {tableData.length === 0 ? (
+                      <div className="page-body">
+                        <p>No {selectedSubject.name} found for this world. Use the buttons above to start worldbuilding now!</p>
+                      </div>
+                    ) : (
+                      <SubjectEntryTable
+                        tableData={tableData}
+                        selectEntry={selectEntry}
+                      />
+                    )}
+                  </div>
+                ) : (
+                  selectedEntry && (
+                    <SubjectEntry
+                      resetDisplay={resetDisplay}
+                      reload={setReload}
+                      data={selectedEntry}
+                    />
+                  )
+                )}
+              </CSSTransition>
+            </SwitchTransition>
+          </div>
+        </React.Fragment>
       )}
-      <div className="subject-entry-container">
-        {showTable && (
-          <SubjectEntryTable tableData={tableData} selectEntry={selectEntry} />
-        )}
-        {selectedEntry && (
-          <SubjectEntry
-            resetDisplay={resetDisplay}
-            reload={setReload}
-            data={selectedEntry}
-          />
-        )}
-        <div className="custom-buttons">
-          {showTable && (
-            <Button onClick={handleTopicModalToggle}>Add New Topic</Button>
-          )}
-        </div>
-      </div>
     </div>
   );
 };

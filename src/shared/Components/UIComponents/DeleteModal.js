@@ -22,8 +22,8 @@ const DeleteModal = props => {
 
     return (
       <div className="delete-modal-container">
-        <p>Are you sure you wish to delete the comment?</p>
-        <div className="custom-buttons">
+        <p>Are you sure you wish to delete this?</p>
+        <div className="custom-buttons button-list">
           <Button onClick={handleDelete} variant="outlined">
             Delete
           </Button>

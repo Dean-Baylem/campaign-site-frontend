@@ -2,7 +2,7 @@ import React from "react";
 import { useHttpRequest } from "../../shared/hooks/request-hook";
 import { useFormik } from "formik";
 import { TextField, Button } from "@mui/material";
-import "./NewEntryForm.css";
+import "./RecordForm.css";
 
 const RecordForm = (props) => {
   const { sendRequest, error } = useHttpRequest();
@@ -38,8 +38,8 @@ const RecordForm = (props) => {
   });
 
   return (
-    <div className="new-entry-form-container">
-      <form onSubmit={formik.handleSubmit} className="new-entry-form">
+    <div className="record-container">
+      <form onSubmit={formik.handleSubmit} className="record-form">
         <TextField
           fullWidth
           id="recordTitle"
@@ -64,7 +64,7 @@ const RecordForm = (props) => {
           helperText={formik.touched.recordDesc && formik.errors.recordDesc}
           variant="standard"
         />
-        <div className="custom-buttons">
+        <div className="custom-buttons button-list">
           <Button type="submit">Submit</Button>
           {props.closeButton}
         </div>
