@@ -26,7 +26,7 @@ const ChatBox = (props) => {
   const handleDeleteComment = async () => {
     try {
       await sendRequest(
-        `http://localhost:5000/comment/delete/${commentToDelete}`,
+        process.env.REACT_APP_REQUEST_URL + `/comment/delete/${commentToDelete}`,
         "DELETE"
       );
       handleModalCollapse();

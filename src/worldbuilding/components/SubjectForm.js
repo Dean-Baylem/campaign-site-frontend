@@ -13,10 +13,9 @@ const SubjectForm = (props) => {
       subjectDesc: props.subjectDesc || "",
     },
     onSubmit: async (values) => {
-      console.log(props.routeId)
       try {
-        const data = await sendRequest(
-          `http://localhost:5000/worlds/${props.formType}/${props.routeId}`,
+        await sendRequest(
+          process.env.REACT_APP_REQUEST_URL + `/worlds/${props.formType}/${props.routeId}`,
           props.requestType,
           JSON.stringify({
             subjectType: props.subjectType,
@@ -29,9 +28,7 @@ const SubjectForm = (props) => {
             "Content-Type": "application/json",
           }
         );
-        console.log(data);
       } catch (err) {
-        console.log(err);
       }
       if (props.reload) {
         await props.reload(true);

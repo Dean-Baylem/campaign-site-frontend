@@ -1,7 +1,12 @@
 .page-container {
     display: flex;
     flex-direction: column;
-    min-height: 85vh
+    min-height: 85vh;
+}
+
+.hub-container {
+    margin: 0 10vw;
+    padding-top: 5%;
 }
 
 .hub-body-container {

@@ -5,7 +5,7 @@ import { TextField, Button } from "@mui/material";
 import "./RecordForm.css";
 
 const RecordForm = (props) => {
-  const { sendRequest, error } = useHttpRequest();
+  const { sendRequest } = useHttpRequest();
 
   const formik = useFormik({
     initialValues: {
@@ -14,8 +14,8 @@ const RecordForm = (props) => {
     },
     onSubmit: async (values) => {
       try {
-        const data = await sendRequest(
-          `http://localhost:5000/worlds/${props.formType}/${props.routeId}`,
+        await sendRequest(
+          process.env.REACT_APP_REQUEST_URL + `/worlds/${props.formType}/${props.routeId}`,
           props.requestType,
           JSON.stringify({
             recordTitle: values.recordTitle,
@@ -26,7 +26,6 @@ const RecordForm = (props) => {
           }
         );
       } catch (err) {
-        console.log(err);
       }
       if (props.reload) {
         await props.reload(true);

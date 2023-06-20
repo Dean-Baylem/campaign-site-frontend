@@ -24,12 +24,11 @@ const WorldCampaignsContainer = props => {
           {worldManager.currentWorld.campaigns && (
             <Slider {...settings}>
               {worldManager.currentWorld.campaigns.map((campaign, index) => (
-                <div>
+                <div key={index}>
                   <SideCard
                     link={"/"}
                     clickable={true}
                     imgSrc="https://img.freepik.com/free-vector/magic-forest-with-round-stone-altar-night_107791-12862.jpg?w=740&t=st=1683679846~exp=1683680446~hmac=a6b5d4640e8e264b62095fbf9d3e84fbd107da8a36dc675d0c52ac391169e607"
-                    key={index}
                     cardType="top-side"
                   >
                     <p>{campaign.campaignName}</p>

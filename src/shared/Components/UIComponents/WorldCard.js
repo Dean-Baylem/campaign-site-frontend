@@ -19,18 +19,11 @@ const WorldCard = props => {
         </div>
         <div className="world-card-nav">
           <Button
-            sx={{ margin: "0% 20%" }}
+            sx={{ margin: "0% 25%" }}
             className="dark-button"
             variant="outlined"
           >
             <NavLink to={`/world/${props.worldId}`}>View World</NavLink>
-          </Button>
-          <Button
-            sx={{ margin: "0% 20%" }}
-            className="dark-button"
-            variant="outlined"
-          >
-            <NavLink>Continue Building</NavLink>
           </Button>
         </div>
       </div>

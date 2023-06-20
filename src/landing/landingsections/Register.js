@@ -48,10 +48,9 @@ const Registration = (props) => {
             "Content-Type": "application/json",
           }
         );
-        auth.login(responseData.player.id);
+        auth.login(responseData.playerId, responseData.token);
         navigate("/");
       } catch (err) {
-        console.log("There was an error!");
       }
     },
   });

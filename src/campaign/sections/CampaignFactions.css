@@ -1,0 +1,23 @@
+.factions-heading {
+    margin: 0 5rem;
+}
+
+.faction-example-container {
+    display: flex;
+    column-gap: 2rem;
+    margin: 1rem 5rem;
+}
+
+.faction-example-container img {
+    max-width: 20vw;
+}
+
+.faction-carousel { 
+    text-align: center;
+    margin: 5vh 20vw;
+}
+
+.faction-carousel-item .side-card-container {
+    box-shadow: none;
+}
+

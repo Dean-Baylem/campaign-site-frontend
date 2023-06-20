@@ -9,6 +9,7 @@ import ItemGenFooter from "../Components/ItemGenFooter";
 import { useHttpRequest } from "../../../shared/hooks/request-hook";
 import "./ItemGen.css";
 import Footer from "../../../shared/Components/PageComponents/Footer";
+import ErrorModal from "../../../shared/Components/UIComponents/ErrorModal";
 
 
 const ItemGen = (props) => {
@@ -16,7 +17,7 @@ const ItemGen = (props) => {
   const [numItems, setNumItems] = useState(0);
   const [maxAlert, setMaxAlert] = useState(false);
   const [itemList, setItemList] = useState([]);
-  const { error, sendRequest} = useHttpRequest();
+  const { error, sendRequest, clearError} = useHttpRequest();
 
   
   const createDefaultItem = () => {
@@ -101,13 +102,13 @@ const ItemGen = (props) => {
       };
       updateItem();
     } catch (err) {
-      console.log(err);
     }
   }
 
   return (
     <React.Fragment>
-      <div className="tools-body">
+    {error && <ErrorModal modalToggle={clearError} error={error}/>}
+      {!error && (<div className="tools-body">
         <MainNavigation clear={true}/>
         <div className="item-gen-body" style={{ minHeight: "80vh" }}>
           <div className="item-gen-container">
@@ -134,7 +135,7 @@ const ItemGen = (props) => {
           </div>
         </div>
         <Footer />
-      </div>
+      </div>)}
     </React.Fragment>
   );
 };

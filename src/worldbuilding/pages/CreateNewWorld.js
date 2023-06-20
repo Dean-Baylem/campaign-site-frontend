@@ -30,7 +30,7 @@ const CreateNewWorld = (props) => {
       onSubmit: async (values) => {
         try {
           const responseData = await sendRequest(
-            `http://localhost:5000/worlds/${auth.playerId}/createworld`,
+            process.env.REACT_APP_REQUEST_URL + `/worlds/${auth.playerId}/createworld`,
             "POST",
             JSON.stringify({
               worldName: values.worldname,
@@ -40,13 +40,9 @@ const CreateNewWorld = (props) => {
               "Content-Type": "application/json",
             }
           );
-          console.log(responseData.world.id)
-          console.log(responseData);
           let id = await responseData.world.id;
           navigate(`/world/${id}`)
         } catch (err) {
-          console.log(err);
-          console.log("Oh no! There was an error!");
         }
       },
     });

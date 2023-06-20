@@ -61,9 +61,6 @@ const SubjectEntryTable = (props) => {
     props.selectEntry(props.tableData[index.cells[1].indexValue]);
   };
 
-  const handleDelete = () => {
-    console.log("delete");
-  };
 
   useEffect(() => {
     const loadTable = async () => {
@@ -112,7 +109,6 @@ const SubjectEntryTable = (props) => {
       <Table
         clickable={true}
         table={tableToDisplay}
-        handleDelete={handleDelete}
         handleEdit={handleEdit}
       />
     </React.Fragment>

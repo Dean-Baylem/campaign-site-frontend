@@ -46,13 +46,12 @@ const LoginForm = props => {
             password: values.password,
           }),
           {
-            "Content-Type": "application/json",
+            "Content-Type": "application/json", "Authorization": `Bearer ${auth.playerId}`
           }
         );
-        auth.login(responseData.player._id);
+        auth.login(responseData.playerId, responseData.token);
         navigate("/");
       } catch (err) {
-        console.log(err);
       }
     },
   });

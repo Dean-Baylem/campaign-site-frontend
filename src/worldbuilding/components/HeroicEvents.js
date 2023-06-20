@@ -1,43 +1,66 @@
-import React, {useContext, useState, useEffect} from "react";
+import React, { useContext, useState, useEffect } from "react";
+import Modal from "../../shared/Components/UIComponents/Modal";
+import { Button } from "@mui/material";
 import { useParams } from "react-router-dom";
 import { WorldContext } from "../../shared/context/WorldContext";
 import { useHttpRequest } from "../../shared/hooks/request-hook";
 import SlideIn from "../../shared/Components/PageComponents/SlideIn";
-
+import EventSelector from "./EventSelector";
+import ErrorDisplay from "../../shared/Components/PageComponents/ErrorDisplay";
 
 const HeroicEvents = () => {
   const { sendRequest } = useHttpRequest();
   const worldManager = useContext(WorldContext);
   const worldId = useParams().worldId;
   const [heroicEvents, setHeroicEvents] = useState([]);
+  const [loadEvents, setLoadEvents] = useState(true);
+  const [showEventModal, setShowEventModal] = useState(false);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     const fetchHeroicEvents = async () => {
       try {
         const responseData = await sendRequest(
-          `http://localhost:5000/campaign/events/getheroicbyworldid/${worldId}`
+          process.env.REACT_APP_REQUEST_URL + `/campaign/events/getheroicbyworldid/${worldId}`
         );
-        console.log(responseData.heroicEvents);
         setHeroicEvents(responseData.heroicEvents);
+        setError(false);
       } catch (err) {
-        console.log(err);
+        setError(true);
       }
+      setLoadEvents(false);
     };
-    fetchHeroicEvents();
-  }, []);
+    if (loadEvents === true) {
+      fetchHeroicEvents();
+    }
+  }, [loadEvents, worldId]);
 
-    const battleImg =
-      "https://cdn-icons-png.flaticon.com/512/1043/1043547.png?w=900&t=st=1683941548~exp=1683942148~hmac=a22bd33d3952cc12c0d357b965ff32690626709f17679c93d7874437991aa6ae";
-    const socialImg =
-      "https://cdn-icons-png.flaticon.com/512/1253/1253339.png?w=900&t=st=1683941577~exp=1683942177~hmac=bfc4ab12eef6f6a0d9558a18ea83a4b5e2cc68f425417c33e8a54fb0deaea1b9";
-    const explortationImg =
-      "https://cdn-icons-png.flaticon.com/512/784/784384.png?w=900&t=st=1683941659~exp=1683942259~hmac=b518bf21b571805ae10d9541ae049518739651d8a87e31d607d5e05f6812d86a";
-    const discoverImg =
-      "https://cdn-icons-png.flaticon.com/512/1021/1021357.png?w=900&t=st=1683941647~exp=1683942247~hmac=c8465ecf3aa747ee4d91838715806c32d3e61cfc7b497a7ee2ba93decd038ffc";
-    const mishapImg =
-      "https://cdn-icons-png.flaticon.com/512/1150/1150175.png?w=900&t=st=1683941684~exp=1683942284~hmac=d8482121c5ad3e5616dd61ba95e612dbcca0d4c0cb4d18d45db494b3b5f9c27d";
+  const battleImg =
+    "https://cdn-icons-png.flaticon.com/512/1043/1043547.png?w=900&t=st=1683941548~exp=1683942148~hmac=a22bd33d3952cc12c0d357b965ff32690626709f17679c93d7874437991aa6ae";
+  const socialImg =
+    "https://cdn-icons-png.flaticon.com/512/1253/1253339.png?w=900&t=st=1683941577~exp=1683942177~hmac=bfc4ab12eef6f6a0d9558a18ea83a4b5e2cc68f425417c33e8a54fb0deaea1b9";
+  const explortationImg =
+    "https://cdn-icons-png.flaticon.com/512/784/784384.png?w=900&t=st=1683941659~exp=1683942259~hmac=b518bf21b571805ae10d9541ae049518739651d8a87e31d607d5e05f6812d86a";
+  const discoverImg =
+    "https://cdn-icons-png.flaticon.com/512/1021/1021357.png?w=900&t=st=1683941647~exp=1683942247~hmac=c8465ecf3aa747ee4d91838715806c32d3e61cfc7b497a7ee2ba93decd038ffc";
+  const mishapImg =
+    "https://cdn-icons-png.flaticon.com/512/1150/1150175.png?w=900&t=st=1683941684~exp=1683942284~hmac=d8482121c5ad3e5616dd61ba95e612dbcca0d4c0cb4d18d45db494b3b5f9c27d";
 
-    return (
+  const toggleEventModal = () => {
+    setShowEventModal(!showEventModal);
+  };
+
+  return (
+    <React.Fragment>
+      {showEventModal && (
+        <Modal modalHeader="Heroic Event Selector">
+          <EventSelector
+            loadEvents={setLoadEvents}
+            modalToggle={toggleEventModal}
+            url={process.env.REACT_APP_REQUEST_URL + `/campaign/events/geteventsbyworldid/${worldId}`}
+          />
+        </Modal>
+      )}
       <div>
         <div className="heroic-events-container">
           <div className="heroic-token-container">
@@ -68,53 +91,61 @@ const HeroicEvents = () => {
               more events then please go to the notes section of the individual
               campaign pages.
             </p>
+            <div className="custom-buttons">
+              <Button onClick={toggleEventModal}>Select Heroic Events</Button>
+            </div>
           </div>
         </div>
-        <div className="events-container">
-          {heroicEvents.map((event, index) => (
-            <SlideIn direction={`${index % 2 === 0 ? "left" : "right"}`}>
-              <div
-                className={`event-entry-container ${
-                  index % 2 === 0 ? "dark-bg" : "light-bg"
-                }`}
-              >
+        {error ? (
+          <ErrorDisplay center/>
+        ) : (
+          <div className="events-container">
+            {heroicEvents.map((event, index) => (
+              <SlideIn key={index} direction={`${index % 2 === 0 ? "left" : "right"}`}>
                 <div
-                  className={`heroic-token-container ${
-                    index % 2 !== 0 && "right-event-img"
+                  className={`event-entry-container ${
+                    index % 2 === 0 ? "dark-bg" : "light-bg"
                   }`}
                 >
-                  <img
-                    className="heroic-token"
-                    src={
-                      event.eventType === "battle"
-                        ? battleImg
-                        : event.eventType === "social"
-                        ? socialImg
-                        : event.eventType === "exploration"
-                        ? explortationImg
-                        : event.eventType === "mishap"
-                        ? mishapImg
-                        : event.eventType === "discovery"
-                        ? discoverImg
-                        : ""
-                    }
-                    alt="event-type-token"
-                  />
+                  <div
+                    className={`heroic-token-container ${
+                      index % 2 !== 0 && "right-event-img"
+                    }`}
+                  >
+                    <img
+                      className="heroic-token"
+                      src={
+                        event.eventType === "battle"
+                          ? battleImg
+                          : event.eventType === "social"
+                          ? socialImg
+                          : event.eventType === "exploration"
+                          ? explortationImg
+                          : event.eventType === "mishap"
+                          ? mishapImg
+                          : event.eventType === "adventure"
+                          ? discoverImg
+                          : ""
+                      }
+                      alt="event-type-token"
+                    />
+                  </div>
+                  <div
+                    className={`event-details ${
+                      index % 2 !== 0 && "right-event-desc"
+                    }`}
+                  >
+                    <h5 className="page-subtitle">{event.eventTitle}</h5>
+                    <p className="page-body">{event.eventDesc}</p>
+                  </div>
                 </div>
-                <div
-                  className={`event-details ${
-                    index % 2 !== 0 && "right-event-desc"
-                  }`}
-                >
-                  <h5 className="page-subtitle">{event.eventTitle}</h5>
-                  <p className="page-body">{event.eventDesc}</p>
-                </div>
-              </div>
-            </SlideIn>
-          ))}
-        </div>
+              </SlideIn>
+            ))}
+          </div>
+        )}
       </div>
-    );
-}
+    </React.Fragment>
+  );
+};
 
 export default HeroicEvents;

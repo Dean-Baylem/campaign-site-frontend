@@ -1,0 +1,5 @@
+.active-party-container {
+  grid-area: 3 / 1 / span 2 / span 3;
+  border-radius: 15px;
+  height: fit-content;
+}

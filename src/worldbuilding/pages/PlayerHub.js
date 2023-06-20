@@ -9,6 +9,7 @@ import CampaignCard from "../../shared/Components/UIComponents/CampaignCard";
 import ToolsContainer from "../components/ToolsContainer";
 import Footer from "../../shared/Components/PageComponents/Footer";
 import CreateNewCard from "../../shared/navigation/CreateNewCard";
+import ErrorModal from "../../shared/Components/UIComponents/ErrorModal";
 import { CSSTransition } from "react-transition-group";
 import { useHttpRequest } from "../../shared/hooks/request-hook";
 import "./PlayerHub.css";
@@ -37,7 +38,8 @@ const data = [
 const currentTools = [
   {
     title: "Wild Magic Roller!",
-    content: "Roll on the standard Wild Magic Table or create and customise your own Wild Magic Tables.",
+    content:
+      "Roll on the standard Wild Magic Table or create and customise your own Wild Magic Tables.",
     imgSrc: wildMagicImg,
     link: "/DMTools/wildmagictables",
   },
@@ -46,21 +48,6 @@ const currentTools = [
     content:
       "An app to help decide what items to provide your party without searching through the source books first.",
     imgSrc: magicItemImg,
-    link: "/DMTools/itemGenerator",
-  },
-  {
-    title: "DM Clock",
-    content: "An app to help manage time, weather and travel in D&D 5e",
-    imgSrc:
-      "https://fastly.picsum.photos/id/259/500/300.jpg?hmac=t3QXZeOjK_tKClaWxPcQTjWJJc5rPREMttsmg47Y4y8",
-    link: "/DMTools/itemGenerator",
-  },
-  {
-    title: "Gem Generator Generator",
-    content:
-      "An app to help with determining the value and quality of gems found in games based on party level.",
-    imgSrc:
-      "https://fastly.picsum.photos/id/504/500/300.jpg?hmac=aPbmXP8tNnrHBoQ_VRM8vCPuU2btdLu5lRKBfssPZh4",
     link: "/DMTools/itemGenerator",
   },
 ];
@@ -72,7 +59,7 @@ const DUMMY_UPCOMING = [
     hour: "5",
     mins: "30",
     am: false,
-    timeZone: "JST"
+    timeZone: "JST",
   },
   {
     name: "Curse of Strahd",
@@ -80,7 +67,7 @@ const DUMMY_UPCOMING = [
     hour: "8",
     mins: "00",
     am: false,
-    timeZone: "JST"
+    timeZone: "JST",
   },
   {
     name: "Descent into Avernus",
@@ -88,9 +75,9 @@ const DUMMY_UPCOMING = [
     hour: "10",
     mins: "30",
     am: true,
-    timeZone: "JST"
+    timeZone: "JST",
   },
-]
+];
 
 const PlayerHub = (props) => {
   const auth = useContext(AuthContext);
@@ -98,18 +85,16 @@ const PlayerHub = (props) => {
   const [nextPanel, setNextPanel] = useState("");
   const [loadedWorlds, setLoadedWorlds] = useState([]);
   const [loadedCampaigns, setLoadedCampaigns] = useState([]);
-  const { sendRequest } = useHttpRequest();
+  const { sendRequest, error, clearError } = useHttpRequest();
 
   useEffect(() => {
     const fetchWorlds = async () => {
       try {
         const responseData = await sendRequest(
-          `http://localhost:5000/worlds/getall/${auth.playerId}`
+          process.env.REACT_APP_REQUEST_URL + `/worlds/getall/${auth.playerId}`
         );
         setLoadedWorlds(responseData.worlds);
-      } catch (err) {
-        console.log(err);
-      }
+      } catch (err) {}
     };
     fetchWorlds();
   }, [auth.playerId, sendRequest]);
@@ -117,10 +102,19 @@ const PlayerHub = (props) => {
   useEffect(() => {
     const fetchCampaigns = async () => {
       try {
-        const responseData = await sendRequest(`http://localhost:5000/campaign/findall/${auth.playerId}`);
-        setLoadedCampaigns(responseData.campaigns)
-      } catch (err) {console.log(err)}
-    }
+        console.log(
+          process.env.REACT_APP_REQUEST_URL +
+            `/campaign/findall/${auth.playerId}`
+        );
+        const responseData = await sendRequest(
+          process.env.REACT_APP_REQUEST_URL + `/campaign/findall/${auth.playerId}`
+        );
+        console.log(responseData);
+        if (responseData.campaigns !== "none") {
+          setLoadedCampaigns(responseData.campaigns);
+        }
+      } catch (err) {}
+    };
     fetchCampaigns();
   }, [auth.playerId, sendRequest]);
 
@@ -135,8 +129,15 @@ const PlayerHub = (props) => {
 
   return (
     <React.Fragment>
+      {error && (
+        <ErrorModal
+          modalHeader="Poof! Surge Failed!"
+          modalToggle={clearError}
+          error={error}
+        />
+      )}
       <MainNavigation />
-      <div className="page-container">
+      <div className="page-container hub-container">
         <Carousel data={data}></Carousel>
         <HubNav handlePanelChange={handlePanelChange}></HubNav>
         <div className="hub-body-container">
@@ -176,10 +177,7 @@ const PlayerHub = (props) => {
           >
             <WorldDisplay displayType="campaign-display-container">
               {loadedCampaigns.map((campaign, index) => (
-                <CampaignCard
-                  campaignTitle={campaign.campaignName}
-                  key={index}
-                />
+                <CampaignCard campaign={campaign} key={index} />
               ))}
               <CreateNewCard
                 campaigns={true}

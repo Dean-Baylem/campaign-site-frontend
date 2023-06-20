@@ -26,7 +26,7 @@ const Comment = (props) => {
     onSubmit: async (values) => {
       try {
         await sendRequest(
-          `http://localhost:5000/comment/update/${props.comment.id}`,
+          process.env.REACT_APP_REQUEST_URL + `/comment/update/${props.comment.id}`,
           "PATCH",
           JSON.stringify({
             body: values.body,
@@ -35,18 +35,16 @@ const Comment = (props) => {
             "Content-Type": "application/json",
           }
         );
-        console.log("Comment Edited.");
         props.reload(true);
         setEditComment(false);
       } catch (err) {
-        console.log(err);
       }
     },
   });
 
   return (
     <React.Fragment>
-      <div key={props.key} className="chat-card-container">
+      <div className="chat-card-container">
         <div className="avatar-container">
           <img src="#" alt="Avatar" />
         </div>

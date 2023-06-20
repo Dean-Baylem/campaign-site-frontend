@@ -1,0 +1,30 @@
+.campaign-status-section {
+  padding: 1rem 5rem
+}
+
+.campaign-party-details-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  row-gap: 1rem;
+  column-gap: 2rem;
+}
+
+.party-token-container {
+    display: flex;
+    flex-flow: wrap;
+    column-gap: 3rem;
+    justify-content: center;
+}
+
+.party-token img {
+    width: 100px;
+    background-color: #1b1d1f;
+    box-shadow: 0px 0px 15px -2px;
+    border-radius: 50%;
+}
+
+.card-border {
+  border: 1px solid;
+}
+

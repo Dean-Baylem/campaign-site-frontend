@@ -6,11 +6,12 @@ import { useFormik } from "formik";
 import * as yup from "yup";
 import { Button, TextField } from "@mui/material";
 import ErrorDisplay from "./ErrorDisplay";
+import ErrorModal from "../UIComponents/ErrorModal";
 
 const AddComment = (props) => {
   const auth = useContext(AuthContext);
   const worldManager = useContext(WorldContext);
-  const { error, sendRequest } = useHttpRequest();
+  const { error, sendRequest, clearError } = useHttpRequest();
 
   const [addComment, setAddComment] = useState(false);
 
@@ -32,7 +33,7 @@ const AddComment = (props) => {
     onSubmit: async (values) => {
       try {
         await sendRequest(
-          `http://localhost:5000/comment/new-world-comment/${auth.playerId}/${worldManager.currentWorld.id}`,
+          process.env.REACT_APP_REQUEST_URL + `/comment/new-world-comment/${auth.playerId}/${worldManager.currentWorld.id}`,
           "POST",
           JSON.stringify({
             body: values.body,
@@ -41,48 +42,48 @@ const AddComment = (props) => {
             "Content-Type": "application/json",
           }
         );
-        console.log("Comment added.");
         props.reload(true);
         setAddComment(false);
       } catch (err) {
-        console.log(err);
       }
     },
   });
 
   return (
-    <div className="add-comment-form">
-      <form className="add-comment-form" onSubmit={formik.handleSubmit}>
-        {addComment && (
-          <TextField
-            fullWidth
-            id="body"
-            name="body"
-            label="Add Comment"
-            value={formik.values.body}
-            onChange={formik.handleChange}
-            error={formik.touched.body && Boolean(formik.errors.email)}
-            helperText={formik.touched.body && formik.errors.body}
-          />
-        )}
-        {error && <ErrorDisplay error={error} />}
-        <div className="custom-buttons">
+    <React.Fragment>
+      <div className="add-comment-form">
+        <form className="add-comment-form" onSubmit={formik.handleSubmit}>
           {addComment && (
-            <Button sx={{ margin: "1rem" }} variant="outlined" type="submit">
-              Add Comment
-            </Button>
+            <TextField
+              fullWidth
+              id="body"
+              name="body"
+              label="Add Comment"
+              value={formik.values.body}
+              onChange={formik.handleChange}
+              error={formik.touched.body && Boolean(formik.errors.email)}
+              helperText={formik.touched.body && formik.errors.body}
+            />
           )}
-          <Button
-            sx={{ margin: "1rem" }}
-            onClick={handleSwitch}
-            className="custom-buttons"
-            variant="outlined"
-          >
-            {addComment ? "Cancel Comment" : "Add Comment"}
-          </Button>
-        </div>
-      </form>
-    </div>
+          {error && <ErrorDisplay error={error} />}
+          <div className="custom-buttons">
+            {addComment && (
+              <Button sx={{ margin: "1rem" }} variant="outlined" type="submit">
+                Add Comment
+              </Button>
+            )}
+            <Button
+              sx={{ margin: "1rem" }}
+              onClick={handleSwitch}
+              className="custom-buttons"
+              variant="outlined"
+            >
+              {addComment ? "Cancel Comment" : "Add Comment"}
+            </Button>
+          </div>
+        </form>
+      </div>
+    </React.Fragment>
   );
 };
 

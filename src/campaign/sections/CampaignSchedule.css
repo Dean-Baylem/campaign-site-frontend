@@ -1,0 +1,17 @@
+.schedule-banner {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    margin: 0 15vw;
+    text-align: center;
+    border-radius: 8px;
+    border: 1px solid;
+}
+
+.schedule-token {
+    padding: 1rem;
+}
+
+.schedule-token img {
+    max-width: 10vw;
+}
+

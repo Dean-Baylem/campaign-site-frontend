@@ -7,6 +7,7 @@ import WMCustomTables from "./WMCustomTables";
 import Footer from "../../shared/Components/PageComponents/Footer";
 import { CSSTransition } from "react-transition-group";
 import "./WildMagic.css";
+import ErrorModal from "../../shared/Components/UIComponents/ErrorModal";
 
 
 const WildMagic = (props) => {
@@ -14,7 +15,7 @@ const WildMagic = (props) => {
   const [nextPage, setNextPage] = useState("");
   const [wildMagicTable, setWildMagicTable] = useState([]);
 
-  const { sendRequest } = useHttpRequest();
+  const { sendRequest, error, clearError } = useHttpRequest();
 
   const handlePageReset = (next) => {
     setNextPage(next);
@@ -32,7 +33,6 @@ const WildMagic = (props) => {
       let useList = {id: "standard", list: responseData.table[0].list}
       setWildMagicTable(useList);
     } catch (err) {
-      console.log(err);
     }
     setNextPage("roller");
     setPageState("");
@@ -90,12 +90,9 @@ const WildMagic = (props) => {
     });
   };
 
-  const handleSave = () => {
-    console.log(wildMagicTable);
-  };
-
   return (
     <div className="wild-magic-page">
+    {error && <ErrorModal modalHeader="Poof! Surge Failed!" modalToggle={clearError} error={error}/>}
       <div
         className="title-banner-container"
         style={{
@@ -129,7 +126,6 @@ const WildMagic = (props) => {
           <WMCustomTables
             onChangeDie={onChangeDie}
             handleAddToTable={handleAddToTable}
-            handleSave={handleSave}
             onChangeInput={onChangeInput}
             wildMagicTable={wildMagicTable}
             setWildMagicTable={setWildMagicTable}

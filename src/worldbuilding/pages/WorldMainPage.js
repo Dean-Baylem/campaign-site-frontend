@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useHttpRequest } from "../../shared/hooks/request-hook";
 import { WorldContext } from "../../shared/context/WorldContext";
 import { AuthContext } from "../../shared/context/auth-context";
+import ErrorModal from "../../shared/Components/UIComponents/ErrorModal";
 import Footer from "../../shared/Components/PageComponents/Footer";
 import WorldHeading from "../components/WorldHeading";
 import WorldSubjectContainer from "../components/WorldSubjectContainer";
@@ -17,7 +18,7 @@ import WorldCampaignsContainer from "../components/WorldCampaignsContainer";
 // Carousel CSS
 
 const WorldMainPage = (props) => {
-  const { sendRequest } = useHttpRequest();
+  const { sendRequest, error, clearError } = useHttpRequest();
   const worldId = useParams().worldId;
   const [loadWorldDetails, setLoadWorldDetails] = useState(true);
 
@@ -29,12 +30,11 @@ const WorldMainPage = (props) => {
       if (loadWorldDetails) {
         try {
           const responseData = await sendRequest(
-            `http://localhost:5000/worlds/getone/${worldId}`
+            process.env.REACT_APP_REQUEST_URL + `/worlds/getone/${worldId}`
           );
           worldManager.changeWorld(responseData.world);
           setLoadWorldDetails(false);
         } catch (err) {
-          console.log(err);
         }
       }
     };
@@ -43,6 +43,13 @@ const WorldMainPage = (props) => {
 
   return (
     <React.Fragment>
+      {error && (
+        <ErrorModal
+          modalHeader="Poof! Surge Failed!"
+          modalToggle={clearError}
+          error={error}
+        />
+      )}
       <div className="page-container">
         <WorldHeading campaignBanner="https://img.freepik.com/free-photo/night-sky-glows-with-galaxy-mystical-silhouette-generative-ai_188544-11287.jpg?w=740&t=st=1683673772~exp=1683674372~hmac=acf8320765bcf7ad15d1d41e15153bd5eee319981a0adef75f39431a66221ec5">
           <MainNavigation clear={true} />

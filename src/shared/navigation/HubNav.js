@@ -5,7 +5,6 @@ import HubNavItem from "./HubNavItem";
 const HubNav = props => {
 
   const handleClick = event => {
-    console.log(event.target.value);
     props.handlePanelChange(event.target.value);
   }
 

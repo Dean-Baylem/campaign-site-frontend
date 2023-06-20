@@ -20,11 +20,6 @@
     font-size-adjust: inherit;
 }
 
-.campaign-card-button-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 1rem;
-}
 
 .campaign-card-button-container a {
     text-decoration: none;

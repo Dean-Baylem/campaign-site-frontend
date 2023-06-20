@@ -2,14 +2,14 @@
     display: block;
     width: 100%;
     transform: translateX(-500%);
-    animation: slide-in-anim 600ms ease-out forwards;
+    animation: slide-in-anim 500ms ease-out forwards;
 }
 
 .transition-container-right {
     display: block;
     width: 100%;
     transform: translateX(500%);
-    animation: slide-in-anim 600ms ease-out forwards;
+    animation: slide-in-anim 500ms ease-out forwards;
 }
 
 @keyframes slide-in-anim {

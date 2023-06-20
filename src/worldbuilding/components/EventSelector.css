@@ -1,0 +1,24 @@
+.heroic-event-form-container {
+    margin: 1rem;
+}
+
+.heroic-event-form {
+    padding: 1rem;
+}
+
+.MuiFormGroup-root {
+    align-content: center;
+}
+
+.MuiFormControlLabel-label {
+    font-size: 1.5rem;
+}
+
+.event-select-buttons {
+    margin-top: 1rem;
+}
+
+.event-select-buttons button {
+    width: 100%;
+    margin: 0 1rem;
+}

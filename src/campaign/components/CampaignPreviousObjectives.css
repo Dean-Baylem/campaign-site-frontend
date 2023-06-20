@@ -1,0 +1,6 @@
+.previous-objectives-container {
+  grid-area: 3 / 4 / span 2 / span 2;
+  border-radius: 15px;
+  padding: 1rem 2rem;
+  height: fit-content;
+}

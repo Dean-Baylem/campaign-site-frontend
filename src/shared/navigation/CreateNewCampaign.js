@@ -32,7 +32,7 @@ const CreateNewCampaign = (props) => {
     onSubmit: async (values) => {
       try {
         const responseData = await sendRequest(
-          `http://localhost:5000/campaign/createcampaign/${auth.playerId}`,
+          process.env.REACT_APP_REQUEST_URL + `/campaign/createcampaign/${auth.playerId}`,
           "POST",
           JSON.stringify({
             campaignName: values.campaignName,
@@ -42,11 +42,8 @@ const CreateNewCampaign = (props) => {
             "Content-Type": "application/json",
           }
         );
-        console.log(responseData);
         navigate(`/`);
       } catch (err) {
-        console.log(err);
-        console.log("Oh no! There was an error!");
       }
     },
   });

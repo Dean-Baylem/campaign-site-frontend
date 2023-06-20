@@ -67,12 +67,11 @@ const WorldSubjectContainer = props => {
     return (
       <div className="world-subject-container page-title">
         {subjects.map((subject, index) => (
-          <NavLink to={`/world/${props.worldID}/subject/${subject.content.toLowerCase()}`}>
+          <NavLink key={index} to={`/world/${props.worldID}/subject/${subject.content.toLowerCase()}`}>
             <ImageCard
               cardType={subject.cardType}
               content={subject.content}
               imgSrc={subject.imgSrc}
-              key={index}
             />
           </NavLink>
         ))}

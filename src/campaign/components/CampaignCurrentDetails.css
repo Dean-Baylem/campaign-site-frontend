@@ -1,0 +1,21 @@
+.party-details-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.party-token {
+    place-self: center;
+}
+
+.current-villain {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.current-party-details {
+  grid-area: 1 / 4 / span 2 / span 2;
+  border-radius: 15px;
+  padding: 1rem 2rem;
+  position: relative;
+}

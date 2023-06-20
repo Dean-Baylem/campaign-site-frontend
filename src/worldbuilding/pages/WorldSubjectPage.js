@@ -9,6 +9,7 @@ import MainTitle from "../../shared/Components/PageComponents/MainTitle";
 import MainNavigation from "../../shared/navigation/MainNavigation";
 import SubjectEntryTable from "../components/SubjectEntryTable";
 import SubjectEntry from "../components/SubjectEntry";
+import Footer from "../../shared/Components/PageComponents/Footer";
 import { Button, CircularProgress } from "@mui/material";
 import "./WorldSubjectPage.css";
 import Modal from "../../shared/Components/UIComponents/Modal";
@@ -89,7 +90,7 @@ const WorldSubjectPage = (props) => {
       if (reload) {
         try {
           const responseData = await sendRequest(
-            `http://localhost:5000/worlds/getone/${worldId}`
+            process.env.REACT_APP_REQUEST_URL + `/worlds/getone/${worldId}`
           );
           world.changeWorld(responseData.world);
           setLoadingWorld(false);
@@ -100,9 +101,8 @@ const WorldSubjectPage = (props) => {
       if (reload) {
         try {
           const responseData = await sendRequest(
-            `http://localhost:5000/worlds/getallsubjects/${subjectType}/${worldId}`
+            process.env.REACT_APP_REQUEST_URL + `/worlds/getallsubjects/${subjectType}/${worldId}`
           );
-          console.log(responseData);
           setTableData(responseData.subjects);
           const newSelected = await responseData.subjects.filter(
             (subject) => subject._id === selectedEntry._id
@@ -224,6 +224,7 @@ const WorldSubjectPage = (props) => {
           </div>
         </React.Fragment>
       )}
+      <Footer />
     </div>
   );
 };

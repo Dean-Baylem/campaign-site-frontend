@@ -71,6 +71,14 @@ body {
   font-family: 'Alex Brush', cursive;
 }
 
+.center {
+  text-align: center;
+}
+
+.no-margin {
+  margin: 0;
+}
+
 /* Reusable MUI custom button styling */
 .custom-buttons button {
     color: #000000;
@@ -123,4 +131,59 @@ body {
   position: absolute;
   left: 45vw;
   top: 45vh;
+}
+
+.modal-loading {
+  position: relative;
+  text-align: center;
+}
+
+/* Reusable Positioning CSS */
+
+.space-evenly {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.space-between {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.space-around {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+/* Reusable Background Colors */
+
+.light-bg {
+    background-color: #f8ecd8;
+}
+
+.dark-bg {
+    background-color: #EBD8B2;
+}
+
+.card-light-bg {
+  background-color: #F9F5F6;
+}
+
+.card-box-shadow {
+  box-shadow: 5px 4px 10px -5px #6b604e;
+}
+
+.hide {
+  visibility: hidden;
+}
+
+.space {
+  margin: 1rem;
+}
+
+.space-top { 
+  margin-top: 1rem;
 }

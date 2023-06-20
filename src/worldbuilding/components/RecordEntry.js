@@ -22,7 +22,7 @@ const RecordEntry = (props) => {
       {showModal && (
         <Modal modalHeader="Delete Record?">
           <DeleteModal
-            url={`http://localhost:5000/worlds/deleterecord/${props.id}`}
+            url={process.env.REACT_APP_REQUEST_URL + `/worlds/deleterecord/${props.id}`}
             reload={props.reload}
             modalToggle={modalToggle}
           />

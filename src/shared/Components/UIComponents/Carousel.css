@@ -9,8 +9,8 @@
     height: 20rem;
     min-width: 100%;
     position: relative;
-    box-shadow: 5px 5px 12px 1px #000000;
-    border-radius: 25px;
+    box-shadow: 1px 1px 10px 1px #6e6240;
+    border-radius: 5px;
 }
 
 .carousel-slide {
@@ -32,7 +32,7 @@
 
 .carousel-slide img {
     width: 100%;
-    border-radius: 25px;
+    border-radius: 5px;
 }
 
 

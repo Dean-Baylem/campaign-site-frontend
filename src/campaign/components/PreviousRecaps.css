@@ -1,0 +1,24 @@
+.previous-recap-container {
+    border: 1px solid;
+    border-radius: 15px;
+    box-shadow: 2px 2px 15px -4px;
+    height: fit-content;
+    overflow: hidden;
+    margin-top: 2rem;
+}
+
+.recap-entry {
+    padding: 1rem;
+}
+
+.previous-recap-container ul {
+    list-style: none;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+.event-collapsible .Collapsible {
+    display: flex;
+    flex-direction: column-reverse;
+}

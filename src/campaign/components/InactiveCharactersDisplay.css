@@ -1,0 +1,6 @@
+.character-list {
+    list-style: none;
+    display: flex;
+    column-gap: 2rem;
+    flex-wrap: wrap;
+}

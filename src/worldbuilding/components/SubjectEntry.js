@@ -59,7 +59,7 @@ const SubjectEntry = (props) => {
       {deleteConfirmation && (
         <Modal modalHeader="Confirm World Entry Deletion">
           <DeleteModal
-            url={`http://localhost:5000/worlds/deletesubject/${props.data._id}`}
+            url={process.env.REACT_APP_REQUEST_URL + `/worlds/deletesubject/${props.data._id}`}
             reload={props.reload}
             modalToggle={deleteTopicToggle}
             resetDisplay={props.resetDisplay}
