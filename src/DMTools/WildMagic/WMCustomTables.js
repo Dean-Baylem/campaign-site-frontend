@@ -49,7 +49,7 @@ const WMCustomTables = (props) => {
     const fetchStandard = async () => {
       try {
         const responseData = await sendRequest(
-          "http://localhost:5000/tools/wildmagic/getstandard"
+          process.env.REACT_APP_REQUEST_URL + "/tools/wildmagic/getstandard"
         );
         setStandardList(responseData.table);
       } catch (err) {}

@@ -39,7 +39,7 @@ const LoginForm = props => {
     onSubmit: async (values) => {
       try {
         const responseData = await sendRequest(
-          "http://localhost:5000/player/login",
+          process.env.REACT_APP_REQUEST_URL + "/player/login",
           "POST",
           JSON.stringify({
             email: values.email,

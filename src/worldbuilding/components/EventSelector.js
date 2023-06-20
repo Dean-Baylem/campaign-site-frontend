@@ -38,7 +38,7 @@ const EventSelector = (props) => {
   const handleSubmit = async (e) => {
     try {
       await sendRequest(
-        "http://localhost:5000/campaign/events/changeheroicevents",
+        process.env.REACT_APP_REQUEST_URL + "/campaign/events/changeheroicevents",
         "PATCH",
         JSON.stringify({ toHeroic: heroicEvents, nonHeroic: deselectedEvents }),
         { "Content-Type": "application/json" }

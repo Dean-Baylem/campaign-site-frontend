@@ -81,7 +81,7 @@ const ItemGen = (props) => {
     try {
       for (const item of itemList) {
       const responseData = await sendRequest(
-        "http://localhost:5000/tools/getItems",
+        process.env.REACT_APP_REQUEST_URL + "/tools/getItems",
         "POST",
         JSON.stringify({
           itemType: item.type,

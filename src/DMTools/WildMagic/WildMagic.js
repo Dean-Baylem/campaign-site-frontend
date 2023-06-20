@@ -29,7 +29,7 @@ const WildMagic = (props) => {
 
   const handleStandardClick = async () => {
     try {
-      const responseData = await sendRequest("http://localhost:5000/tools/wildmagic/getstandard")
+      const responseData = await sendRequest(process.env.REACT_APP_REQUEST_URL + "/tools/wildmagic/getstandard")
       let useList = {id: "standard", list: responseData.table[0].list}
       setWildMagicTable(useList);
     } catch (err) {

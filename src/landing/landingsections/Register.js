@@ -37,7 +37,7 @@ const Registration = (props) => {
     onSubmit: async (values) => {
       try {
         const responseData = await sendRequest(
-          "http://localhost:5000/player/register",
+          process.env.REACT_APP_REQUEST_URL + "/player/register",
           "POST",
           JSON.stringify({
             email: values.email,
