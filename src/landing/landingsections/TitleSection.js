@@ -35,9 +35,6 @@ const HomeTitle = props => {
                 <Button variant="contained">Begin Building</Button>
               </div>
             </div>
-            <div className="video-container">
-              <p>Here will be a video of the service</p>
-            </div>
           </div>
         </section>
       </React.Fragment>

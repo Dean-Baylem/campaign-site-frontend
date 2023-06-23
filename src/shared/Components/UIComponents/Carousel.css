@@ -40,3 +40,12 @@
     display: flex;
     transition: 500ms;
 }
+
+@media screen and (max-width: 500px) {
+    .carousel-slide {
+        height: 15rem;
+    }
+    .carousel-container {
+        height: 15rem;
+    }
+}

@@ -17,20 +17,20 @@ const ShareDisplay = props => {
           </div>
           <div className="share-desc page-body">
             <p>
-              Duis dapibus eros non odio consequat, in mollis dui venenatis.
-              Nulla sit amet tortor nec nibh sagittis vestibulum. Nunc eu metus
-              luctus nulla maximus tincidunt sed sed ligula. Aliquam rhoncus
-              metus accumsan tellus tincidunt aliquet. Etiam et neque vehicula,
-              tincidunt dui vitae, eleifend nulla. 
+              The archives of Dungeon Delvers Inc. contain categorised
+              information regarding the worlds built by its members. The tools
+              used to manage and organise this information is available to all
+              within the corporation. Easy to write, read, update and remove
+              entries allow you to provide convenient easy-to-access information
+              to your players. These tools are always improving and our clever
+              companions constantly create new and interesting methods of
+              managing your creation.
             </p>
             <p>
-              Duis orci velit, euismod ultrices nibh ut, pretium fermentum dui.
-              Suspendisse potenti. Proin mattis ullamcorper nibh. Nullam vel
-              tellus sit amet ante scelerisque venenatis sed vitae velit.
-              Pellentesque risus dolor, vehicula in augue at, hendrerit
-              consequat eros. Nulla facilisi. Curabitur consectetur leo a
-              pharetra blandit. Nullam non sapien sagittis, varius risus id,
-              ultricies mauris. 
+              Share your creation with your players and allow them to contribute
+              to your world through the comments section located at the base of
+              the world page. If you have any suggestions for improvements,
+              contact Dungeon Devler HQ through our contact survey.
             </p>
           </div>
         </div>

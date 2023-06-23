@@ -1,20 +1,30 @@
 .tool-display-section {
     background-color: #f8ecd8;
-    padding: 2% 15%;
+    display: flex;
+    justify-content: center;
+    padding-top: 2vh;
+    column-gap: 2rem;
+}
+
+.tool-carsousel-container {
+    width: 40vw;
 }
 
 .tool-desc-container {
+    max-width: 40vw;
     padding: 2%;
 }
 
+
 @media screen and (max-width: 900px) {
     .tool-display-section {
-        padding: 2% 8%
+        flex-wrap: wrap;
     }
-}
-
-@media screen and (max-width: 500px) {
-    .tool-display-section {
-        padding: 2%
+    .tool-carsousel-container {
+        width: 80vw;
+        height: 100%;
+    }
+    .tool-desc-container {
+        max-width: 90vw;
     }
 }

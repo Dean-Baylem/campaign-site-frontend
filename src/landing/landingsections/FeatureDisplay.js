@@ -10,16 +10,21 @@ const FeatureDisplay = (props) => {
         </div>
         <div className="features-body page-body">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce id
-            nibh lorem. Praesent urna sapien, ultrices vel suscipit id,
-            facilisis vel arcu. Nullam dui magna, euismod et auctor eu, iaculis
-            sit amet ipsum. Etiam auctor leo id est malesuada pharetra. Fusce nec sapien feugiat, congue magna sit
-            amet, varius mi.</p> <p>Suspendisse ut sollicitudin lectus. Nam at pretium
-            quam, at varius libero. Praesent risus magna, iaculis eget turpis
-            sit amet, faucibus aliquet justo. Maecenas a quam lacus. Suspendisse
-            eu ullamcorper ipsum. Fusce suscipit erat sed est rhoncus
-            ullamcorper. Suspendisse bibendum, augue at pretium porta, dui urna
-            mattis nibh, eu pretium est sem at ante.
+            As a Dungeon Delver, you have access to a variety of methods to
+            manage the mayhem of a TTRPG campaign. Keep track of the party;
+            location, objectives, villain, events and more! Share these with
+            your players and allow them to add comments.
+          </p>
+          <p>
+            Manage the campaign schedule and allow your players to post 'Session
+            Summaries' from the perspective of their characters! Promote and
+            enjoy out-of-game interactions between players and Game Master.
+          </p>
+          <p>
+            The danger is always lurking in the depths of the dungeon. As such,
+            your players can create and incorporate backup characters into the
+            campaign setting allowing the player to switch to a separate active
+            character at the drop of an axe!
           </p>
         </div>
       </div>
