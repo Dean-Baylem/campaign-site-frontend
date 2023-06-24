@@ -1,6 +1,27 @@
 .previous-objectives-container {
-  grid-area: 3 / 4 / span 2 / span 2;
   border-radius: 15px;
   padding: 1rem 2rem;
+  height: auto;
+  width: fit-content;
   height: fit-content;
+  min-width: 25vw;
+}
+
+.previous-objective {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  column-gap: 2rem;
+}
+
+@media screen and (max-width: 1000px) {
+  .previous-objectives-container {
+    width: 40vw;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .previous-objectives-container {
+    width: 90vw;
+  }
 }

@@ -29,9 +29,6 @@ const CampaignPartyDetails = (props) => {
       </Modal>
     )}
       <section className="campaign-status-section">
-        <div className="page-subtitle" style={{ paddingLeft: "1rem" }}>
-          <h3>Campaign Status</h3>
-        </div>
         <div className="campaign-party-details-container">
           <CampaignMap />
           <CampaignCurrentDetails setManageCampaign={setManageCampaign}/>

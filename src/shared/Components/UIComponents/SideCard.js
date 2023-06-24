@@ -12,7 +12,7 @@ const SideCard = (props) => {
 
     return (
       <ButtonBase sx={{width: "100%"}} onClick={handleClick} disabled={!props.clickable && true}>
-        <div className="side-card-container">
+        <div className="side-card-container page-body">
           <div className={`side-img-container ${props.cardType}`}>
             <img src={props.imgSrc} alt="card-display" className="card-img" />
           </div>

@@ -79,6 +79,30 @@
     background-color: #EBD8B2;
 }
 
+@media screen and (min-width: 900px) {
+    .world-subtitle h5 {
+        font-size: 2.5rem;
+    }
+    .campaign-carousel p {
+        font-size: 1.5rem;
+    }
+    .heroic-events-container h5 {
+        font-size: 2.5rem;
+    }
+    .heroic-events-container p {
+        font-size: 1.25rem;
+    }
+    .event-details h5 {
+        font-size: 1.75rem;
+    }
+    .event-details p {
+        font-size: 1.25rem;
+    }
+    .comment-box h5 {
+        font-size: 1.1rem;
+    }
+}
+
 @media screen and (max-width: 600px) {
     .heroic-events-container {
         display: flex;

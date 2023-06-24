@@ -1,5 +1,18 @@
 .active-party-container {
-  grid-area: 3 / 1 / span 2 / span 3;
   border-radius: 15px;
   height: fit-content;
+  width: fit-content;
+  min-width: 25vw;
+}
+
+@media screen and (max-width: 900px) {
+  .active-party-container {
+    min-width: 40vw;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .active-party-container {
+    width: 90vw;
+  }
 }

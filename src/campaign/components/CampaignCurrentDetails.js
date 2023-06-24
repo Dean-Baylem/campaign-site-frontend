@@ -25,25 +25,28 @@ const CampaignCurrentDetails = (props) => {
           </li>
           <li className="current-location">
             <h5 className="page-subtitle">Current Location</h5>
-            {campaignManager.currentCampaign.locations
-              .filter((location) => location.currentLocation === true).length > 0 ? 
+            {campaignManager.currentCampaign.locations.filter(
+              (location) => location.currentLocation === true
+            ).length > 0 ? (
               campaignManager.currentCampaign.locations
-              .filter((location) => location.currentLocation === true)
-              .map((location, index) => (
-                <p key={index}>{location.locationName}</p>
-              ))
-              :<p>Location Unknown</p>}
+                .filter((location) => location.currentLocation === true)
+                .map((location, index) => (
+                  <p key={index}>{location.locationName}</p>
+                ))
+            ) : (
+              <p>Location Unknown</p>
+            )}
           </li>
           <li className="current-villain">
             <div>
               <h5 className="page-subtitle">Villain</h5>
+              <div className="party-token">
+                <img
+                  src="https://cdn.weasyl.com/static/media/3c/1d/e1/3c1de1ba9db16feeeeb51a2be117949d43b17e4511980842b08113fc2488cdbf.png"
+                  alt="villain"
+                />
+              </div>
               <p>{campaignManager.currentCampaign.bbeg.name}</p>
-            </div>
-            <div className="party-token">
-              <img
-                src="https://cdn.weasyl.com/static/media/3c/1d/e1/3c1de1ba9db16feeeeb51a2be117949d43b17e4511980842b08113fc2488cdbf.png"
-                alt="villain"
-              />
             </div>
           </li>
         </ul>
