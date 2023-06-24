@@ -138,7 +138,17 @@ const PlayerHub = (props) => {
       )}
       <MainNavigation />
       <div className="page-container hub-container">
-        <Carousel data={data}></Carousel>
+        <div className="hub-header">
+          <Carousel data={data}></Carousel>
+          <div className="hub-title">
+            <h2 className="page-subtitle">Dungeon Delvers Hub</h2>
+            <p className="page-body">
+              Welcome to the Hub! Here you can create/navigate to your worlds
+              and campaigns. The tinkers have also created a section for easy
+              access to the various tools they have developed for your use.
+            </p>
+          </div>
+        </div>
         <HubNav handlePanelChange={handlePanelChange}></HubNav>
         <div className="hub-body-container">
           <CSSTransition

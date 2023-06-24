@@ -30,7 +30,8 @@ const CreateNewWorld = (props) => {
       onSubmit: async (values) => {
         try {
           const responseData = await sendRequest(
-            process.env.REACT_APP_REQUEST_URL + `/worlds/${auth.playerId}/createworld`,
+            process.env.REACT_APP_REQUEST_URL +
+              `/worlds/createworld/${auth.playerId}`,
             "POST",
             JSON.stringify({
               worldName: values.worldname,

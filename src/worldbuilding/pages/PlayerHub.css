@@ -1,20 +1,19 @@
 .page-container {
-    display: flex;
-    flex-direction: column;
-    min-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  min-height: 85vh;
 }
 
 .hub-container {
-    margin: 0 10vw;
-    padding-top: 5%;
+  margin: 0 10vw;
+  padding-top: 5%;
 }
 
 .hub-body-container {
-    margin: 5% 0%;
-    padding: 1%;
-    border-radius: 15px;
+  margin: 5% 0%;
+  padding: 1%;
+  border-radius: 15px;
 }
-
 
 .world-display-container {
   position: relative;
@@ -22,54 +21,98 @@
 }
 
 .campaign-display-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    row-gap: 1rem;
-    column-gap: 1rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 1rem;
+  column-gap: 1rem;
 }
 
+.hub-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 2rem;
+  place-items: center;
+}
+
+.hub-title {
+  padding: 1rem;
+}
+
+.hub-title h2 {
+  font-size: 2rem;
+}
+
+.hub-title p {
+  font-size: 1.25rem;
+}
 
 @media screen and (max-width: 900px) {
-    .campaign-display-container {
+  .campaign-display-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    }
-    .campaign-create {
-        grid-area: 1 / 1 / span 1 / span 2;
-    }
+  }
+  .campaign-create {
+    grid-area: 1 / 1 / span 1 / span 2;
+  }
+  .hub-container {
+    margin: 0 5vw;
+  }
 }
 
 @media screen and (max-width: 650px) {
-    .page-container {
-        margin: 0
-    }
-    .carousel-container {
-        border-radius: 0;
-    }
-    .carousel-container img {
-        border-radius: 0;
-    }
-    .campaign-display-container {
+  .page-container {
+    margin: 0;
+  }
+  .carousel-container {
+    border-radius: 0;
+  }
+  .carousel-container img {
+    border-radius: 0;
+  }
+  .campaign-display-container {
     display: grid;
     grid-template-columns: 1fr;
     row-gap: 0;
-    }
-    .campaign-create {
-        grid-area: 1 / 1;
-    }
-    .hub-body-container {
-        padding: 0;
-    }
-    .campaign-card {
-        border-radius: 0;
-    }
-    .campaign-card-title {
-        border-radius: 0;
-    }
-    .create-new-card {
-        border-radius: 0;
-    }
-    .hub-nav-list {
-        border-radius: 0;
-    }
+  }
+  .campaign-create {
+    grid-area: 1 / 1;
+  }
+  .hub-body-container {
+    padding: 0;
+  }
+  .campaign-card {
+    border-radius: 0;
+  }
+  .campaign-card-title {
+    border-radius: 0;
+  }
+  .create-new-card {
+    border-radius: 0;
+  }
+  .hub-nav-list {
+    border-radius: 0;
+  }
+  .hub-header {
+    display: flex;
+    flex-direction: column-reverse;
+    margin: 0 1rem;
+  }
+  .hub-title {
+    padding: 0;
+  }
+  .hub-title h2 {
+    font-size: 1.5rem;
+    margin-top: 0;
+  }
+  .hub-title p {
+    font-size: 1rem;
+  }
+  .world-display-container {
+    display: flex;
+    flex-direction: column-reverse;
+    row-gap: 0;
+  }
+  .world-card {
+    border-radius: 0px;
+  }
 }

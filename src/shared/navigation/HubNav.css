@@ -64,3 +64,9 @@
     color: #000000;
     transition: 300ms;
 }
+
+@media screen and (max-width: 500px) {
+    .tab-button {
+        font-size: 1.2rem;
+    }
+}
