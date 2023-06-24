@@ -21,11 +21,13 @@ const WorldCampaignsContainer = props => {
           <h5>Ongoing Campaigns</h5>
         </div>
         <div className="campaign-carousel">
-          {worldManager.currentWorld.campaigns && (
+          {worldManager.currentWorld.campaigns && worldManager.currentWorld
+            .campaigns.length > 0 ? (
             <Slider {...settings}>
               {worldManager.currentWorld.campaigns.map((campaign, index) => (
                 <div key={index}>
                   <SideCard
+                  sx={{width: "100%"}}
                     link={"/"}
                     clickable={true}
                     imgSrc="https://img.freepik.com/free-vector/magic-forest-with-round-stone-altar-night_107791-12862.jpg?w=740&t=st=1683679846~exp=1683680446~hmac=a6b5d4640e8e264b62095fbf9d3e84fbd107da8a36dc675d0c52ac391169e607"
@@ -36,6 +38,11 @@ const WorldCampaignsContainer = props => {
                 </div>
               ))}
             </Slider>
+          ) : (
+            <p>
+              There are no ongoing campaigns in{" "}
+              {worldManager.currentWorld.worldName}
+            </p>
           )}
         </div>
       </div>

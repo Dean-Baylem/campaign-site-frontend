@@ -78,3 +78,16 @@
 .dark-bg {
     background-color: #EBD8B2;
 }
+
+@media screen and (max-width: 600px) {
+    .heroic-events-container {
+        display: flex;
+        flex-direction: column;
+    }
+    .heroic-token {
+        width: 30vw;
+    }
+    .event-entry-container {
+        margin: 1rem 5vw;
+    }
+}

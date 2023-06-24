@@ -16,3 +16,12 @@
 .slick-arrow {
     filter:brightness(0.4);
 }
+
+@media sceeen and (max-width: 500px) {
+    .campaign-carousel {
+        margin: 0 7vw;
+    }
+    .side-card-content {
+        padding: 0;
+    }
+}

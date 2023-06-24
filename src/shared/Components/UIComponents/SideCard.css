@@ -21,10 +21,6 @@
     height: 100%;
 }
 
-.side-card-content {
-    padding: 0% 2rem;
-}
-
 .right-side {
     grid-area: 1 / 2;
 }

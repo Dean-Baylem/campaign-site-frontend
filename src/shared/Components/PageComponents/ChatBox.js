@@ -59,6 +59,7 @@ const ChatBox = (props) => {
         <div className="chat-box-body">
           {props.comments &&
             props.comments.map((comment, index) => (
+              <div>
               <Comment
                 handleShowModal={handleShowModal}
                 reload={props.reload}
@@ -66,6 +67,8 @@ const ChatBox = (props) => {
                 key={index}
                 editable={auth.playerId === comment.player.id ? true : false}
               />
+              <hr></hr>
+              </div>
             ))}
           <AddComment reload={props.reload} />
         </div>
