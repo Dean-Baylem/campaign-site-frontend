@@ -161,7 +161,7 @@ const PlayerHub = (props) => {
             <WorldDisplay displayType="world-display-container">
               {loadedWorlds.map((world, index) => (
                 <WorldCard
-                  image={world.image}
+                  image="https://img.freepik.com/free-vector/set-floating-game-islands-ui-graphic-design_107791-14086.jpg?w=826&t=st=1687575468~exp=1687576068~hmac=2959c9bb46c139c4b03dc734dccaf1a6cd535101d9ba50792db9f622fa7d2133"
                   worldName={world.worldName}
                   worldId={world._id}
                   key={index}

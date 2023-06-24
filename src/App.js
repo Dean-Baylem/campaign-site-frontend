@@ -18,6 +18,7 @@ import ItemGen from "./DMTools/ItemGen/pages/ItemGen";
 import WildMagic from "./DMTools/WildMagic/WildMagic";
 import CampaignMainPage from "./campaign/pages/CampaignMainPage";
 import { CampaignContext } from "./shared/context/CampaignContext";
+import Tester from "./landing/pages/Tester";
 
 function App() {
   const [token, setToken] = useState(false);
@@ -70,6 +71,7 @@ function App() {
               <Route path="/" element={<Landing />} />
               <Route path="/auth" element={<Auth />} />
               <Route path="/register" element={<Registration />} />
+              <Route path="/test-login" element={<Tester/> } />
               <Route path="/:playerId" element={<PlayerHub />} />
               <Route path="/world/:worldId" element={<WorldMainPage />} />
               <Route
