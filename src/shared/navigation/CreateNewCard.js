@@ -42,7 +42,7 @@ const CreateNewCard = props => {
             )}
           </div>
         ) : (
-          props.campaigns ? <CreateNewCampaign return={handleClick} worlds={props.worlds} /> : <CreateNewWorld return={handleClick}/>
+          props.campaigns ? <CreateNewCampaign hub={true} return={handleClick} worlds={props.worlds} /> : <CreateNewWorld return={handleClick}/>
         )}
         {props.campaigns && (
           <div className="page-body">
