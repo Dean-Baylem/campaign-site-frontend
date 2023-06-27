@@ -37,7 +37,7 @@ const CampaignCurrentDetails = (props) => {
               <p>Location Unknown</p>
             )}
           </li>
-          <li className="current-villain">
+          { campaignManager.currentCampaign.bbeg ? <li className="current-villain">
             <div>
               <h5 className="page-subtitle">Villain</h5>
               <div className="party-token">
@@ -48,7 +48,19 @@ const CampaignCurrentDetails = (props) => {
               </div>
               <p>{campaignManager.currentCampaign.bbeg.name}</p>
             </div>
-          </li>
+          </li> :
+          <li className="current-villain">
+            <div>
+              <h5 className="page-subtitle">Villain</h5>
+              <div className="party-token">
+                <img
+                  src="https://cdn.weasyl.com/static/media/3c/1d/e1/3c1de1ba9db16feeeeb51a2be117949d43b17e4511980842b08113fc2488cdbf.png"
+                  alt="villain"
+                />
+              </div>
+              <p>No Villain Set for this Campaign yet</p>
+            </div>
+          </li>}
         </ul>
         <div className="edit-icons-bottom">
           <IconButton onClick={handleEditClick}>

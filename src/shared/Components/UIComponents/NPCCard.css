@@ -35,3 +35,28 @@
 .character-name h5{
     margin: 1rem 0 0 0;
 }
+
+@media screen and (max-width: 600px) {
+    .npc-card-container {
+        width: auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 1rem;
+    }
+    .npc-image-container {
+        height: 30vh;
+    }
+    .npc-image-container img {
+        width: 100%;
+    }
+    .npc-details-container {
+        padding: 0;
+    }
+    .notes-container {
+        padding: 0;
+    }
+    .campaign-npcs-container {
+        padding: 0 0 2rem 0;
+    }
+}

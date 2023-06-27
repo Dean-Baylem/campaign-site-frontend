@@ -17,7 +17,7 @@ const ObjectivesManager = (props) => {
   return (
     <div className="goal-manager">
       {campaignManager.currentCampaign.objectives.map((objective, index) => (
-        <Accordion>
+        <Accordion key={index}>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls="panel1a-content"

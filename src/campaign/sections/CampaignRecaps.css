@@ -14,3 +14,12 @@
 .reviews-container {
     padding-bottom: 2rem;
 }
+
+@media screen and (max-width: 600px) {
+    .session-recap-outer-container {
+        display: flex;
+        flex-wrap: wrap-reverse;
+        justify-content: center;
+        margin: 0 1rem;;
+    }
+}

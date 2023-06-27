@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import { TextField, Button, InputLabel, Select, MenuItem } from "@mui/material";
@@ -19,9 +19,15 @@ const CreateNewCampaign = (props) => {
   const navigate = useNavigate();
   const [selectedWorld, setSeletedWorld] = useState();
 
-  const handleChange = event => {
+  const handleChange = (event) => {
     setSeletedWorld(event.target.value);
-  }
+  };
+
+  useEffect(() => {
+    if (!props.hub) {
+      setSeletedWorld(props.world);
+    }
+  }, []);
 
   const formik = useFormik({
     initialValues: {
@@ -30,9 +36,11 @@ const CreateNewCampaign = (props) => {
     },
     validationSchema: validationSchema,
     onSubmit: async (values) => {
+      console.log(selectedWorld)
       try {
         const responseData = await sendRequest(
-          process.env.REACT_APP_REQUEST_URL + `/campaign/createcampaign/${auth.playerId}`,
+          process.env.REACT_APP_REQUEST_URL +
+            `/campaign/createcampaign/${auth.playerId}`,
           "POST",
           JSON.stringify({
             campaignName: values.campaignName,
@@ -40,11 +48,11 @@ const CreateNewCampaign = (props) => {
           }),
           {
             "Content-Type": "application/json",
+            Authorization: `Bearer ${auth.playerId}`,
           }
         );
         navigate(`/`);
-      } catch (err) {
-      }
+      } catch (err) {console.log(err)}
     },
   });
 
@@ -63,20 +71,28 @@ const CreateNewCampaign = (props) => {
             formik.touched.campaignName && Boolean(formik.errors.campaignName)
           }
         />
-        <InputLabel id="campaign-world-selection-label">World</InputLabel>
-        <Select
-          fullWidth
-          labelId="campaign-world-selection"
-          id="campaign-world-selection"
-          value={selectedWorld}
-          onChange={handleChange}
-          error={formik.touched.worldId && Boolean(formik.errors.worldId)}
-        >
-        <MenuItem key={""} value={""}>No Selected</MenuItem>
-          {props.worlds.map((world, index) => (
-            <MenuItem key={index} value={world}>{world.worldName}</MenuItem>
-          ))}
-        </Select>
+        {props.hub && (
+          <InputLabel id="campaign-world-selection-label">World</InputLabel>
+        )}
+        {props.hub && (
+          <Select
+            fullWidth
+            labelId="campaign-world-selection"
+            id="campaign-world-selection"
+            value={selectedWorld}
+            onChange={handleChange}
+            error={formik.touched.worldId && Boolean(formik.errors.worldId)}
+          >
+            <MenuItem key={""} value={""}>
+              No Selected
+            </MenuItem>
+            {props.worlds.map((world, index) => (
+              <MenuItem key={index} value={world}>
+                {world.worldName}
+              </MenuItem>
+            ))}
+          </Select>
+        )}
         <div className="create-buttons">
           <Button variant="outlined" type="submit">
             Submit

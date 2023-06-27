@@ -3,6 +3,8 @@
     margin: 0 5rem;
 }
 
-.timeline-entry {
-
+@media screen and (max-width: 600px) {
+    .events-timeline-container {
+        margin: 0;
+    }
 }

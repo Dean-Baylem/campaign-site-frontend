@@ -9,3 +9,12 @@
 .player-characters-container {
     margin-bottom: 1rem;
 }
+
+@media screen and (max-width: 600px) {
+    .player-characters {
+        margin: 0 1vw;
+    }
+    .character-box {
+        margin: 0;
+    }
+}

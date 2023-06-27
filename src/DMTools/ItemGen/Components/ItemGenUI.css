@@ -9,3 +9,9 @@
     text-align: center;
     font-size: 1.5rem;
 }
+
+@media screen and (max-width: 600px) {
+    .item-gen-buttons {
+        margin: 0;
+    }
+}

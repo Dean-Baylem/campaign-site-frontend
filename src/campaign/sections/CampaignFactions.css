@@ -21,3 +21,25 @@
     box-shadow: none;
 }
 
+@media screen and (max-width: 600px) {
+    .faction-example-container {
+        margin: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .faction-example-container img {
+        max-width: 30vw;
+    }
+    .faction-carousel {
+        margin: 0;
+    }
+    .side-card-container {
+        min-width: 60vw;
+    }
+    .campaign-factions-container { 
+        padding-bottom: 2rem;
+    }
+    .slick-arrow {
+        display: none;
+    }
+}

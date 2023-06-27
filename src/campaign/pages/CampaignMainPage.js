@@ -120,8 +120,6 @@ const CampaignMainPage = () => {
         <CampaignNPCs />
         <CampaignSchedule />
         <CampaignRecaps />
-        <CharacterForm />
-        <ObjectivesManager reload={setLoadCampaign} />
         <Footer />
       </React.Fragment>
     )

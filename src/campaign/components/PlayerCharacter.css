@@ -1,13 +1,25 @@
 .character-display-container {
-    display: flex;
-    column-gap: 2rem;
-    margin: 0 15vw;
-    padding: 1rem;
-    border: 1px solid;
-    border-radius: 8px;
-    position: relative;
+  display: flex;
+  column-gap: 2rem;
+  margin: 0 15vw;
+  padding: 1rem;
+  border: 1px solid;
+  border-radius: 8px;
+  position: relative;
 }
 
 .character-details {
-    display: grid;
+  display: grid;
+}
+
+@media screen and (max-width: 600px) {
+  .character-display-container {
+    margin: 1rem 0;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-bottom: 3rem;
+  }
+  .character-details { 
+    justify-content: left;
+  }
 }

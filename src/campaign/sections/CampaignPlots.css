@@ -12,3 +12,19 @@
 .campaign-plot-img img {
     max-width: 20vw;
 }
+
+@media screen and (max-width: 600px) {
+    .plot-summary {
+        margin: 0;
+    }
+    .campaign-plot-img {
+        display: none;
+    }
+    .plot-summary-text {
+        padding: 1rem;
+        margin: 0;
+    }
+    .page-subtitle h3 {
+        font-size: 1.1rem;
+    }
+}

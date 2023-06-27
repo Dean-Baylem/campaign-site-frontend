@@ -14,7 +14,7 @@ const CampaignPreviousObjectives = () => {
       {campaignManager.currentCampaign.objectives
         .filter((objective) => objective.completed === true)
         .map((objective, index) => (
-          <div className="previous-objective page-body">
+          <div key={index} className="previous-objective page-body">
             <p key={index}>{objective.objectiveTitle}</p>
             <div style={{ color: `${objective.successful ? "green" : "red"}` }}>
               {objective.successful ? (
