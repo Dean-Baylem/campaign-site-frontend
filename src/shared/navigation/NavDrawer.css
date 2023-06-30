@@ -1,0 +1,38 @@
+.drawer {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 2000;
+  height: 100vh;
+  width: 70%;
+  background: #F3DEBA;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+}
+
+.drawer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  row-gap: 5vh;
+  position: absolute;
+  top: 25vh;
+  left: 15vw;
+}
+
+.drawer-links .list-item {
+  font-family: 'Inknut Antiqua', serif;
+  font-weight: 600;
+  letter-spacing: 1px;
+  font-size: 2rem;
+}
+
+.drawer-links a {
+  text-decoration: none;
+  color: #000000;
+  transition: 300ms;
+}
+
+.drawer-links a:hover {
+    color: #CD1818;
+    transition: 300ms;
+}

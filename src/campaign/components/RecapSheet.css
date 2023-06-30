@@ -6,3 +6,8 @@
     border-radius: 5px;
 }
 
+@media screen and (max-width: 600px) {
+    .session-recap-container {
+        padding: 1rem;
+    }
+}

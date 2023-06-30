@@ -23,7 +23,7 @@ const Tester = () => {
   };
 
   return (
-    <div className="tester-page-container">
+    <div className="tester-page-container" style={{padding: "2rem"}}>
       <div className="page-subtitle">
         <h2>Tester Login Page</h2>
       </div>

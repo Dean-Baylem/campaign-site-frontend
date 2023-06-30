@@ -1,5 +1,5 @@
 .modal {
-  z-index: 100;
+  z-index: 1999;
   position: fixed;
   top: 10vh;
   left: 20vw;
