@@ -105,7 +105,6 @@ const CampaignMainPage = () => {
           <CampaignTitle />
           <CampaignTitleDetails />
         </WorldHeading>
-        \
         {auth.isLoggedIn && (
           <MyCharacters
             reload={setLoadCampaign}

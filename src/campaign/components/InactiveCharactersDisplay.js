@@ -5,6 +5,7 @@ import DeleteModal from "../../shared/Components/UIComponents/DeleteModal";
 import { Button } from "@mui/material";
 import "./InactiveCharactersDisplay.css"
 import InactiveCharacterItem from "./InactiveCharacterItem";
+import BlankCharacterItem from "./BlankCharacterItem";
 
 const InactiveCharactersDisplay = (props) => {
 
@@ -20,7 +21,10 @@ const InactiveCharactersDisplay = (props) => {
         {characterToEdit && (
           <Modal modalHeader="Edit Character">
             <CharacterForm
-              url={process.env.REACT_APP_REQUEST_URL + `/character/update-character/${characterToEdit._id}`}
+              url={
+                process.env.REACT_APP_REQUEST_URL +
+                `/character/update-character/${characterToEdit._id}`
+              }
               requestType="PATCH"
               reload={props.reload}
               setEditable={setCharacterToEdit}
@@ -43,7 +47,10 @@ const InactiveCharactersDisplay = (props) => {
         {characterToDelete && (
           <Modal modalHeader="Delete Character?">
             <DeleteModal
-              url={process.env.REACT_APP_REQUEST_URL + `/character/delete-character/${characterToDelete._id}`}
+              url={
+                process.env.REACT_APP_REQUEST_URL +
+                `/character/delete-character/${characterToDelete._id}`
+              }
               reload={props.reload}
               modalToggle={deleteModalToggle}
             />
@@ -51,7 +58,7 @@ const InactiveCharactersDisplay = (props) => {
         )}
         <div
           style={{ display: "block" }}
-          className="character-display-container character-box page-body light-bg"
+          className="character-display-container character-box page-body dark-bg"
         >
           <div className="character-list-container">
             <ul className="character-list space-evenly">
@@ -62,6 +69,9 @@ const InactiveCharactersDisplay = (props) => {
                   character={character}
                   key={index}
                 />
+              ))}
+              {props.blankCharacters.map((character, index) => (
+                <BlankCharacterItem key={index} addNew={props.addNew} />
               ))}
             </ul>
           </div>
