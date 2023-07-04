@@ -1,10 +1,14 @@
-import React from "react";
+import React, {useContext} from "react";
 import {Button} from "@mui/material";
+import {AuthContext} from "../../shared/context/auth-context";
 import "./TitleSection.css";
 import MainNavigation from "../../shared/navigation/MainNavigation";
+import { NavLink } from "react-router-dom";
 
 
 const HomeTitle = props => {
+
+  const auth = useContext(AuthContext);
 
     return (
       <React.Fragment>
@@ -32,7 +36,9 @@ const HomeTitle = props => {
                 </h5>
               </div>
               <div className="custom-contained">
-                <Button variant="contained">Begin Building</Button>
+                <Button variant="contained">
+                  <NavLink className="login-nav" to={auth.isLoggedIn ? `/${auth.playerId}` : "/auth"}>Begin Building</NavLink>
+                </Button>
               </div>
             </div>
           </div>

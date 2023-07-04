@@ -2,8 +2,13 @@
     background-color: #f8ecd8;
     display: flex;
     justify-content: center;
-    padding-top: 2vh;
+    padding: 2vh 2vw;
     column-gap: 2rem;
+}
+
+.tool-display-section a {
+  text-decoration: none;
+  color: #000000;
 }
 
 .tool-carsousel-container {

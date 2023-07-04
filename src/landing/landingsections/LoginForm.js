@@ -5,8 +5,9 @@ import { TextField, Button } from "@mui/material";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { useHttpRequest } from "../../shared/hooks/request-hook";
 import { AuthContext } from "../../shared/context/auth-context";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 import CssBaseline from "@mui/material/CssBaseline";
+import "./LoginForm.css";
 
 const darkTheme = createTheme({
   palette: {
@@ -60,10 +61,15 @@ const LoginForm = props => {
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
       <div>
-      {error && <p>{error}</p>}
-        <form className="login-form" onSubmit={formik.handleSubmit}>
+        {error && <p>{error}</p>}
+        <form
+          autoComplete="off"
+          className="login-form"
+          onSubmit={formik.handleSubmit}
+        >
           <TextField
             fullWidth
+            autoComplete="off"
             sx={{ gridArea: "1 / 1 / span 1 / span 2" }}
             id="email"
             name="email"
@@ -75,6 +81,7 @@ const LoginForm = props => {
           />
           <TextField
             fullWidth
+            autoComplete="off"
             sx={{ gridArea: "2 / 1 / span 1 / span 2" }}
             id="password"
             name="password"
@@ -85,22 +92,31 @@ const LoginForm = props => {
             error={formik.touched.password && Boolean(formik.errors.password)}
             helperText={formik.touched.password && formik.errors.password}
           />
-          <Button
-            sx={{ margin: "0% 20%" }}
-            className="dark-button"
-            variant="outlined"
-            type="submit"
-          >
-            Submit
-          </Button>
-          <Button
-            sx={{ margin: "0% 20%" }}
-            onClick={props.handleSwitch}
-            className="dark-button"
-            variant="outlined"
-          >
-            Signup
-          </Button>
+          <div className="login-button-group">
+            <Button
+              sx={{ margin: "0% 20%" }}
+              className="dark-button"
+              variant="outlined"
+              type="submit"
+            >
+              Submit
+            </Button>
+            <Button
+              sx={{ margin: "0% 20%" }}
+              onClick={props.handleSwitch}
+              className="dark-button"
+              variant="outlined"
+            >
+              Signup
+            </Button>
+            <Button
+              sx={{ margin: "0% 20%" }}
+              className="dark-button"
+              variant="outlined"
+            >
+              <NavLink to="/">Return</NavLink>
+            </Button>
+          </div>
         </form>
       </div>
     </ThemeProvider>

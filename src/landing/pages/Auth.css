@@ -35,8 +35,7 @@
 .login-form {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    row-gap: 10%;
-    height: 30vh;
+    row-gap: 2rem;
 }
 
 .login-form button {

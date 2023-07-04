@@ -5,7 +5,8 @@ import * as yup from "yup";
 import { TextField, Button } from "@mui/material";
 import { AuthContext } from "../../shared/context/auth-context";
 import { useHttpRequest } from "../../shared/hooks/request-hook";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
+import "./Register.css";
 
 const validationSchema = yup.object({
   email: yup
@@ -58,9 +59,14 @@ const Registration = (props) => {
   return (
     <div className="register-form-container">
       {error && <p>User already exists, please log in instead.</p>}
-      <form className="login-form" onSubmit={formik.handleSubmit}>
+      <form
+        autoComplete='off'
+        className="login-form"
+        onSubmit={formik.handleSubmit}
+      >
         <TextField
           fullWidth
+          autoComplete='off'
           sx={{ gridArea: "1 / 1 / span 1 / span 2" }}
           id="playername"
           name="playername"
@@ -72,6 +78,7 @@ const Registration = (props) => {
         />
         <TextField
           fullWidth
+          autoComplete='off'
           sx={{ gridArea: "2 / 1 / span 1 / span 2" }}
           id="email"
           name="email"
@@ -83,6 +90,7 @@ const Registration = (props) => {
         />
         <TextField
           fullWidth
+          autoComplete='off'
           sx={{ gridArea: "3 / 1 / span 1 / span 2" }}
           id="password"
           name="password"
@@ -93,22 +101,31 @@ const Registration = (props) => {
           error={formik.touched.password && Boolean(formik.errors.password)}
           helperText={formik.touched.password && formik.errors.password}
         />
-        <Button
-          sx={{ margin: "0% 20%" }}
-          className="dark-button"
-          variant="outlined"
-          type="submit"
-        >
-          Submit
-        </Button>
-        <Button
-          sx={{ margin: "0% 20%" }}
-          onClick={props.handleSwitch}
-          className="dark-button"
-          variant="outlined"
-        >
-          Switch to Login
-        </Button>
+        <div className="register-button-group">
+          <Button
+            sx={{ margin: "0% 20%" }}
+            className="dark-button"
+            variant="outlined"
+            type="submit"
+          >
+            Submit
+          </Button>
+          <Button
+            sx={{ margin: "0% 20%" }}
+            onClick={props.handleSwitch}
+            className="dark-button"
+            variant="outlined"
+          >
+            Switch to Login
+          </Button>
+          <Button
+            sx={{ margin: "0% 20%" }}
+            className="dark-button"
+            variant="outlined"
+          >
+            <NavLink to="/">Return</NavLink>
+          </Button>
+        </div>
       </form>
     </div>
   );

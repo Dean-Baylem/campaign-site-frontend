@@ -35,6 +35,11 @@
     font-weight: 500;
 }
 
+.home-title-section a {
+  text-decoration: none;
+  color: #000000;
+}
+
 @media screen and (max-width: 900px) {
     .home-title-section {
         padding: 2% 10% 5% 10%;

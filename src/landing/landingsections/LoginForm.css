@@ -1,8 +1,19 @@
 .login-form button {
     color: rgba(255, 255, 255, 1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2); 
 }
 
 .login-form button:hover {
     border: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+.login-form button a {
+  text-decoration: none;
+  color: #FFF;
+}
+
+.login-button-group {
+    grid-area: 3 / 1 / span 1 / span 2;
+    display: grid;
+    row-gap: 1rem;
 }

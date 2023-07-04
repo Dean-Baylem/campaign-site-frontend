@@ -1,10 +1,15 @@
-import React from "react";
+import React, {useContext} from "react";
 import Carousel from "../../shared/Components/UIComponents/Carousel";
 import { Button } from "@mui/material";
 import magicItemDisplay from "../../images/magicItemDisplay.jpeg";
+import {AuthContext} from "../../shared/context/auth-context"; 
+import {NavLink} from "react-router-dom";
 import "./ToolDisplay.css";
 
 const ToolDisplay = (props) => {
+
+  const auth = useContext(AuthContext)
+
   const data = [
     {
       img: "https://fastly.picsum.photos/id/987/600/300.jpg?hmac=G6PzIir0sCmk-BZ_-5isP8xcbdFO3t_YXiMU8D_69Pk",
@@ -31,23 +36,22 @@ const ToolDisplay = (props) => {
       </div>
       <div className="tool-desc-container">
         <div className="page-subtitle">
-          <h3>DM Tool Description</h3>
+          <h3>DM Toolbox</h3>
         </div>
         <div className="page-body">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-            suscipit sem id metus venenatis interdum. Integer gravida nulla sit
-            amet metus rhoncus, non ultrices justo rhoncus. Suspendisse non
-            blandit odio. Morbi congue magna in sapien blandit, id ultrices
-            lectus placerat. Pellentesque dictum erat vitae ipsum viverra, et
-            ultrices elit consectetur. Phasellus et nunc leo. Pellentesque ut
-            fringilla elit, a placerat arcu. Nulla eget leo nibh. Morbi in nulla
-            at metus tristique commodo. Sed a nisi enim. Etiam a erat a odio
-            scelerisque viverra et in odio.
+            The tinkering team at Dungeon Delvers Inc present the DM Toolbox.
+            Here you will find various tools and apps that will help manage the
+            flow of your games! Members of the Delvers Team have access to all
+            the tools for their own personal use. The tools will be updated and
+            improved over time, so be sure to check out the DM Toolbox section
+            of the hub regularly!
           </p>
         </div>
         <div className="custom-contained">
-          <Button variant="contained">Enhance your games now!</Button>
+          <Button variant="contained">
+            <NavLink to={auth.isLoggedIn ? `/${auth.playerId}` : "/auth"}>Enhance your games now!</NavLink>
+          </Button>
         </div>
       </div>
     </div>
