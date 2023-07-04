@@ -11,7 +11,7 @@ const CampaignPlots = () => {
       <div className="campaign-plots-container light-bg">
         <div className="plot-summary">
           <div className="plot-summary-text">
-            <h3 className="page-subtitle">Ongoing Plot of {campaignManager.currentCampaign.campaignName}</h3>
+            <h3 className="page-subtitle">Campaign Plot</h3>
             <p className="page-body">
               Loren Ipsum Loren Ipsum Loren Ipsum Loren Ipsum Loren Ipsum. Loren
               Ipsum Loren Ipsum Loren Ipsum Loren Ipsum Loren Ipsum. Loren Ipsum

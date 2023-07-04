@@ -48,9 +48,6 @@
 }
 
 @media screen and (max-width: 600px) {
-    .player-characters {
-        margin: 0 1vw;
-    }
     .character-box {
         margin: 0;
     }
@@ -63,6 +60,7 @@
     }
     .my-characters {
         font-size: 1.75rem;
+        margin: 0;
     }
     .player-characters-container {
         width: 100%;

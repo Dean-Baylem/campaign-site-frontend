@@ -1,5 +1,5 @@
 .campaign-status-section {
-  padding: 1rem 5rem
+  padding: 5vh 15vw;
 }
 
 .campaign-party-details-container {
@@ -30,11 +30,18 @@
 }
 
 .campaign-party-details-container h5 {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
 }
 
 .campaign-party-details-container p {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
+}
+
+.campaign-synopsis {
+  width: 100%;
+  padding: 1rem 3rem;
+  border-radius: 18px;
+  border: 1px solid;
 }
 
 @media screen and (max-width: 800px) {
@@ -47,5 +54,8 @@
 }
 .campaign-party-details-container p {
   font-size: 1rem;
+}
+.campaign-synopsis {
+  padding: 1rem;
 }
 }

@@ -8,7 +8,7 @@
     column-gap: 5rem;
     padding: 0 1rem;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-around;
 }
 
 .party-token {
@@ -18,14 +18,19 @@
 
 .current-party-details {
   border-radius: 15px;
-  padding: 1rem 2rem;
+  padding: 0 4rem;
   position: relative;
-  width: fit-content;
-  max-width: 30vw;
+  width: 100%;
 }
 
 @media screen and (max-width: 1200px) {
   .current-party-details {
     max-width: 90vw;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .current-party-details {
+    padding: 1rem;
   }
 }

@@ -54,4 +54,7 @@
   .character-details { 
     justify-content: left;
   }
+  .character-display-container p {
+  font-size: 1rem;
+}
 }

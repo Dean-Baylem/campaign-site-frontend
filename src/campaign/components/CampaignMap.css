@@ -6,6 +6,10 @@
   width: fit-content;
 }
 
+.campaign-map-container h3 {
+  font-size: 2.5rem;
+}
+
 .campaign-map-container img {
   transition: 300ms;
   width: 50vw;
@@ -23,8 +27,19 @@
   box-shadow: 5px 4px 15px -2px #181611;
 }
 
+.campaign-map-body {
+  display: flex;
+  column-gap: 2rem;
+}
+
 @media screen and (max-width: 1300px) {
   .campaign-map-container img {
     width: 90vw;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .campaign-map-body {
+    flex-wrap: wrap;
   }
 }
