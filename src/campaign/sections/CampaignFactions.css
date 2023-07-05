@@ -32,7 +32,6 @@
     }
     .faction-carousel {
         margin: 0;
-        overflow-x: hidden;
     }
     .side-card-container {
         min-width: 60vw;

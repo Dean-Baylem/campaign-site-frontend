@@ -1,4 +1,5 @@
-import * as React from "react";
+import React, {useContext} from "react";
+import { CampaignContext } from "../../shared/context/CampaignContext";
 import Box from "@mui/material/Box";
 import Tab from "@mui/material/Tab";
 import TabContext from "@mui/lab/TabContext";
@@ -12,7 +13,9 @@ const DUMMY = [
 ]
 
 const PlotDisplay = props => {
-  const [value, setValue] = React.useState("1");
+  const [value, setValue] = React.useState(1);
+
+  const campaignManager = useContext(CampaignContext);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -21,15 +24,35 @@ const PlotDisplay = props => {
   return (
     <Box sx={{ width: "100%", typography: "body1" }}>
       <TabContext value={value}>
-        <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-          <TabList onChange={handleChange} aria-label="lab API tabs example">
-            {DUMMY.map((data, index) => (
+        <Box
+          sx={{
+            borderBottom: 1,
+            borderColor: "divider",
+            background: "#EBD8B2",
+          }}
+        >
+          <TabList
+            textColor="#000000"
+            indicatorColor="success"
+            onChange={handleChange}
+            aria-label="lab API tabs example"
+          >
+            {campaignManager.currentCampaign.plots.map((data, index) => (
               <Tab label={data.name} value={data.act} />
             ))}
           </TabList>
         </Box>
         {DUMMY.map((data, index) => (
-          <TabPanel value={data.act}>{data.description}</TabPanel>
+          <TabPanel
+            sx={{
+              height: "30vh",
+              background: "#fae6be",
+              borderRadius: "0 0 18px 18px",
+            }}
+            value={data.act}
+          >
+            <p>{data.description}</p>
+          </TabPanel>
         ))}
       </TabContext>
     </Box>

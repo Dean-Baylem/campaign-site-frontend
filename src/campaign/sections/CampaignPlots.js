@@ -23,7 +23,10 @@ const CampaignPlots = (props) => {
       {createPlotModal && (
         <Modal modalHeader="Create Plot Act">
           <PlotForm
-            url={process.env.REACT_APP_REQUEST_URL + `/campaign/createplot/${campaignId}`}
+            url={
+              process.env.REACT_APP_REQUEST_URL +
+              `/campaign/createplot/${campaignId}`
+            }
             requestType="POST"
             setEditable={setCreatePlotModal}
             reload={props.reload}
@@ -32,25 +35,36 @@ const CampaignPlots = (props) => {
         </Modal>
       )}
       <div className="campaign-plots-container light-bg">
-        <div className="plot-summary">
-          <div className="plot-summary-text">
-            <h3 className="page-subtitle">Campaign Plot</h3>
-            {campaignManager.currentCampaign.plots.map((plot, index) => (
-              <p>{plot.name}</p>
-            ))}
-            {campaignManager.currentCampaign.plots.length === 0 && (
-              <div>
-                <p>The archives are empty! Start building today!</p>
-                <Button onClick={handleCreateModal}>Create Act</Button>
-              </div>
-            )}
-            {/* <PlotDisplay /> */}
+        <h3 className="page-subtitle">Campaign Plot</h3>
+        <div className="plot-synopsis-container">
+          <div className="plot-synopsis padding-1 page-body custom-buttons">
+            <p>
+              A combination of Game Master preparation and party shenanigans
+              results in a complicated web of events that form the campaign
+              plot. Often these plots are categorized identically to a play in
+              acts. Using the handy tab system developed by the curators of
+              Dungeon Delvers Incorporated, the Game Master can document and
+              record these events for easy viewing.
+            </p>
+            <Button variant="outlined" onClick={handleCreateModal}>New Act</Button>
           </div>
           <div className="campaign-plot-img">
             <img
               src="https://cdn-icons-png.flaticon.com/512/683/683836.png?w=740&t=st=1686459158~exp=1686459758~hmac=82de5fd7ab8afbbc6cb80295a836e0535d34d7a3c4493524b7218bb0e180234c"
               alt="Campaign-token"
             />
+          </div>
+        </div>
+        <div className="plot-summary">
+          <div className="plot-summary-text">
+            {campaignManager.currentCampaign.plots.length === 0 ? (
+              <div>
+                <p>The archives are empty! Start building today!</p>
+                <Button onClick={handleCreateModal}>Create Act</Button>
+              </div>
+            ) : (
+              <PlotDisplay />
+            )}
           </div>
         </div>
         <div className="plot-timeline">

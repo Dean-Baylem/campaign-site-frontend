@@ -44,6 +44,12 @@
   border: 1px solid;
 }
 
+@media screen and (max-width: 1400px) {
+  .campaign-status-section {
+  padding: 5vh 5vw;
+}
+}
+
 @media screen and (max-width: 800px) {
   .campaign-status-section {
     padding: 1rem;
@@ -53,7 +59,7 @@
   font-size: 1.1rem;
 }
 .campaign-party-details-container p {
-  font-size: 1rem;
+  font-size: 1.2rem;
 }
 .campaign-synopsis {
   padding: 1rem;

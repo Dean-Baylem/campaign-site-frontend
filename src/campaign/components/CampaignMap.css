@@ -12,8 +12,10 @@
 
 .campaign-map-container img {
   transition: 300ms;
-  width: 50vw;
+  width: 35vw;
+  height: 40vh;
   border-radius: 8px;
+  align-self: center;
 }
 
 .map-container {
@@ -32,9 +34,21 @@
   column-gap: 2rem;
 }
 
-@media screen and (max-width: 1300px) {
+@media screen and (max-width: 1400px) {
   .campaign-map-container img {
-    width: 90vw;
+    width: 40vw;
+    height: 40vh;
+    align-self: center;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .campaign-map-body {
+    flex-flow: column;
+  }
+  .campaign-map-body img {
+    width: 80vw;
+    height: 100%;
   }
 }
 
