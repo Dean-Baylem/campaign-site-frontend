@@ -1,23 +1,41 @@
-import React, {useContext} from "react";
+import React, { useContext, useState } from "react";
 import "./CampaignPlots.css";
 import EventsTimeline from "../components/EventsTimeline";
 import { CampaignContext } from "../../shared/context/CampaignContext";
+import PlotDisplay from "../components/PlotDisplay";
+import PlotForm from "../components/PlotForm";
+import Modal from "../../shared/Components/UIComponents/Modal";
+import { Button } from "@mui/material";
 
 const CampaignPlots = () => {
-
   const campaignManager = useContext(CampaignContext);
+  const [createPlotModal, setCreatePlotModal] = useState(false);
 
-    return (
+  const handleCreateModal = () => {
+    setCreatePlotModal(!createPlotModal);
+  };
+
+  return (
+    <React.Fragment>
+    {createPlotModal && (
+      <Modal modalHeader="Create Plot Act">
+        <PlotForm closeModal={handleCreateModal}/>
+      </Modal>
+    )}
       <div className="campaign-plots-container light-bg">
         <div className="plot-summary">
           <div className="plot-summary-text">
             <h3 className="page-subtitle">Campaign Plot</h3>
-            <p className="page-body">
-              Loren Ipsum Loren Ipsum Loren Ipsum Loren Ipsum Loren Ipsum. Loren
-              Ipsum Loren Ipsum Loren Ipsum Loren Ipsum Loren Ipsum. Loren Ipsum
-              Loren Ipsum Loren Ipsum Loren Ipsum Loren Ipsum. Loren Ipsum Loren
-              Ipsum Loren Ipsum Loren Ipsum Loren Ipsum.
-            </p>
+            {campaignManager.currentCampaign.plots.map((plot, index) => (
+              <p>{plot.name}</p>
+            ))}
+            {campaignManager.currentCampaign.plots.length === 0 && (
+              <div>
+                <p>The archives are empty! Start building today!</p>
+                <Button onClick={handleCreateModal}>Create Act</Button>
+              </div>
+            )}
+            <PlotDisplay />
           </div>
           <div className="campaign-plot-img">
             <img
@@ -27,11 +45,14 @@ const CampaignPlots = () => {
           </div>
         </div>
         <div className="plot-timeline">
-        <div className="center page-subtitle"><h3>Timeline of events</h3></div>
+          <div className="center page-subtitle">
+            <h3>Timeline of events</h3>
+          </div>
           <EventsTimeline />
         </div>
       </div>
-    );
-}
+    </React.Fragment>
+  );
+};
 
 export default CampaignPlots;
