@@ -15,9 +15,11 @@ const validationSchema = yup.object({
 
 const PlotForm = (props) => {
   const { sendRequest } = useHttpRequest();
+  const auth = useContext(AuthContext);
 
   const formik = useFormik({
     initialValues: {
+      act: props.act || 1,
       name: props.name || "",
       description: props.description || "",
       levelStart: props.levelStart || 0,
@@ -27,9 +29,33 @@ const PlotForm = (props) => {
     },
     validationSchema: validationSchema,
     onSubmit: async (values) => {
-      //   try {
-      //   } catch {}
-      console.log(values);
+      console.log("okay 1");
+        try {
+          const response = await sendRequest(
+            props.url,
+            props.requestType,
+            JSON.stringify({
+              act: values.act,
+              name: values.name,
+              description: values.description,
+              levelStart: values.levelStart,
+              levelFinish: values.levelFinish,
+              ongoing: values.ongoing,
+              visible: props.visible,
+            }),
+            {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${auth.playerId}`,
+            }
+          );
+          console.log(response);
+        } catch (err) {}
+      if (props.reload) {
+        await props.reload(true);
+      }
+      if (props.setEditable) {
+        props.setEditable(false);
+      }
     },
   });
 

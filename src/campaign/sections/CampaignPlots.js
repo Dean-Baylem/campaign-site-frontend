@@ -1,15 +1,18 @@
 import React, { useContext, useState } from "react";
+import { useParams } from "react-router-dom";
 import "./CampaignPlots.css";
 import EventsTimeline from "../components/EventsTimeline";
 import { CampaignContext } from "../../shared/context/CampaignContext";
 import PlotDisplay from "../components/PlotDisplay";
 import PlotForm from "../components/PlotForm";
 import Modal from "../../shared/Components/UIComponents/Modal";
-import { Button } from "@mui/material";
+import { Button, useThemeProps } from "@mui/material";
 
-const CampaignPlots = () => {
+const CampaignPlots = (props) => {
   const campaignManager = useContext(CampaignContext);
   const [createPlotModal, setCreatePlotModal] = useState(false);
+
+  const campaignId = useParams().campaignId;
 
   const handleCreateModal = () => {
     setCreatePlotModal(!createPlotModal);
@@ -17,11 +20,17 @@ const CampaignPlots = () => {
 
   return (
     <React.Fragment>
-    {createPlotModal && (
-      <Modal modalHeader="Create Plot Act">
-        <PlotForm closeModal={handleCreateModal}/>
-      </Modal>
-    )}
+      {createPlotModal && (
+        <Modal modalHeader="Create Plot Act">
+          <PlotForm
+            url={process.env.REACT_APP_REQUEST_URL + `/campaign/createplot/${campaignId}`}
+            requestType="POST"
+            setEditable={setCreatePlotModal}
+            reload={props.reload}
+            closeModal={handleCreateModal}
+          />
+        </Modal>
+      )}
       <div className="campaign-plots-container light-bg">
         <div className="plot-summary">
           <div className="plot-summary-text">
@@ -35,7 +44,7 @@ const CampaignPlots = () => {
                 <Button onClick={handleCreateModal}>Create Act</Button>
               </div>
             )}
-            <PlotDisplay />
+            {/* <PlotDisplay /> */}
           </div>
           <div className="campaign-plot-img">
             <img

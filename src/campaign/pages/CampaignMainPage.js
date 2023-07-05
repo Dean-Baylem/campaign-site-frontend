@@ -58,7 +58,10 @@ const CampaignMainPage = () => {
         {characterModal && (
           <Modal modalHeader="Character Creation">
             <CharacterForm
-              url={process.env.REACT_APP_REQUEST_URL + `/character/new-character/${auth.playerId}/${campaignManager.currentCampaign._id}`}
+              url={
+                process.env.REACT_APP_REQUEST_URL +
+                `/character/new-character/${auth.playerId}/${campaignManager.currentCampaign._id}`
+              }
               requestType="POST"
               reload={setLoadCampaign}
               setEditable={setCharacterModal}
@@ -71,7 +74,10 @@ const CampaignMainPage = () => {
         {characterToEdit && (
           <Modal modalHeader="Edit Character">
             <CharacterForm
-              url={process.env.REACT_APP_REQUEST_URL + `/character/update-character/${characterToEdit._id}`}
+              url={
+                process.env.REACT_APP_REQUEST_URL +
+                `/character/update-character/${characterToEdit._id}`
+              }
               requestType="PATCH"
               reload={setLoadCampaign}
               setEditable={setCharacterToEdit}
@@ -94,7 +100,10 @@ const CampaignMainPage = () => {
         {characterToDelete && (
           <Modal modalHeader="Delete Character?">
             <DeleteModal
-              url={process.env.REACT_APP_REQUEST_URL + `/character/delete-character/${characterToDelete._id}`}
+              url={
+                process.env.REACT_APP_REQUEST_URL +
+                `/character/delete-character/${characterToDelete._id}`
+              }
               reload={setLoadCampaign}
               modalToggle={deleteModalToggle}
             />
@@ -114,7 +123,7 @@ const CampaignMainPage = () => {
           />
         )}
         <CampaignPartyDetails reload={setLoadCampaign} />
-        <CampaignPlots />
+        <CampaignPlots reload={setLoadCampaign} />
         <CampaignFactions />
         <CampaignNPCs />
         <CampaignSchedule />
