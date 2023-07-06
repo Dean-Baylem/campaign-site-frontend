@@ -15,7 +15,7 @@ const CampaignFactions = () => {
 
   return (
     <div className="campaign-factions-container">
-      <div className="center page-subtitle">
+      <div className="page-subtitle">
         <h3>Factions in {campaignManager.currentCampaign.campaignName}</h3>
       </div>
       <div className="faction-example-container">
@@ -27,22 +27,16 @@ const CampaignFactions = () => {
         </div>
         <div className="faction-description page-body">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
-            consequat quis tellus vel scelerisque. Vivamus mollis aliquam odio,
-            sit amet euismod purus elementum sit amet. Suspendisse ac rhoncus
-            nulla. In hac habitasse platea dictumst. Aenean sapien ligula,
-            volutpat in porta eu, volutpat a nunc. In hac habitasse platea
-            dictumst. Sed sit amet tempor velit. Aenean molestie facilisis
-            commodo. Phasellus fermentum quam turpis, ultrices ultricies dui
-            hendrerit nec.
-          </p>
-          <p>
-            Nulla facilisi. Interdum et malesuada fames ac ante ipsum primis in
-            faucibus. Maecenas quis massa a leo fermentum lobortis. Curabitur
-            dapibus felis eu consectetur feugiat. Ut cursus condimentum augue
-            vel scelerisque. Donec purus dui, finibus ac libero nec, mollis
-            aliquam mauris. Donec mollis quam ornare malesuada vestibulum. Nam
-            aliquam sapien nec purus faucibus, ac venenatis turpis cursus.
+            The curators at Dungeon Delvers Incorporated present a catalogue of
+            groups with distinct goals for your reading pleasure. Examples of
+            factions include; Political houses, secret societies, religious
+            organizations, and warrior guilds, each with its objectives.
+            Interacting with these factions allows the characters to grow a
+            deeper connection with the NPCs involved with them. Whatever your
+            objective, it is wise to have information regarding these groups
+            before starting your interactions with them. Additionally, we
+            recommended that you document acquired knowledge for your reference
+            and to serve others in their quests for information.
           </p>
         </div>
       </div>

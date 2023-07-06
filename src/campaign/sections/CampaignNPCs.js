@@ -26,8 +26,20 @@ const CampaignNPCs = () => {
       {error && <p>There was an error loading NPC's</p>}
       {npcs.length !== 0 ? (
         <div>
-          <div className="page-subtitle center">
-            <h3>NPC's of {campaignManager.currentCampaign.campaignName}</h3>
+          <div className="page-subtitle">
+            <h3>NPCs of {campaignManager.currentCampaign.campaignName}</h3>
+          </div>
+          <div className="page-body npc-desc">
+            <p>
+              NPCs range from allies to adversaries, quest givers to help
+              rescuees, merchants to drunks. The records collected here were
+              born from the tales of travelling bards, and expanded upon by the
+              musings of the Game Master reiterating the travels of the
+              adventurers. Characters deemed most significant to the campaign
+              have been specially selected for display below. Details for other
+              characters are still being drawn up and will be presented in a
+              separate section once completed.
+            </p>
           </div>
           <div className="npc-flex-container">
             {npcs.map((npc, index) => (

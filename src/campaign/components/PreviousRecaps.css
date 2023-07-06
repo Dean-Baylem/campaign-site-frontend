@@ -9,6 +9,13 @@
 
 .recap-entry {
     padding: 1rem;
+    transition: 300ms;
+}
+
+.recap-entry:hover {
+    background: #FFF;
+    transition: 300ms;
+    cursor: pointer;
 }
 
 .previous-recap-container ul {
@@ -16,6 +23,10 @@
     text-align: center;
     padding: 0;
     margin: 0;
+}
+
+.event-collapsible:hover {
+    cursor: pointer;
 }
 
 .event-collapsible .Collapsible {

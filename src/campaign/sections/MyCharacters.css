@@ -1,80 +1,100 @@
 .my-characters {
-    width: 100%;
-    font-size: 2.5rem;
+  width: 100%;
+  font-size: 2.5rem;
 }
 
 .player-characters {
-    padding: 0 15vw 5vh 15vw;
+  padding: 0 15vw 5vh 15vw;
 }
 
 .character-box {
-    margin: 1rem;
+  margin: 1rem;
 }
 
 .player-characters-container {
-    margin-bottom: 1rem;
-    width: 30vw;
+  margin-bottom: 1rem;
+  width: 30vw;
 }
 
 .character-container {
-    display: flex;
-    flex-wrap: wrap;
-    column-gap: 5rem;
-    justify-content: space-around;
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 5rem;
+  justify-content: space-around;
 }
 
 .char-desc {
-    width: 30vw;
+  width: 30vw;
 }
 
 .char-desc p {
-    font-size: 1.5rem;
+  font-size: 1.5rem;
 }
 
 .inactive-token img {
-    transition: 500ms;
+  transition: 500ms;
 }
 
 .inactive-token img:hover {
-    transform: translateY(-10px);
-    box-shadow: 0px 0px 15px -2px #98EECC;
-    border: 0px;
-    transition: 500ms;
-    cursor: pointer;
+  transform: translateY(-10px);
+  box-shadow: 0px 0px 15px -2px #98eecc;
+  border: 0px;
+  transition: 500ms;
+  cursor: pointer;
 }
 
 .inactive-list {
+  width: 100%;
+}
+
+@media screen and (max-width: 1200px) {
+  .player-characters {
+    padding: 0 5vw 5vh 5vw;
+  }
+  .player-characters-container {
+    width: 45vw;  
+  }
+  .character-container {
+    column-gap: 0;
+    justify-content: space-evenly;
+  }
+}
+
+
+
+@media screen and (max-width: 800px) {
+  .character-box {
+    margin: 0;
+  }
+  .player-characters {
+    padding: 0;
+  }
+  .character-container {
+    display: grid;
+    padding: 1rem;
+  }
+  .my-characters {
+    font-size: 1.75rem;
+    margin: 0;
+  }
+  .player-characters-container {
     width: 100%;
+  }
+  .char-desc {
+    grid-area: 2 / 1;
+    width: 100%;
+  }
+  
+  .character-list {
+    padding: 0;
+    row-gap: 1rem;
+    flex-flow: row;
+    flex-wrap: wrap;
+  }
 }
 
 @media screen and (max-width: 600px) {
-    .character-box {
-        margin: 0;
-    }
-    .player-characters {
-    padding: 0;
-    }
-    .character-container {
-        display: grid;
-        padding: 1rem;
-    }
-    .my-characters {
-        font-size: 1.75rem;
-        margin: 0;
-    }
-    .player-characters-container {
-        width: 100%;
-    }
-    .char-desc {
-        grid-area: 2 / 1;
-        width: 100%;
-    }
     .char-desc p {
-        font-size: 1rem;
-    }
-    .character-list {
-        padding: 0;
-        row-gap: 1rem;
-        flex-flow: column;
-    }
+    font-size: 1rem;
+  }
 }

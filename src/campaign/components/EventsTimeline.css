@@ -3,6 +3,15 @@
     margin: 0 5rem;
 }
 
+.event-tab-details { 
+    padding: 0 1rem;
+    text-align: left;
+}
+
+.event-tab-title { 
+    padding: 0 1rem;
+}
+
 @media screen and (max-width: 600px) {
     .events-timeline-container {
         margin: 0;
@@ -12,11 +21,11 @@
     }
     .event-tab-details {
         display: none;
+        padding: 0;
     }
     .event-tab-title {
         text-align: center;
-        margin: 0;
-        padding: 0 1rem;    
+        margin: 0; 
     }
     .tab-details {
         position: relative;
@@ -24,5 +33,12 @@
         width: 100%;
         display: grid;
         align-items: center;
+        transition: 300ms;
+        border-radius: 8px;
+    }
+    .tab-details:hover {
+        background-color: #dbcaa7;
+        transition: 300ms;
+        cursor: pointer;
     }
 }
