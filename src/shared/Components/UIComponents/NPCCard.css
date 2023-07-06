@@ -44,6 +44,12 @@
   margin: 1rem 0 0 0;
 }
 
+@media screen and (min-width: 1201px) {
+  .campaign-npcs-container h3 {
+    padding: 2vh 15vw;
+  }
+}
+
 @media screen and (max-width: 800px) {
   .npc-flex-container {
     justify-content: center;

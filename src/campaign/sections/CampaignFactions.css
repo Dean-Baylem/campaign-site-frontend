@@ -34,6 +34,15 @@
     padding: 0 5vw;
 }
 
+@media screen and (min-width: 1201px) {
+    .campaign-factions-container h3 {
+        padding: 0 15vw;
+    }
+    .faction-example-container {
+        margin: 1vh 15vw;
+    }
+}
+
 @media screen and (max-width: 850px) {
     .faction-example-container {
         margin: 1rem 5vw;

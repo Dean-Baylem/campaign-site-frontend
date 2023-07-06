@@ -12,6 +12,39 @@
     padding: 0 1rem;
 }
 
+.timeline-desc {
+    display: flex;
+    padding: 1vh 5vw;
+    justify-content: space-evenly;
+}
+
+.timeline-desc p {
+    width: 60vw;
+    font-size: 1.5rem;
+}
+
+.timeline-desc img {
+    width: 20vw;
+}
+
+@media screen and (min-width: 1201px) {
+    .timeline-desc {
+        padding: 2vh 15vw;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .timeline-desc {
+        flex-wrap: wrap;
+        flex-flow: column-reverse;
+        align-items: center;
+    }
+    .timeline-desc p {
+        width: 100%;
+        font-size: 1.2rem;
+    }
+}
+
 @media screen and (max-width: 600px) {
     .events-timeline-container {
         margin: 0;

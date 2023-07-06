@@ -3,15 +3,19 @@ import { useParams } from "react-router-dom";
 import "./CampaignPlots.css";
 import EventsTimeline from "../components/EventsTimeline";
 import { CampaignContext } from "../../shared/context/CampaignContext";
+import { AuthContext } from "../../shared/context/auth-context";
 import PlotDisplay from "../components/PlotDisplay";
 import PlotForm from "../components/PlotForm";
 import Modal from "../../shared/Components/UIComponents/Modal";
 import { Button, useThemeProps } from "@mui/material";
 import DeleteModal from "../../shared/Components/UIComponents/DeleteModal";
+import EventForm from "../components/EventForm";
 
 const CampaignPlots = (props) => {
   const campaignManager = useContext(CampaignContext);
+  const auth = useContext(AuthContext);
   const [createPlotModal, setCreatePlotModal] = useState(false);
+  const [createEvent, setCreateEvent] = useState(false);
   const [editModal, setEditModal] = useState(false);
   const [actToDelete, setActToDelete] = useState({});
   const [actToEdit, setActToEdit] = useState({});
@@ -22,6 +26,10 @@ const CampaignPlots = (props) => {
   const handleCreateModal = () => {
     setCreatePlotModal(!createPlotModal);
   };
+
+  const handleCreateEventModal = () => {
+    setCreateEvent(!createEvent);
+  }
 
   const editModalToggle = () => {
     setEditModal(!editModal);
@@ -77,6 +85,20 @@ const CampaignPlots = (props) => {
           />
         </Modal>
       )}
+      {createEvent && (
+        <Modal modalHeader="Create New Events">
+          <EventForm
+            url={
+              process.env.REACT_APP_REQUEST_URL +
+              `/campaign/events/add/${campaignId}`
+            }
+            requestType="POST"
+            setEditable={setCreateEvent}
+            reload={props.reload}
+            closeModal={handleCreateEventModal}
+            />
+        </Modal>
+      )}
       {deleteModal && (
         <Modal modalHeader="Delete Plot Act">
           <DeleteModal
@@ -128,9 +150,28 @@ const CampaignPlots = (props) => {
           </div>
         </div>
         <div className="plot-timeline">
-          <div className="center page-subtitle">
+          <div className="page-subtitle">
             <h3>Timeline of events</h3>
           </div>
+          <div className="timeline-desc page-body">
+            <p>
+              Written into the pages of history is the series of quests the
+              world's adventurers have embarked upon. Clearing dungeons of
+              dangerous foes, nervously parlaying with grumpy giants, walking
+              the fine line of court conversations with kings and rogues alike.
+              Watch the timeline grow ever more as your deeds are recorded by
+              the scribes of Dungeon Delvers Incorporated!
+            </p>
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/9339/9339960.png"
+              alt="event-desc-icon"
+            />
+          </div>
+          {auth.playerId === campaignManager.currentCampaign.gameMaster.id && (
+            <div className="custom-buttons center">
+              <Button onClick={handleCreateEventModal}>New Event</Button>
+            </div>
+          )}
           <EventsTimeline />
         </div>
       </div>

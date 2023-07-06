@@ -1,6 +1,6 @@
 .campaign-plots-container h3 {
   font-size: 2.5rem;
-  margin: 0 15vw;
+  margin: 0 5vw;
 }
 
 .plot-summary {
@@ -38,10 +38,13 @@
   font-size: 1.5rem;
 }
 
-@media screen and (max-width: 1400px) {
+@media screen and (min-width: 1201px) {
   .campaign-plots-container h3 {
-    margin: 0 5vw;
+    margin: 0 15vw;
   }
+}
+
+@media screen and (max-width: 1400px) {
   .plot-synopsis-container {
     margin: 0 5vw;
     column-gap: 0;

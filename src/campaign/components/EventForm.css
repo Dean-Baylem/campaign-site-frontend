@@ -1,0 +1,31 @@
+.campaign-event-form {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 1rem;
+    justify-content: space-evenly;
+    padding: 0 1rem;
+}
+
+.event-drops {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 1rem;
+}
+
+.event-dropdown {
+    display: grid;
+    row-gap: 1rem;
+    justify-items: center;
+}
+
+.event-submit {
+    width: 100%;
+    display: flex;
+    column-gap: 2rem;
+    margin: 0 2rem;
+}
+
+.event-submit button {
+    width: 100%;
+}

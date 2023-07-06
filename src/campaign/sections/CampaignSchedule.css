@@ -28,6 +28,12 @@
   max-width: 10vw;
 }
 
+@media screen and (min-width: 1201px) {
+  .campaign-schedule-container {
+  padding: 2vh 15vw;
+}
+}
+
 @media screen and (max-width: 600px) {
   .schedule-banner {
     display: flex;
