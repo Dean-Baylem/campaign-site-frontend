@@ -1,5 +1,8 @@
 import React, {useContext} from "react";
 import { CampaignContext } from "../../shared/context/CampaignContext";
+import { IconButton } from "@mui/material";
+import DeleteIcon from "@mui/icons-material/Delete";
+import EditIcon from "@mui/icons-material/Edit";
 import Box from "@mui/material/Box";
 import Tab from "@mui/material/Tab";
 import TabContext from "@mui/lab/TabContext";
@@ -20,6 +23,14 @@ const PlotDisplay = props => {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+
+  const handleEditClick = (data) => {
+    props.handleEdit(data);
+  }
+
+  const handleDeleteClick = (data) => {
+    props.handleDelete(data)
+  }
 
   return (
     <Box sx={{ width: "100%", typography: "body1" }}>
@@ -42,7 +53,7 @@ const PlotDisplay = props => {
             ))}
           </TabList>
         </Box>
-        {DUMMY.map((data, index) => (
+        {campaignManager.currentCampaign.plots.map((data, index) => (
           <TabPanel
             sx={{
               height: "30vh",
@@ -52,6 +63,14 @@ const PlotDisplay = props => {
             value={data.act}
           >
             <p>{data.description}</p>
+            <div className="edit-icons-bottom">
+              <IconButton onClick={() => handleEditClick(data)}>
+                <EditIcon fontSize="small" />
+              </IconButton>
+              <IconButton onClick={() => handleDeleteClick(data)}>
+                <DeleteIcon fontSize="small" />
+              </IconButton>
+            </div>
           </TabPanel>
         ))}
       </TabContext>

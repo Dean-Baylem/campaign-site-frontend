@@ -7,15 +7,38 @@ import PlotDisplay from "../components/PlotDisplay";
 import PlotForm from "../components/PlotForm";
 import Modal from "../../shared/Components/UIComponents/Modal";
 import { Button, useThemeProps } from "@mui/material";
+import DeleteModal from "../../shared/Components/UIComponents/DeleteModal";
 
 const CampaignPlots = (props) => {
   const campaignManager = useContext(CampaignContext);
   const [createPlotModal, setCreatePlotModal] = useState(false);
+  const [editModal, setEditModal] = useState(false);
+  const [actToDelete, setActToDelete] = useState({});
+  const [actToEdit, setActToEdit] = useState({});
+  const [deleteModal, setDeleteModal] = useState(false);
 
   const campaignId = useParams().campaignId;
 
   const handleCreateModal = () => {
     setCreatePlotModal(!createPlotModal);
+  };
+
+  const editModalToggle = () => {
+    setEditModal(!editModal);
+  };
+
+  const deleteModalToggle = () => {
+    setDeleteModal(!deleteModal);
+  };
+
+  const handleEditClick = (data) => {
+    setActToEdit(data);
+    editModalToggle();
+  };
+
+  const handleDeleteClick = (data) => {
+    setActToDelete(data);
+    deleteModalToggle();
   };
 
   return (
@@ -34,6 +57,38 @@ const CampaignPlots = (props) => {
           />
         </Modal>
       )}
+      {editModal && (
+        <Modal modalHeader="Edit Plot Act">
+          <PlotForm
+            act={actToEdit.act}
+            name={actToEdit.name}
+            description={actToEdit.description}
+            levelStart={actToEdit.levelStart}
+            levelFinish={actToEdit.levelFinish}
+            ongoing={actToEdit.ongoing}
+            visible={actToEdit.visible}
+            url={
+              process.env.REACT_APP_REQUEST_URL +
+              `/campaign/updateplot/${actToEdit._id}`
+            }
+            requestType="PATCH"
+            closeModal={editModalToggle}
+            reload={props.reload}
+          />
+        </Modal>
+      )}
+      {deleteModal && (
+        <Modal modalHeader="Delete Plot Act">
+          <DeleteModal
+            url={
+              process.env.REACT_APP_REQUEST_URL +
+              `/campaign/deletePlot/${actToDelete._id}`
+            }
+            reload={props.reload}
+            modalToggle={deleteModalToggle}
+          />
+        </Modal>
+      )}
       <div className="campaign-plots-container light-bg">
         <h3 className="page-subtitle">Campaign Plot</h3>
         <div className="plot-synopsis-container">
@@ -46,7 +101,9 @@ const CampaignPlots = (props) => {
               Dungeon Delvers Incorporated, the Game Master can document and
               record these events for easy viewing.
             </p>
-            <Button variant="outlined" onClick={handleCreateModal}>New Act</Button>
+            <Button variant="outlined" onClick={handleCreateModal}>
+              New Act
+            </Button>
           </div>
           <div className="campaign-plot-img">
             <img
@@ -63,7 +120,10 @@ const CampaignPlots = (props) => {
                 <Button onClick={handleCreateModal}>Create Act</Button>
               </div>
             ) : (
-              <PlotDisplay />
+              <PlotDisplay
+                handleDelete={handleDeleteClick}
+                handleEdit={handleEditClick}
+              />
             )}
           </div>
         </div>

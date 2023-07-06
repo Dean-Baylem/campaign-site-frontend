@@ -29,7 +29,6 @@ const PlotForm = (props) => {
     },
     validationSchema: validationSchema,
     onSubmit: async (values) => {
-      console.log("okay 1");
         try {
           const response = await sendRequest(
             props.url,
