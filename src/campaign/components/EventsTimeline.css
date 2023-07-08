@@ -15,7 +15,7 @@
 .timeline-desc {
     display: flex;
     padding: 1vh 5vw;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 
 .timeline-desc p {

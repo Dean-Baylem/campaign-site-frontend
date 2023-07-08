@@ -37,7 +37,7 @@
 @media screen and (max-width: 1400px) {
   .campaign-map-container img {
     width: 40vw;
-    height: 40vh;
+    max-height: 20vh;
     align-self: center;
   }
 }
@@ -48,12 +48,15 @@
   }
   .campaign-map-body img {
     width: 80vw;
-    height: 100%;
+    max-height: 30vh;
   }
 }
 
 @media screen and (max-width: 600px) {
   .campaign-map-body {
     flex-wrap: wrap;
+  }
+  .campaign-map-body img {
+    max-height: 35vh;
   }
 }

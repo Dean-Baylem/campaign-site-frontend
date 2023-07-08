@@ -9,8 +9,11 @@ const CampaignFactions = () => {
 
   let settings = {
     dots: true,
-    arrows: true,
+    arrows: false,
     centerMode: true,
+    infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1
   };
 
   return (

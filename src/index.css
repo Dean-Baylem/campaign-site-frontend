@@ -209,3 +209,36 @@ body {
 .space-top { 
   margin-top: 1rem;
 }
+
+/* Styling for edit and delete icons repeated through webapp */
+
+.edit-icons-bottom {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.edit-icons-left {
+  position:absolute;
+  bottom:0;
+  left:0
+}
+
+.edit-icons-right {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+@media screen and (max-width: 400px) {
+  .edit-icons-left {
+    position: relative;
+    justify-self: center;
+    margin-top: 0.5rem;
+  }
+  .edit-icons-right {
+    position: relative;
+    justify-self: center;
+    margin-top: 0.5rem;
+  }
+}

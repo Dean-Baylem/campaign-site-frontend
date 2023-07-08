@@ -172,7 +172,7 @@ const CampaignPlots = (props) => {
               <Button onClick={handleCreateEventModal}>New Event</Button>
             </div>
           )}
-          <EventsTimeline />
+          <EventsTimeline reload={props.reload}/>
         </div>
       </div>
     </React.Fragment>
