@@ -49,7 +49,7 @@ const CampaignFactions = () => {
             {campaignManager.currentCampaign.factions.map((faction, index) => (
               <div className="faction-carousel-item" key={index}>
                 <SideCard
-                  link={"/"}
+                  link={`/faction/${faction.id}`}
                   clickable={true}
                   imgSrc={faction.factionToken}
                   cardType="top-side"

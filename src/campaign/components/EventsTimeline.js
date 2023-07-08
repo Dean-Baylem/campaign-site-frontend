@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import { CampaignContext } from "../../shared/context/CampaignContext";
+import { AuthContext } from "../../shared/context/auth-context";
 import Timeline from "@mui/lab/Timeline";
 import TimelineItem from "@mui/lab/TimelineItem";
 import TimelineSeparator from "@mui/lab/TimelineSeparator";
@@ -15,6 +16,7 @@ import DeleteModal from "../../shared/Components/UIComponents/DeleteModal";
 
 const EventsTimeline = (props) => {
   const campaignManager = useContext(CampaignContext);
+  const auth = useContext(AuthContext);
   const [editEvent, setEditEvent] = useState(false);
   const [eventToEdit, setEventToEdit] = useState({});
   const [deleteEvent, setDeleteEvent] = useState(false);
@@ -33,21 +35,21 @@ const EventsTimeline = (props) => {
 
   const toggleEditModal = () => {
     setEditEvent(!editEvent);
-  }
+  };
 
   const toggleDeleteModal = () => {
     setDeleteEvent(!deleteEvent);
-  }
+  };
 
   const handleEditClick = (event) => {
     setEventToEdit(event);
     toggleEditModal();
-  }
+  };
 
   const handleDeleteClick = (event) => {
     setEventToDelete(event);
     toggleDeleteModal();
-  }
+  };
 
   return (
     <React.Fragment>
@@ -120,19 +122,21 @@ const EventsTimeline = (props) => {
                     <strong>{event.eventTitle}</strong>
                   </p>
                   <p className="event-tab-details">{event.eventDesc}</p>
-
-                  <div
-                    className={
-                      index % 2 === 0 ? "edit-icons-right" : "edit-icons-left"
-                    }
-                  >
-                    <IconButton onClick={() => handleEditClick(event)}>
-                      <EditIcon fontSize="small" />
-                    </IconButton>
-                    <IconButton onClick={() => handleDeleteClick(event)}>
-                      <DeleteIcon fontSize="small" />
-                    </IconButton>
-                  </div>
+                  {auth.playerId ===
+                    campaignManager.currentCampaign.gameMaster.id && (
+                    <div
+                      className={
+                        index % 2 === 0 ? "edit-icons-right" : "edit-icons-left"
+                      }
+                    >
+                      <IconButton onClick={() => handleEditClick(event)}>
+                        <EditIcon fontSize="small" />
+                      </IconButton>
+                      <IconButton onClick={() => handleDeleteClick(event)}>
+                        <DeleteIcon fontSize="small" />
+                      </IconButton>
+                    </div>
+                  )}
                 </div>
               </TimelineContent>
             </TimelineItem>

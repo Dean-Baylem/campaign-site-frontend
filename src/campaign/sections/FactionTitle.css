@@ -1,0 +1,13 @@
+.faction-title h1 {
+    font-size: 4rem;
+}
+
+.faction-title h5 {
+    font-size: 2.5rem;
+    margin: 1rem
+}
+
+.faction-token-motto img {
+    border-radius: 18px;
+    box-shadow: 1px 1px 10px -2px;
+}

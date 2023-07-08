@@ -1,0 +1,15 @@
+.faction-notes {
+    overflow: hidden;
+    width: 100%
+}
+
+.faction-notes img {
+    height: 20vh;
+    float: right;
+    margin: 1rem;
+}
+
+.faction-notes-accordion {
+    padding-bottom: 1rem;
+}
+

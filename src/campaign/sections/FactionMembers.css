@@ -1,0 +1,51 @@
+.member-desc-container {
+    overflow: hidden;
+    width: 100%;
+}
+
+.member-desc-container img {
+    height: 20vh;
+    margin-right: 2rem;
+    float: left;
+}
+
+.faction-token img {
+    max-width: 10vw;
+    transition: 300ms;
+    border-radius: 50%;
+}
+
+.faction-token img:hover {
+    transform: translateY(-5px);
+    box-shadow: 1px 1px 5px 2px rgba(51, 41, 12);
+    transition: 300ms;
+    cursor: pointer;
+}
+
+.faction-token {
+    width: 10vw;
+    text-align: center;
+}
+
+.faction-token p {
+    letter-spacing: 2px;
+    margin-top: 0;
+}
+
+.members-container {
+    padding-bottom: 1rem;
+}
+
+.member-list-container {
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid;
+}
+
+.member-list {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 1rem;
+}

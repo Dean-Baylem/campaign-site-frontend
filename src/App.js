@@ -17,6 +17,7 @@ import "./index.css";
 import ItemGen from "./DMTools/ItemGen/pages/ItemGen";
 import WildMagic from "./DMTools/WildMagic/WildMagic";
 import CampaignMainPage from "./campaign/pages/CampaignMainPage";
+import FactionPage from "./campaign/pages/FactionPage";
 import { CampaignContext } from "./shared/context/CampaignContext";
 import Tester from "./landing/pages/Tester";
 
@@ -82,6 +83,7 @@ function App() {
                 path="/campaign/:campaignId"
                 element={<CampaignMainPage />}
               />
+              <Route path="/faction/:factionId" element={<FactionPage />} />
               {/* <Route path="/world/:worldId/settings" element={< />} /> */}
               <Route path="/DMTools/itemGenerator" element={<ItemGen />} />
               <Route path="/DMTools/wildmagictables" element={<WildMagic />} />
