@@ -9,10 +9,10 @@ const LogoCard = props => {
         </div>
         <div className="card-desc-container">
           <div className="page-subtitle logo-card-title">
-            <h5>{props.heading}</h5>
+            <h5 className="landing-h5">{props.heading}</h5>
           </div>
           <div className="page-body">
-            <p>{props.desc}</p>
+            <p className="landing-p">{props.desc}</p>
           </div>
         </div>
       </div>

@@ -4,39 +4,5 @@
 
 .share-desc-container {
   padding: 0% 4%;
-}
-
-@media screen and (max-width: 800px) {
-    .share-display-container {
-        display: grid;
-    }
-    .share-img-container {
-        grid-area: 1 / 1;
-    }
-    .share-img {
-        height: 100%;
-        width: 100vw;
-        filter: brightness(0.5);
-    }
-    .share-desc-container {
-        grid-area: 1 / 1;
-        z-index: 2;
-    }
-    .share-title {
-        color: #FFF;
-    }
-    .share-desc {
-        color: #fff;
-    }
-}
-
-@media screen and (min-width: 800px) {
-  .share-img-container img {
-    height: 100%;
-    width: 45vw;
-    border-radius: 15px;
-  }
-  .share-img-container {
-    padding: 1rem 5rem;
-  }
+  align-items: center;
 }

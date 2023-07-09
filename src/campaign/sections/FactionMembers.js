@@ -6,6 +6,10 @@ import { Button } from "@mui/material";
 const FactionMembers = (props) => {
   const auth = useContext(AuthContext);
 
+  const handleClick = () => {
+    props.fetchNPCs();
+  }
+
   return (
     <section className="faction-section">
       <h3 className="page-subtitle faction-h3">Members</h3>
@@ -51,7 +55,7 @@ const FactionMembers = (props) => {
       </div>
       {auth.playerId === props.faction.campaign.gameMaster && (
         <div className="custom-buttons">
-          <Button>Add / Remove Members</Button>
+          <Button onClick={props.fetchNPCs}>Add / Remove Members</Button>
         </div>
       )}
     </section>

@@ -9,12 +9,18 @@ import FactionRecords from "../sections/FactionRecords";
 import Footer from "../../shared/Components/PageComponents/Footer";
 import "./FactionPage.css";
 
-
-
 const FactionPage = () => {
   const factionId = useParams().factionId;
   const [faction, setFaction] = useState({});
   const [loading, setLoading] = useState(true);
+
+  const [currentMembers, setCurrentMembers] = useState([]);
+  const [allNPCs, setAllNPCs] = useState([]);
+  const [memberModal, setMemberModal] = useState(false);
+
+  const memberModalToggle = () => {
+    setMemberModal(!memberModal);
+  };
 
   const { sendRequest, error } = useHttpRequest();
 
@@ -37,13 +43,27 @@ const FactionPage = () => {
     fetchFaction();
   }, [loading]);
 
+  const fetchNPCs = async () => {
+    console.log("Hello");
+    try {
+      const responseData = await sendRequest(
+        process.env.REACT_APP_REQUEST_URL +
+          `/npc//npc/fetchbycampaign/${faction.campaign._id}`
+      );
+      console.log(responseData);
+      memberModalToggle();
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     !loading && (
       <React.Fragment>
         <MainNavigation />
         <FactionTitle faction={faction} />
         <FactionBackground faction={faction} />
-        <FactionMembers faction={faction} />
+        <FactionMembers fetchNPCs={fetchNPCs} faction={faction} />
         <FactionRecords faction={faction} />
         <Footer />
       </React.Fragment>

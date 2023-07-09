@@ -30,31 +30,35 @@ const ToolDisplay = (props) => {
   ];
 
   return (
-    <div className="tool-display-section">
-      <div className="tool-carsousel-container">
-        <Carousel data={data} />
+    <section className="landing-section light-bg">
+      <div className="page-subtitle">
+        <h3 className="landing-h3">DM Toolbox</h3>
       </div>
-      <div className="tool-desc-container">
-        <div className="page-subtitle">
-          <h3>DM Toolbox</h3>
+      <div className="tool-display-section">
+        <div className="tool-carsousel-container">
+          <Carousel data={data} />
         </div>
-        <div className="page-body">
-          <p>
-            The tinkering team at Dungeon Delvers Inc present the DM Toolbox.
-            Here you will find various tools and apps that will help manage the
-            flow of your games! Members of the Delvers Team have access to all
-            the tools for their own personal use. The tools will be updated and
-            improved over time, so be sure to check out the DM Toolbox section
-            of the hub regularly!
-          </p>
-        </div>
-        <div className="custom-contained">
-          <Button variant="contained">
-            <NavLink to={auth.isLoggedIn ? `/${auth.playerId}` : "/auth"}>Enhance your games now!</NavLink>
-          </Button>
+        <div className="tool-desc-container">
+          <div className="page-body">
+            <p className="landing-p">
+              The tinkering team at Dungeon Delvers Inc present the DM Toolbox.
+              Here you will find various tools and apps that will help manage
+              the flow of your games! Members of the Delvers Team have access to
+              all the tools for their own personal use. The tools will be
+              updated and improved over time, so be sure to check out the DM
+              Toolbox section of the hub regularly!
+            </p>
+          </div>
+          <div className="custom-contained">
+            <Button variant="contained">
+              <NavLink to={auth.isLoggedIn ? `/${auth.playerId}` : "/auth"}>
+                Enhance your games now!
+              </NavLink>
+            </Button>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

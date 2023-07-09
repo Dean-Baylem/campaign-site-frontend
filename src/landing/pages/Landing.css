@@ -1,0 +1,81 @@
+.landing-section {
+    padding: 2vh 25vw;
+}
+
+.landing-h3 {
+    font-size: 2.75rem
+}
+
+.landing-h5 {
+    font-size: 2rem;
+}
+
+.landing-p {
+    font-size: 1.75rem;
+}
+
+@media screen and (max-width: 1400px) {
+    .home-title-section {
+        padding: 5vh 15vw 20vh 15vw;
+    }
+    .features-section {
+        padding: 2vh 10vw;
+    }
+    .landing-p {
+        font-size: 1.25rem;
+    }
+    .landing-section {
+        padding: 2vh 10vw;
+    }
+    .feature-desc-container {
+        width: auto;
+        max-width: 60vw;
+    }
+    .share-display-container {
+        align-items: center;
+    }
+    .share-img-container img {
+        width: 30vw;
+    }
+    .tool-display-section {
+        justify-content: left;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .feature-display {
+    background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ),url(https://img.freepik.com/free-vector/dungeon-cartoon-poster-with-medieval-castle-door-vector-illustration_1284-78262.jpg?w=740&t=st=1682480998~exp=1682481598~hmac=36fe3c3…);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: #FFF;
+    }
+    .feature-img {
+        display: none;
+    }
+    .feature-desc-container {
+        max-width: 100%;
+    }
+    .feature-display-container {
+        display: block;
+    }
+    .share-display {
+    background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ),url(https://img.freepik.com/free-vector/isometric-game-nature-landscape-template_1284-37819.jpg?w=740&t=st=1682551567~exp=1682552167~hmac=54f22c171a819881193c0dce740538890319e6fbffcb3600a53ee15f969c4d8c);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: #FFF;
+    }
+    .share-img-container {
+        display: none;
+    }
+    .tool-display-section {
+        flex-flow: column;
+    }
+    .tool-carsousel-container {
+        width: 100%;
+    }
+    .tool-desc-container {
+        max-width: 100%;
+    }
+}

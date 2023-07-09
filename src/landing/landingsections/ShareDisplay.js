@@ -1,8 +1,12 @@
 import React from "react";
-import "./ShareDisplay.css"
+import "./ShareDisplay.css";
 
-const ShareDisplay = props => {
-    return (
+const ShareDisplay = (props) => {
+  return (
+    <section className="landing-section share-display">
+      <div className="page-subtitle">
+        <h3 className="landing-h3">Share Your World</h3>
+      </div>
       <div className="share-display-container">
         <div className="share-img-container">
           <img
@@ -12,11 +16,8 @@ const ShareDisplay = props => {
           />
         </div>
         <div className="share-desc-container">
-          <div className="share-title page-subtitle">
-            <h3>Share Your World</h3>
-          </div>
           <div className="share-desc page-body">
-            <p>
+            <p className="landing-p">
               The archives of Dungeon Delvers Inc. contain categorised
               information regarding the worlds built by its members. The tools
               used to manage and organise this information is available to all
@@ -26,7 +27,7 @@ const ShareDisplay = props => {
               companions constantly create new and interesting methods of
               managing your creation.
             </p>
-            <p>
+            <p className="landing-p">
               Share your creation with your players and allow them to contribute
               to your world through the comments section located at the base of
               the world page. If you have any suggestions for improvements,
@@ -35,7 +36,8 @@ const ShareDisplay = props => {
           </div>
         </div>
       </div>
-    );
-}
+    </section>
+  );
+};
 
 export default ShareDisplay;

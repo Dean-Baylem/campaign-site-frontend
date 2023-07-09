@@ -1,15 +1,10 @@
 .home-title-section {
     color: #fff;
-    padding: 2% 15% 5% 15%;
+    padding: 5vh 25vw 20vh 25vw;
     height: 100%;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-}
-
-.home-heading-container {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
 }
 
 .home-title-container {
@@ -18,7 +13,7 @@
 
 .home-title {
     font-family: 'Yeseva One', cursive;
-    font-size: 3rem;
+    font-size: 3.5rem;
     letter-spacing: 1px;
     line-height: 1.5;
 }
@@ -28,7 +23,7 @@
 }
 
 .title-text {
-    font-size: 1.5rem;
+    font-size: 2rem;
     margin-right: 30%;
     line-height: 1.5;
     letter-spacing: 0.5px;

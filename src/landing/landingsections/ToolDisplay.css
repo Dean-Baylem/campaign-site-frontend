@@ -2,8 +2,8 @@
     background-color: #f8ecd8;
     display: flex;
     justify-content: center;
-    padding: 2vh 2vw;
     column-gap: 2rem;
+    margin-bottom: 5vh;
 }
 
 .tool-display-section a {
@@ -16,20 +16,6 @@
 }
 
 .tool-desc-container {
-    max-width: 40vw;
-    padding: 2%;
-}
-
-
-@media screen and (max-width: 900px) {
-    .tool-display-section {
-        flex-wrap: wrap;
-    }
-    .tool-carsousel-container {
-        width: 80vw;
-        height: 100%;
-    }
-    .tool-desc-container {
-        max-width: 90vw;
-    }
+    max-width: 30vw;
+    padding: 0 2rem;
 }
