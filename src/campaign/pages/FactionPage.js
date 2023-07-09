@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useParams } from "react-router-dom";
 import { useHttpRequest } from "../../shared/hooks/request-hook";
 import MainNavigation from "../../shared/navigation/MainNavigation";
@@ -8,15 +8,18 @@ import FactionMembers from "../sections/FactionMembers";
 import FactionRecords from "../sections/FactionRecords";
 import Footer from "../../shared/Components/PageComponents/Footer";
 import "./FactionPage.css";
+import FactionMemberSwitch from "../components/FactionMemberSwitch";
 
 const FactionPage = () => {
   const factionId = useParams().factionId;
+  const campaignId = useParams().campaignId;
   const [faction, setFaction] = useState({});
   const [loading, setLoading] = useState(true);
 
   const [currentMembers, setCurrentMembers] = useState([]);
-  const [allNPCs, setAllNPCs] = useState([]);
+  const [nonMembers, setNonMembers] = useState([]);
   const [memberModal, setMemberModal] = useState(false);
+
 
   const memberModalToggle = () => {
     setMemberModal(!memberModal);
@@ -43,19 +46,30 @@ const FactionPage = () => {
     fetchFaction();
   }, [loading]);
 
-  const fetchNPCs = async () => {
-    console.log("Hello");
+  
+  const fetchNPCs = useCallback(
+    async () => {
     try {
       const responseData = await sendRequest(
         process.env.REACT_APP_REQUEST_URL +
-          `/npc//npc/fetchbycampaign/${faction.campaign._id}`
+          `/npc//npc/fetchbycampaign/${campaignId}`
       );
-      console.log(responseData);
+      let members = [];
+      let nonMembers = [];
+      for (let i=0; i < responseData.npcs.length; i++) {
+        if (responseData.npcs[i].faction === factionId) {
+          members.push(responseData.npcs[i]);
+        } else {
+          nonMembers.push(responseData.npcs[i]);
+        }
+      }
+      setCurrentMembers(members);
+      setNonMembers(nonMembers);
       memberModalToggle();
     } catch (err) {
       console.log(err);
     }
-  };
+  }, []);
 
   return (
     !loading && (
@@ -64,6 +78,7 @@ const FactionPage = () => {
         <FactionTitle faction={faction} />
         <FactionBackground faction={faction} />
         <FactionMembers fetchNPCs={fetchNPCs} faction={faction} />
+        <FactionMemberSwitch fetchNPCs={fetchNPCs} members={currentMembers} nonMembers={nonMembers}/>
         <FactionRecords faction={faction} />
         <Footer />
       </React.Fragment>

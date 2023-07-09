@@ -83,7 +83,7 @@ function App() {
                 path="/campaign/:campaignId"
                 element={<CampaignMainPage />}
               />
-              <Route path="/faction/:factionId" element={<FactionPage />} />
+              <Route path="/:campaignId/faction/:factionId" element={<FactionPage />} />
               {/* <Route path="/world/:worldId/settings" element={< />} /> */}
               <Route path="/DMTools/itemGenerator" element={<ItemGen />} />
               <Route path="/DMTools/wildmagictables" element={<WildMagic />} />
