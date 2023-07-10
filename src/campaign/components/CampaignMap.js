@@ -7,7 +7,7 @@ const CampaignMap = () => {
 
   return (
     <div className="campaign-map-container">
-      <div className="page-subtitle center">
+      <div className="page-subtitle">
         <h3>Campaign Status</h3>
       </div>
       <div className="campaign-map-body">

@@ -1,9 +1,13 @@
 .campaign-schedule-container {
-  padding: 2vh 5vw;
+  padding: 5vh 25vw;
 }
 
 .campaign-schedule-container h3 {
   font-size: 2.5rem;
+}
+
+.campaign-schedule-container h5 {
+  font-size: 1.5rem;
 }
 
 .campaign-schedule-container p {
@@ -25,22 +29,31 @@
 }
 
 .schedule-token img {
-  max-width: 10vw;
+  max-width: 5vw;
 }
 
-@media screen and (min-width: 1201px) {
+@media screen and (max-width: 2000px) {
   .campaign-schedule-container {
-  padding: 2vh 15vw;
-}
+    padding: 5vh 15vw;
+  }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1200px) {
+  .campaign-schedule-container {
+    padding: 0 5vw 5vh 5vw;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .campaign-schedule-container h5 {
+    font-size: 1.2rem;
+  }
   .schedule-banner {
-    display: flex;
-    column-gap: 2rem;
-    border-radius: 0;
-    margin: 0;
-    flex-flow: column;
+    grid-template-columns: 1fr 2fr 2fr;
+  }
+
+  .campaign-schedule-container p {
+    font-size: 1rem;
   }
   .campaign-schedule-container h3 {
     font-size: 1.75rem;

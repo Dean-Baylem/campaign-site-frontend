@@ -78,7 +78,7 @@ const ObjectiveDisplay = (props) => {
           <div className="edit-objective-icons">
             <div>
               <IconButton onClick={handleEditClick}>
-                <EditIcon fontSize="small" />
+                <EditIcon fontSize="sm" />
               </IconButton>
             </div>
             <div>

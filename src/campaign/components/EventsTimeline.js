@@ -130,7 +130,7 @@ const EventsTimeline = (props) => {
                       }
                     >
                       <IconButton onClick={() => handleEditClick(event)}>
-                        <EditIcon fontSize="small" />
+                        <EditIcon fontSize="sm" />
                       </IconButton>
                       <IconButton onClick={() => handleDeleteClick(event)}>
                         <DeleteIcon fontSize="small" />

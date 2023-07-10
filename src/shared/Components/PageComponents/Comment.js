@@ -86,7 +86,7 @@ const Comment = (props) => {
           {props.editable && (
             <div className="edit-delete-icons">
               <IconButton onClick={handleEditSwitch}>
-                <EditIcon fontSize="small" />
+                <EditIcon fontSize="sm" />
               </IconButton>
               <IconButton onClick={handleShowModal}>
                 <DeleteIcon fontSize="small" />

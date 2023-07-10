@@ -1,12 +1,31 @@
 import React, {useContext} from "react";
 import { AuthContext } from "../../shared/context/auth-context";
-import { Accordion, AccordionDetails, AccordionSummary, Button } from "@mui/material";
+import {
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
+  Button,
+  IconButton,
+} from "@mui/material";
+import DeleteIcon from "@mui/icons-material/Delete";
+import EditIcon from "@mui/icons-material/Edit";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+
 import "./FactionRecords.css";
 
 const FactionRecords = props => {
 
     const auth = useContext(AuthContext);
+
+    const handleNewClick = () => {
+      props.noteModalToggle();
+    }
+
+    const handleEditClick = (note) => {
+      props.handleEditNote(note)
+    }
+
+    const handleDeleteClick = () => {}
 
     return (
       <section className="faction-section">
@@ -42,6 +61,12 @@ const FactionRecords = props => {
                 </AccordionSummary>
                 <AccordionDetails>
                   <p className="page-body faction-p">{note.note}</p>
+                  <IconButton onClick={() => handleEditClick(note)}>
+                    <EditIcon fontSize="sm" />
+                  </IconButton>
+                  <IconButton onClick={handleDeleteClick}>
+                    <DeleteIcon fontSize="small" />
+                  </IconButton>
                 </AccordionDetails>
               </Accordion>
             ))
@@ -55,7 +80,7 @@ const FactionRecords = props => {
         </div>
         {auth.playerId === props.faction.campaign.gameMaster && (
           <div className="custom-buttons">
-            <Button>New Note</Button>
+            <Button onClick={handleNewClick}>New Note</Button>
           </div>
         )}
       </section>

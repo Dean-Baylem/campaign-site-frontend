@@ -54,7 +54,7 @@ const Table = (props) => {
                       }}
                       value={index}
                     >
-                      <EditIcon fontSize="small" />
+                      <EditIcon fontSize="sm" />
                     </IconButton>
                     <IconButton onClick={props.handleDelete}>
                       <DeleteIcon fontSize="small" />

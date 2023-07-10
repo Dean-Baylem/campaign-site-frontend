@@ -62,7 +62,7 @@ const PlotDisplay = (props) => {
             {auth.playerId === campaignManager.currentCampaign.gameMaster.id && (
               <div className="edit-icons-bottom">
                 <IconButton onClick={() => handleEditClick(data)}>
-                  <EditIcon fontSize="small" />
+                  <EditIcon fontSize="sm" />
                 </IconButton>
                 <IconButton onClick={() => handleDeleteClick(data)}>
                   <DeleteIcon fontSize="small" />

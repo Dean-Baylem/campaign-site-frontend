@@ -14,23 +14,12 @@
 
 .timeline-desc {
     display: flex;
-    padding: 1vh 5vw;
     justify-content: space-between;
 }
 
 .timeline-desc p {
     width: 60vw;
     font-size: 1.5rem;
-}
-
-.timeline-desc img {
-    width: 20vw;
-}
-
-@media screen and (min-width: 1201px) {
-    .timeline-desc {
-        padding: 2vh 15vw;
-    }
 }
 
 @media screen and (max-width: 800px) {
@@ -45,7 +34,7 @@
     }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 800px) {
     .events-timeline-container {
         margin: 0;
     }

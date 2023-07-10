@@ -1,27 +1,40 @@
-.npc-flex-container {
-    display: flex;
-    margin: 0 5vw;
-    flex-wrap: wrap;
-    justify-content: center;
-    row-gap: 1rem;
-    column-gap: 1rem;
-    padding-bottom: 5vh;
+.campaign-npcs-container {
+  padding: 5vh 25vw;
 }
 
+.npc-flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  row-gap: 1rem;
+  column-gap: 1rem;
+}
+
+.campaign-npcs-container h3 {
+    font-size: 2.75rem;
+  }
 
 .npc-desc p {
-    font-size: 1.5rem;
-    padding: 2vh 5vw;
+  font-size: 1.5rem;
 }
 
-@media screen and (min-width: 1201px) {
-    .npc-desc p {
-        padding: 2vh 15vw;
-    }
+@media screen and (max-width: 2000px) {
+  .campaign-npcs-container {
+    padding: 5vh 15vw;
+  }
 }
 
-@media screen and (max-width: 700px) {
-    .npc-desc p {
-        font-size: 1.2rem;
-    }
+@media screen and (max-width: 1200px) {
+  .campaign-npcs-container {
+    padding: 0 5vw 5vw 5vw;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .campaign-npcs-container h3 {
+    font-size: 1.75rem;
+  }
+  .campaign-npcs-container p {
+    font-size: 1.2rem;
+  }
 }

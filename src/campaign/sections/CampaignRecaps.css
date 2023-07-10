@@ -1,34 +1,52 @@
 .session-recap-outer-container {
-    display: grid;
-    grid-template-columns: 3fr 1fr;
-    grid-column-gap: 1rem;
-    margin: 0 5rem;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-column-gap: 1rem;
+  padding: 0 25vw;
 }
 
-.session-recap-container h5 {
-    font-size: 1.5rem;
-    margin: 1rem 0;
+.session-recap-outer-container h5 {
+  font-size: 1.5rem;
+  margin: 1rem 0;
 }
 
-.session-recap-container p {
-    font-size: 1.25rem;
+.session-recap-outer-container p {
+  font-size: 1.25rem;
 }
 
 .reviews-container {
-    padding-bottom: 2rem;
+  padding-bottom: 2rem;
 }
 
-@media screen and (min-width: 1201px) {
-    .session-recap-outer-container {
-        margin: 0 15vw;
-    }
+@media screen and (max-width: 2000px) {
+  .session-recap-outer-container {
+    padding: 0 15vw;
+  }
 }
 
-@media screen and (max-width: 600px) {
-    .session-recap-outer-container {
-        display: flex;
-        flex-wrap: wrap-reverse;
-        justify-content: center;
-        margin: 0 1rem;;
-    }
+@media screen and (max-width: 1200px) {
+  .session-recap-outer-container {
+    padding: 0 5vw;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .session-recap-outer-container {
+    display: flex;
+    flex-wrap: wrap-reverse;
+    justify-content: center;
+    margin: 0 1rem;
+  }
+  .previous-recap-container {
+    width: 50vw;
+    align-self: center;
+  }
+  .session-recap-outer-container h5 {
+    font-size: 1.2rem;
+    margin: 1rem 0;
+  }
+
+  .session-recap-outer-container p {
+    font-size: 1rem;
+  }
 }

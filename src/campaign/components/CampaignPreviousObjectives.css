@@ -2,9 +2,8 @@
   border-radius: 15px;
   padding: 1rem 2rem;
   height: auto;
-  width: fit-content;
+  width: 42%;
   height: fit-content;
-  min-width: 25vw;
 }
 
 .previous-objective {
@@ -14,15 +13,8 @@
   column-gap: 2rem;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1200px) {
   .previous-objectives-container {
-    width: 40vw;
-  }
-}
-
-@media screen and (max-width: 700px) {
-  .previous-objectives-container {
-    width: 90vw;
-    padding: 1rem;
+    width: 100%;
   }
 }

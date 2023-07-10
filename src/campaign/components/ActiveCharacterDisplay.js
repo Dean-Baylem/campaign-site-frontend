@@ -43,7 +43,7 @@ const ActiveCharacterDisplay = (props) => {
       </div>
       <div className="edit-icons-bottom">
         <IconButton onClick={handleEditClick}>
-          <EditIcon fontSize="small" />
+          <EditIcon fontSize="sm" />
         </IconButton>
         <IconButton onClick={handleDeleteClick}>
           <DeleteIcon fontSize="small" />

@@ -10,7 +10,7 @@
 }
 
 .faction-token img {
-    max-width: 10vw;
+    max-width: 5vw;
     transition: 300ms;
     border-radius: 50%;
 }
@@ -35,9 +35,13 @@
 .clicked-token img {
     transform: translateY(-5px);
     box-shadow: 1px 1px 5px 2px rgba(212, 41, 12);
-    max-width: 10vw;
+    max-width: 5vw;
     transition: 300ms;
     border-radius: 50%;
+}
+
+.clicked-token img:hover {
+    cursor: pointer;
 }
 
 .clicked-token {

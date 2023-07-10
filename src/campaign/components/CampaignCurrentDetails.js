@@ -64,7 +64,7 @@ const CampaignCurrentDetails = (props) => {
         </ul>
         <div className="edit-icons-bottom">
           <IconButton onClick={handleEditClick}>
-            <EditIcon fontSize="small" />
+            <EditIcon fontSize="sm" />
           </IconButton>
         </div>
       </div>

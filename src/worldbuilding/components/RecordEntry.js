@@ -58,7 +58,7 @@ const RecordEntry = (props) => {
                     setEditable(!editable);
                   }}
                 >
-                  <EditIcon fontSize="small" />
+                  <EditIcon fontSize="sm" />
                 </IconButton>
                 <IconButton onClick={modalToggle}>
                   <DeleteIcon fontSize="small" />

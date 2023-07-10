@@ -4,7 +4,7 @@
 }
 
 .player-characters {
-  padding: 0 15vw 5vh 15vw;
+  padding: 0 25vw 5vh 25vw;
 }
 
 .character-box {
@@ -13,18 +13,21 @@
 
 .player-characters-container {
   margin-bottom: 1rem;
-  width: 30vw;
+  width: 25vw;
+  order: 1
 }
 
 .character-container {
   display: flex;
   flex-wrap: wrap;
-  column-gap: 5rem;
-  justify-content: space-around;
+  column-gap: 1rem;
+  row-gap: 1rem;
+  order: 1;
 }
 
 .char-desc {
-  width: 30vw;
+  width: 20vw;
+  order: 1;
 }
 
 .char-desc p {
@@ -45,6 +48,19 @@
 
 .inactive-list {
   width: 100%;
+  order: 3;
+}
+
+@media screen and (max-width: 2000px) {
+  .player-characters {
+    padding: 0 15vw 5vh 15vw;
+  }
+  .player-characters-container {
+  width: 40vw;
+}
+.char-desc {
+  width: 25vw;
+}
 }
 
 @media screen and (max-width: 1200px) {
@@ -52,7 +68,11 @@
     padding: 0 5vw 5vh 5vw;
   }
   .player-characters-container {
-    width: 45vw;  
+    width: 100%;
+    order: 2  
+  }
+  .char-desc {
+    width: 100%;
   }
   .character-container {
     column-gap: 0;
