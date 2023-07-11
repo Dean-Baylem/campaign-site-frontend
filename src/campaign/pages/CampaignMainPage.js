@@ -125,7 +125,7 @@ const CampaignMainPage = () => {
         <CampaignPartyDetails reload={setLoadCampaign} />
         <CampaignPlots reload={setLoadCampaign} />
         <CampaignFactions />
-        <CampaignNPCs />
+        <CampaignNPCs reload={setLoadCampaign} />
         <CampaignSchedule />
         <CampaignRecaps />
         <Footer />

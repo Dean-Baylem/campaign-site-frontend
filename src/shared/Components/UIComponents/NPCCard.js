@@ -1,7 +1,15 @@
 import React from "react";
+import { IconButton } from "@mui/material";
+import DeleteIcon from "@mui/icons-material/Delete";
+import EditIcon from "@mui/icons-material/Edit";
 import "./NPCCard.css";
 
 const NPCCard = (props) => {
+
+  const handleClick = (type) => {
+    props.modalClickHandler(props.npc, type);
+  }
+
   return (
     <div className="npc-card-container dark-bg card-box-shadow">
       <div className="npc-image-container">
@@ -25,9 +33,22 @@ const NPCCard = (props) => {
             ? `${props.npc.notes.substring(0, 250)}...`
             : props.npc.notes}
         </p>
+        <div className="edit-objective-icons">
+          <div>
+            <IconButton onClick={() => handleClick("edit")}>
+              <EditIcon fontSize="sm" />
+            </IconButton>
+          </div>
+          <div>
+            <IconButton onClick={() => handleClick("delete")}>
+              <DeleteIcon fontSize="small" />
+            </IconButton>
+          </div>
+        </div>
       </div>
     </div>
   );
 };
 
 export default NPCCard;
+
