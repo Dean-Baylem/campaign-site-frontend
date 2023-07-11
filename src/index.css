@@ -93,6 +93,10 @@ body {
   font-family: 'Alex Brush', cursive;
 }
 
+.npc-name-text {
+  font-family: 'Architects Daughter', cursive;
+}
+
 .center {
   text-align: center;
 }

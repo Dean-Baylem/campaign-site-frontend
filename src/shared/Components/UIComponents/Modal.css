@@ -39,3 +39,17 @@
   display: flex;
   justify-content: space-evenly;
 }
+
+@media screen and (max-width: 800px) {
+  .modal {
+  z-index: 1002;
+  position: fixed;
+  top: 5vh;
+  left: 5vw;
+  width: 90vw;
+  height: fit-content;
+  }
+  .modal-body {
+    max-height: 90vh;
+  }
+}

@@ -63,6 +63,7 @@ const FactionNoteForm = (props) => {
             error={formik.touched.title && Boolean(formik.errors.title)}
             helperText={formik.touched.title}
             variant="standard"
+            sx={{paddingBottom: "1rem"}}
           />
           <TextField
             fullWidth

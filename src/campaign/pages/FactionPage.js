@@ -12,6 +12,7 @@ import FactionMemberSwitch from "../components/FactionMemberSwitch";
 import FactionNoteForm from "../components/FactionNoteForm";
 import { Button } from "@mui/material";
 import "./FactionPage.css";
+import DeleteModal from "../../shared/Components/UIComponents/DeleteModal";
 
 const FactionPage = () => {
   const factionId = useParams().factionId;
@@ -26,6 +27,8 @@ const FactionPage = () => {
   const [noteModal, setNoteModal] = useState(false);
   const [noteToEdit, setNoteToEdit] = useState({});
   const [editModal, setEditModal] = useState(false);
+  const [noteToDelete, setNoteToDelete] = useState();
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
 
 
   const memberModalToggle = () => {
@@ -96,6 +99,15 @@ const FactionPage = () => {
     editModalToggle();
   }
 
+  const toggleDeleteModal = () => {
+    setShowDeleteModal(!showDeleteModal)
+  }
+
+  const handleDeleteNote = (note) => {
+    setNoteToDelete(note._id);
+    toggleDeleteModal();
+  }
+
   return (
     !loading && (
       <React.Fragment>
@@ -140,13 +152,26 @@ const FactionPage = () => {
               setEditable={setEditModal}
               title={noteToEdit.title}
               note={noteToEdit.note}
-              closeButton={<Button onClick={noteModalToggle}>Cancel</Button>}
+              closeButton={<Button onClick={editModalToggle}>Cancel</Button>}
+            />
+          </Modal>
+        )}
+        {showDeleteModal && (
+          <Modal modalHeader="Delete Faction Note?">
+            <DeleteModal
+            url={
+              process.env.REACT_APP_REQUEST_URL +
+              `/npc/faction/note/${noteToDelete}/delete/${faction._id}`
+            }
+            reload={setLoading}
+            modalToggle={toggleDeleteModal}
             />
           </Modal>
         )}
         <FactionRecords
           handleEditNote={handleEditNote}
           noteModalToggle={noteModalToggle}
+          handleDeleteNote={handleDeleteNote}
           faction={faction}
         />
         <Footer />

@@ -32,8 +32,17 @@ const FactionMembers = (props) => {
             <ul className="member-list">
               {props.faction.members.map((member, index) => (
                 <li className="faction-token" key={index}>
-                  {<img src={member.npcToken !== "#" ? member.npcToken : "https://s3.amazonaws.com/files.d20.io/images/153999642/_C8ERri7E3wIZnjo_prMUA/original.png?1596072416"} alt={member.name} />}
-                  <p className="letter-body-nobel faction-p">
+                  {
+                    <img
+                      src={
+                        member.npcToken !== "#"
+                          ? member.npcToken
+                          : "https://s3.amazonaws.com/files.d20.io/images/153999642/_C8ERri7E3wIZnjo_prMUA/original.png?1596072416"
+                      }
+                      alt={member.name}
+                    />
+                  }
+                  <p className="npc-name-text faction-p">
                     <strong>{member.name}</strong>
                   </p>
                 </li>
