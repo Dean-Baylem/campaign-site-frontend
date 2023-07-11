@@ -1,4 +1,4 @@
-import React, { useReducer, useContext } from "react";
+import React, { useReducer, useContext, useState } from "react";
 import { AuthContext } from "../../shared/context/auth-context";
 import { useParams } from "react-router-dom";
 import { useHttpRequest } from "../../shared/hooks/request-hook";
@@ -70,9 +70,10 @@ const FactionMemberSwitch = (props) => {
   const { sendRequest } = useHttpRequest();
   const factionId = useParams().factionId;
   const auth = useContext(AuthContext);
+  const [changedMembers, setChangedMembers] = useState(false);
 
   const handleButton = async () => {
-    console.log(state);
+    setChangedMembers(true);
     // First make BE call to add new members to database.
     try {
       if (state.newMembers.length !== 0) {
@@ -140,7 +141,9 @@ const FactionMemberSwitch = (props) => {
       </div>
       <div className="custom-buttons member-switch-buttons">
         <Button onClick={handleButton}>click me</Button>
-        <Button onClick={props.closeModal}>Close</Button>
+        <Button onClick={changedMembers ? props.closeModal : props.memberModalToggle}>
+          Close
+        </Button>
       </div>
     </div>
   );

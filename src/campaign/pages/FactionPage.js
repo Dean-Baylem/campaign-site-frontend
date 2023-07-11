@@ -110,6 +110,7 @@ const FactionPage = () => {
               members={currentMembers}
               nonMembers={nonMembers}
               closeModal={handleModalClose}
+              memberModalToggle={memberModalToggle}
             />
           </Modal>
         )}
